@@ -3,4 +3,3 @@ b = input("Введите дату рождения:")
 
 print(a, b)
 
-import pytest
