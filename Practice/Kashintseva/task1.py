@@ -1,6 +1,6 @@
-a=input("Введите a: ")
-b=input("Введите b: ")
-print(a,b)
+a = input("Введите a: ")
+b = input("Введите b: ")
+print(a, b)
 
-c=25546
+c = 25546
 print(c)
