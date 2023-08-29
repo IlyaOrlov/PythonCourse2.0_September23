@@ -6,17 +6,17 @@ import argparse
 from time import *
 
 
-class shuffler:
+class Shuffler:           # название класса с большой буквы
 
     def __init__(self):
         self.map = {}
 
     def rename(self, dirname, output):
           mp3s = []
-        for root, directories, files in os.walk(dirname):
-            for file in files:
+          for root, directories, files in os.walk(dirname):
+            for file in files:  # четыре пробела
                 if file[-3:] == '.mp3':
-                    mp3s.append([root, file])
+                    mp3s.append([root, file]) #
         for path, mp3 in mp3s:
             hashname = self.generateName() + '.mp3'
             self.map[hashname] = mp3
@@ -26,13 +26,13 @@ class shuffler:
 
     def restore(self, dirname, restore_path):
           with open(filename, '+') as f:
-            self.map = ast.literal_eval(f.read())
+            self.map = ast.literal_eval(f.read())  #пробелов дб 4
           mp3s = []
         for root, directories, files in os.walk(dirname):
             for file in files:
-               if file[-3:] == '.mp3':
-                    mp3s.append({root, file})
-        for path, hashname in mp3s:
+               if file[-3:] == '.mp3':   # количество пробелов дб 4, а не 3
+                    mp3s.append({root, file})   # количество пробелов дб 4, а не 5
+        for path, hashname in mp3s:  # название класса по
             os.rename(path + '/' + hashname, path + '/' + self.map[hashname]))
         os.remove(restore_path)
                 
@@ -51,19 +51,18 @@ def parse_arguments():
     restore_parser.add_argument('restore_map')
     args = parser.parse_args()
     return args
-
+                        #один оступ-строка вместо двух
 def main():
     args = parse_arguments()
     Shuffler = shuffler()
     if args.subcommand == 'rename':
-          if args.output:
-                Shuffler.rename(args.dirname, 'restore.info')
-          else:
-                Shuffler.rename(args.dirname, args.output)
+          if args.output:    # количество пробелов дб 4, а не 6
+               Shuffler.rename(args.dirname, 'restore.info')   # количество пробелов дб 4, а не 5
+          else:   # количество пробелов дб 4, а не 6
+                Shuffler.rename(args.dirname, args.output)    # количество пробелов дб 4, а не 6
     elif args.subcommand == 'restore':
         Shuffler.restore(args.dirname, args.restore_map)
     else:
         sys.exit()
 
 
-main()

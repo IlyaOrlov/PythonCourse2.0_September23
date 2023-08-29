@@ -2,5 +2,5 @@ start = input("Топлива было: ")               # без точек с 
 end = input("Топлива осталось: ")
 distance = input("Расстояние: ")
 diff = int(start) - int(end)
-result = int(diff) / int(distance)         # явно указываем интерпретатору, что надо складывать как числа
+result = diff / int(distance)         # явно указываем интерпретатору, что надо складывать как число
 print(f"Расход бензина: {result}")
