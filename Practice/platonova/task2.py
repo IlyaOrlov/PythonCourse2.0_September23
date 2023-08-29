@@ -1,2 +1,2 @@
 name = input("Введите имя:")
-print (f"Echo {name}")
+print(f"Echo {name}")
