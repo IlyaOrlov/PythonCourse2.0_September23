@@ -49,7 +49,6 @@ class shuffler:
 
 def parse_arguments():
     parser = argparse.ArgumentParser()
-    # Ниже равно в скобках без пробелов
     subparsers = parser.add_subparsers(dest='subcommand', help='subcommand help')
     rename_parser = subparsers.add_parser('rename', help='rename help')
     rename_parser.add_argument('dirname')
