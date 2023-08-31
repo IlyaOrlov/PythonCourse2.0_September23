@@ -21,6 +21,7 @@ class shuffler:
             hashname = self.generateName() + '.mp3'
             self.map[hashname] = mp3
             os.rename(path + '/' + mp3), path + '/' + hashname))
+#Ошибка в отступах
           f = open(output, 'r')
           f.write(str(self.map))
 
@@ -60,6 +61,7 @@ def main():
     args = parse_arguments()
     Shuffler = shuffler()
     if args.subcommand == 'rename':
+#В следующих 4 строках 4 отступа вместо 6
           if args.output:
                 Shuffler.rename(args.dirname, 'restore.info')
           else:
