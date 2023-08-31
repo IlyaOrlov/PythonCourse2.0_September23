@@ -7,10 +7,10 @@ from time import *
 
 # Наименование классов CamelCase
 class shuffler:
-# Определение функции отделяется двумя пустыми строками
+
     def __init__(self):
         self.map = {}
-# Определения функции друг от друга отделяются двумя пустыми строками
+
     def rename(self, dirname, output):
           mp3s = []
         for root, directories, files in os.walk(dirname):
@@ -23,7 +23,7 @@ class shuffler:
             os.rename(path + '/' + mp3), path + '/' + hashname))
           f = open(output, 'r')  # Не задано значение переменной output
           f.write(str(self.map))
-# Определения функции друг от друга отделяются двумя пустыми строками
+
     def restore(self, dirname, restore_path):
           with open(filename, '+') as f:
             self.map = ast.literal_eval(f.read())
@@ -35,7 +35,7 @@ class shuffler:
         for path, hashname in mp3s:
             os.rename(path + '/' + hashname, path + '/' + self.map[hashname]))  # Лишняя закрывающаяся скобка
         os.remove(restore)
- # Определения функции друг от друга отделяются двумя пустыми строками
+
      def generateName(self, seed=time()):  # Snake_case для функции
           return hashlib.md5(str(seed)).hexdigest()
 
