@@ -60,7 +60,7 @@ def parse_arguments():
 
 def main():
     args = parse_arguments()
-    # функция пишется с маленькой буквы
+    # переменная пишется с маленькой буквы
     shuffler = Shuffler()
     if args.subcommand == 'rename':
         if args.output:
