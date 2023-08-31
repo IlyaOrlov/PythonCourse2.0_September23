@@ -41,7 +41,7 @@ class Shuffler: # имя класса было с маленькой буквы
         os.remove(restore_path)
 
     # имя функции с большой буквы было
-        # def generatename(self, seed=time()):
+        def generatename(self, seed=time()):
         return hashlib.md5(str(seed)).hexdigest()
 
 
