@@ -1,19 +1,12 @@
-'''
-
-Александр Маринин
-Модуль 2
-Урок 2
-1.Расположить инструкции программы для вычисления площади круга в правильном порядке:
-
-'''
-
-
 import math
+
 
 def square(r):
     return math.pi * r ** 2
 
 
-radius = input("Введите радиус: ")
-result = square(int(radius))
-print(f"Площадь круга: {result}")
+if __name__ == "__main__":
+
+    radius = float(input("Введите радиус: "))
+    result = square(radius)
+    print(f"\nПлощадь круга : {round(result, 2)}")

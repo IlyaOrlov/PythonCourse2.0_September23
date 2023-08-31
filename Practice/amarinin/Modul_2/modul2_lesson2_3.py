@@ -1,12 +1,3 @@
-'''
-
-Александр Маринин
-Модуль 2
-Урок 2
-3.Скопировать Tasks/pep8task.py в свою папку, провести статический анализ кода, найти ошибки
-(в первую очередь, нарушения pep8). Найденные ошибки описать при помощи комментариев.
-
-'''
 import sys
 import os
 import hashlib
@@ -15,22 +6,22 @@ import argparse
 from time import *
 
 
-class shuffler:   # имя не соответствует CamelCase
+class shuffler:  # имя класса не соответствует CamelCase
 
     def __init__(self):
         self.map = {}
 
     def rename(self, dirname, output):
-        mp3s = []
-# где def где for  и почему в разных местах, пока не понимаю )
+        mp3s = []  # цвет не хороший, вроде функция должна чего то возвращать
+
     for root, directories, files in os.walk(dirname):
         for file in files:
             if file[-3:] == '.mp3':
                 mp3s.append([root, file])
-    for path, mp3 in mp3s:
+    for path, mp3 in mp3s:  # внутри класса перед блоком for должна быть пустая строка
         hashname = self.generateName() + '.mp3'
         self.map[hashname] = mp3
-        os.rename(path + '/' + mp3), path + '/' + hashname))
+        os.rename(path + '/' + mp3), path + '/' + hashname))  # после mp3 кавычка и последняя кавычка лишние
         f = open(output, 'r')
         f.write(str(self.map))
 
@@ -43,11 +34,11 @@ class shuffler:   # имя не соответствует CamelCase
         for file in files:
             if file[-3:] == '.mp3':
                 mp3s.append({root, file})
-    for path, hashname in mp3s:
-        os.rename(path + '/' + hashname, path + '/' + self.map[hashname]))
+    for path, hashname in mp3s:  # внутри класса перед блоком for должна быть пустая строка
+        os.rename(path + '/' + hashname, path + '/' + self.map[hashname]))  # последняя кавычка лишняя
         os.remove(restore_path)
 
-    def generateName(self, seed=time()):  # имя не соответствует snake_case
+    def generateName(self, seed=time()):  # имя функции не соответствует snake_case
         return hashlib.md5(str(seed)).hexdigest()
 
 
@@ -62,7 +53,7 @@ def parse_arguments():
     restore_parser.add_argument('restore_map')
     args = parser.parse_args()
     return args
-# пробельная строка лишняя
+
 
 def main():
     args = parse_arguments()
