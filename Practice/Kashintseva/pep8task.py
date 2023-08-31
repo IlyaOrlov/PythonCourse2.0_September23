@@ -7,15 +7,12 @@ import argparse
 from time import *
 
 #Имя класса должно быть с заглавной буквы по CamelCase
-#Класс должен быть отделен от определения 2 строками
 class shuffler:
-# Определения должны быть отделены между собой 2 строками
     def __init__(self):
         self.map = {}
 
     def rename(self, dirname, output):
           mp3s = []
-#В скобках dirname показана как переменная, но ранее она не была введена как переменная
         for root, directories, files in os.walk(dirname):
             for file in files:
                 if file[-3:] == '.mp3':
@@ -24,24 +21,26 @@ class shuffler:
             hashname = self.generateName() + '.mp3'
             self.map[hashname] = mp3
             os.rename(path + '/' + mp3), path + '/' + hashname))
-#Следующие 2 строки через 2 пробела, хотя должно быть 4 пробела,т.к. конец основного кода последнего цикла
           f = open(output, 'r')
           f.write(str(self.map))
 
     def restore(self, dirname, restore_path):
+#Должно быть 4 пробела вместо 6
           with open(filename, '+') as f:
+#Должно быть 4 пробела вместо 2, т.к. строка внутри конструкции with...as
             self.map = ast.literal_eval(f.read())
           mp3s = []
-#В скобках dirname показана как переменная, но ранее она не была введена как переменная
         for root, directories, files in os.walk(dirname):
             for file in files:
                if file[-3:] == '.mp3':
                     mp3s.append({root, file})
         for path, hashname in mp3s:
+#Лишняя закрывающая скобка
             os.rename(path + '/' + hashname, path + '/' + self.map[hashname]))
         os.remove(restore_path)
                 
      def generateName(self, seed=time()):
+#Должно быть 4 пробела вместо 5, т.к. строка внутри определения
           return hashlib.md5(str(seed)).hexdigest()
 
 
