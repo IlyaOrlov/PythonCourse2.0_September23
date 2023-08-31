@@ -1,2 +1,2 @@
 neme = input("Ввидите имя: ")
-print(f"Привет, {neme}")
+print(f"Привет, {neme} ")
