@@ -21,7 +21,7 @@ class shuffler:
             hashname = self.generateName() + '.mp3'
             self.map[hashname] = mp3
             os.rename(path + '/' + mp3), path + '/' + hashname))
-          f = open(output, 'r')  # Не задано значение переменной output
+          f = open(output, 'r')
           f.write(str(self.map))
 
     def restore(self, dirname, restore_path):
