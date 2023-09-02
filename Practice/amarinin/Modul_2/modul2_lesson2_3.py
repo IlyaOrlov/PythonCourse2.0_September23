@@ -20,14 +20,14 @@ class shuffler:  # имя класса 'shuffler' не CamelCase
         for path, mp3 in mp3s:
             hashname = self.generateName() + '.mp3'
             self.map[hashname] = mp3
-            os.rename(path + '/' + mp3), path + '/' + hashname))  # в 'mp3)' лишняя скобка и 'hashname))' то же
-          f = open(output, 'r')  # не хватает двух пробелов перед 'f'
-          f.write(str(self.map))  # не хватает двух пробелов перед 'f'
+            os.rename(path + '/' + mp3), path + '/' + hashname))  # в 'mp3)' лишняя скобка и 'hashname))' то же.
+          f = open(output, 'r')  # необходимо сдвинуть на два пробела влево или вправо.
+          f.write(str(self.map))  # необходимо сдвинуть на два пробела влево или вправо.
 
     def restore(self, dirname, restore_path):
           with open(filename, '+') as f:  # два лишних пробела относительно 'def'
             self.map = ast.literal_eval(f.read())  # не хватает двух пробелов перед 'self.map'
-          mp3s = []  # если относится к циклу 'with', то нет 4 пробела, иначе 2 лишних пробела относительно 'def'
+          mp3s = []  # если относится к 'with', то нет 4-х пробелов, иначе 2 лишних пробела относительно 'def'
         for root, directories, files in os.walk(dirname):
             for file in files:
                if file[-3:] == '.mp3':  # не хватает пробела  перед 'if'
