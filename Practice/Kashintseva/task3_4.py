@@ -1,3 +1,6 @@
 w = input("Введите слово: ")
-wr = w.replace("а", "*")
-print(f"Измененное слово: {wr}")
+wr = w.replace("a", "*")
+wrr = wr.replace("A", "*")
+wrrr = wrr.replace("а", "*")
+wrrrr = wrrr.replace("А", "*")
+print(f"Измененное слово: {wrrrr}")

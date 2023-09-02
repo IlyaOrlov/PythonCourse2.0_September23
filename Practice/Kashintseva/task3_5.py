@@ -1,3 +1,4 @@
 x = input("Введите слово: ")
-y = x[::-1]
-print(x == y)
+x1 = x.lower()
+y = x1[::-1]
+print(x1 == y)
