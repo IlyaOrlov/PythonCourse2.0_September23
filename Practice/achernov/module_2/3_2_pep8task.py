@@ -7,10 +7,10 @@ from time import *
 
 #Название класса с заглавной
 class shuffler:
-#Не хватает ещё одной пустой строки
+
     def __init__(self):
         self.map = {}
-#Не хватает еще одной пустой строки
+
     def rename(self, dirname, output):
           mp3s = []
         for root, directories, files in os.walk(dirname):
@@ -23,7 +23,7 @@ class shuffler:
             os.rename(path + '/' + mp3), path + '/' + hashname))
           f = open(output, 'r')
           f.write(str(self.map))
-# Не хватает еще одной пустой строки
+
     def restore(self, dirname, restore_path):
           with open(filename, '+') as f:
             self.map = ast.literal_eval(f.read())
@@ -35,7 +35,7 @@ class shuffler:
         for path, hashname in mp3s:
             os.rename(path + '/' + hashname, path + '/' + self.map[hashname]))
         os.remove(restore_path)
-# Не хватает еще одной пустой строки
+
      def generateName(self, seed=time()):
           return hashlib.md5(str(seed)).hexdigest()
 
