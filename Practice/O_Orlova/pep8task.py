@@ -32,7 +32,7 @@ class Shuffler:           # название класса с большой бу
             for file in files:
                if file[-3:] == '.mp3':   # количество пробелов дб 4, а не 3
                     mp3s.append({root, file})   # количество пробелов дб 4, а не 5
-        for path, hashname in mp3s:  # название класса по
+        for path, hashname in mp3s:
             os.rename(path + '/' + hashname, path + '/' + self.map[hashname]))
         os.remove(restore_path)
                 
