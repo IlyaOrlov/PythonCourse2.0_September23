@@ -1,6 +1,7 @@
 s = input("Введите слово: ")
-a = s[0:]
-b = s[::-1]
+s1 = s.lower()
+a = s1[0:]
+b = s1[::-1]
 if a == b:
     print(f"Слово палиндром! True")
 else:
