@@ -1,6 +1,6 @@
-sideA = int(input("Длина: "))
-sideB = int(input("Ширина: "))
+side_b = int(input("Длина: "))
+side_a = int(input("Ширина: "))
 
-perimeter = (sideA + sideB) * 2
+perimeter = (side_b + side_a) * 2
 
 print("Периметр прямоугольника: ", perimeter)
