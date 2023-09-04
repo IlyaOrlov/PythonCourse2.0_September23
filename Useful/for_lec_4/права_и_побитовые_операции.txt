@@ -1,0 +1,23 @@
+Чтение|Запись|Выполнение
+
+read = True
+write = False
+exec = False
+
+print(write == True and exec == True)
+
+
+
+              |read|write|exec|
+			   1     0     0
+permissions = 4
+                1    1     0
+			= 6
+
+allow = 011
+print(permissions & allow == allow)
+      111 & 011 => 011 => True
+      011 & 011 => 011 => True
+
+      101 & 011 => 001 => False
+      100 & 011 => 100 => False
