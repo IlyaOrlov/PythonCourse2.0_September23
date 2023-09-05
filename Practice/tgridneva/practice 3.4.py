@@ -1,4 +1,4 @@
 text = input("Введите строку: ")
-changed_string = text.replace("а", "*")
+changed_string = text.replace("а", "*").replace("a", "*")
 
 print(changed_string)
