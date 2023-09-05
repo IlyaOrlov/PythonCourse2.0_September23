@@ -1,2 +1,2 @@
-s = input("Введите слово: ")
-print(s.upper() == s.upper()[::-1])
+s = input("Введите слово: ").upper()
+print(s == s[::-1])
