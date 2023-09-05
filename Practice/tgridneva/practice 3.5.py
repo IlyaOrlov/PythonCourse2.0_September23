@@ -1,5 +1,2 @@
-palindrom = input("Введите слово: ")
-if str(palindrom) == str(palindrom)[::-1]:
-    print("True")
-else:
-    print("False")
+palindrom = input("Введите слово: ").lower().replace(' ', '')
+print(palindrom == palindrom[::-1])
