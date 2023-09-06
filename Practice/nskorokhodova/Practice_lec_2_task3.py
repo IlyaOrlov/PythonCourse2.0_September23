@@ -9,6 +9,7 @@ class shuffler:
 
 #Определение функции отделяется двумя пустыми строками
     def __init__(self):
+
         self.map = {}
 
 #тоже нужно две пустые строки
@@ -20,6 +21,7 @@ class shuffler:
                 mp3s.append([root, file])
         for path, mp3 in mp3s:
         hashname = self.generateName() + '.mp3'
+
         self.map[hashname] = mp3
         os.rename(path + '/' + mp3), path + '/' + hashname))
         f = open(output, 'r')
