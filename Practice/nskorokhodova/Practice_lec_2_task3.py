@@ -7,12 +7,11 @@ from time import *
 
 class shuffler:
 
-#Определение функции отделяется двумя пустыми строками
-    def __init__(self):
 
+    def __init__(self):
         self.map = {}
 
-#тоже нужно две пустые строки
+
     def rename(self, dirname, output):
         mp3s = []
         for root, directories, files in os.walk(dirname):
@@ -27,7 +26,7 @@ class shuffler:
         f = open(output, 'r')
         f.write(str(self.map))
 
-#две строки между функциями
+
     def restore(self, dirname, restore_path):
         with open(filename, '+') as f:
             self.map = ast.literal_eval(f.read())
