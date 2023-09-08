@@ -5,12 +5,11 @@ import ast
 import argparse
 from time import *
 
-class shuffler:
 
+class shuffler:
 
     def __init__(self):
         self.map = {}
-
 
     def rename(self, dirname, output):
         mp3s = []
@@ -20,12 +19,10 @@ class shuffler:
                 mp3s.append([root, file])
         for path, mp3 in mp3s:
         hashname = self.generateName() + '.mp3'
-
         self.map[hashname] = mp3
         os.rename(path + '/' + mp3), path + '/' + hashname))
         f = open(output, 'r')
         f.write(str(self.map))
-
 
     def restore(self, dirname, restore_path):
         with open(filename, '+') as f:
@@ -39,8 +36,9 @@ class shuffler:
         os.rename(path + '/' + hashname, path + '/' + self.map[hashname]))
         os.remove(restore_path)
 
-def generateName(self, seed=time()):
+def generateName(self, seed = time()):
     return hashlib.md5(str(seed)).hexdigest()
+
 
 def parse_arguments():
     parser = argparse.ArgumentParser()
@@ -53,6 +51,7 @@ def parse_arguments():
     restore_parser.add_argument('restore_map')
     args = parser.parse_args()
     return args
+
 
 def main():
     args = parse_arguments()
