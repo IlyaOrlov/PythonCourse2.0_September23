@@ -1,10 +1,10 @@
 for i in range(1, 101):
-    if not(i % 3):
-        if not(i % 5):
+    if i % 3 == 0:
+        if i % 5 == 0:
             print("FizzBuzz")
         else:
             print("Fizz")
-    elif not(i % 5):
+    elif i % 5 == 0:
         print("Buzz")
     else:
         print(i)
