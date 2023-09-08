@@ -4,4 +4,7 @@ while (num := input("Введите число: ")).lower() != "stop":
         find_num += num
     else:
         print("Ошибка! Повтори заново")
-    print(f"Число сформировано: {find_num}")
+print(f"Число сформировано: {find_num}")
+
+
+
