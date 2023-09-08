@@ -1,4 +1,4 @@
-while not ((x := input("Введите пятизначное число ")).isdecimal() and len(x)) == 5:
+while not ((x := input("Введите пятизначное число ")).isdecimal() and len(x) == 5):
     pass
 
 i = 0
