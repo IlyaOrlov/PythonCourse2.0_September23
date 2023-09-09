@@ -1,5 +1,7 @@
 if __name__ == "__main__":
-    for i in range(1, 101):
+    start = 1
+    end = 100
+    for i in range(start, end + 1):
         if i % 15 == 0:
             i = 'FizzBuzz'
         elif i % 5 == 0:

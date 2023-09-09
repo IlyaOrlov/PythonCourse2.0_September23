@@ -1,28 +1,37 @@
 import random
 
-def verification_str_int (input_str):
-    if input_str.isdecimal() is False:
-        print("\033[7mвведено не понятно что, игра окончена!\033[0m")
-        exit()
-    return int(input_str)
+
+def verification_int():
+    while not (str_as_num := input(" значение границы интервала ->>  ")).isdecimal():
+        print(f"введено не понятно что  {str_as_num}   ", end="")
+    return int(str_as_num)
+
+
+def random_num(num1, num2):
+    return random.randint(num1, num2) if num1 < num2 else random.randint(num2, num1)
+
+
+def verification_exit_int():
+    if not (exit_str := input(f"Попробуйте угадать число в "
+                              f"интервале {first_interval}  :  {last_interval} включительно ->>  ")).isdecimal():
+        print("\033[7mВведено любимое слово, игра окончена!\033[0m")
+        return wunder_number
+    return int(exit_str)
 
 
 if __name__ == "__main__":
-    stop_word = ""
-    print("Поиграем?! Если надоест, введи\033[31m любимое\033[0m слово\nВведи границы числового интервала :")
-    min_interval = input("    минимальное значение границы интервала (\033[31mцелое положительное число\033[0m) ->>  ")
-    min_interval = verification_str_int(min_interval)
-    max_interval = input("    максимальное значение границы интервала (\033[31mцелое положительное число\033[0m) ->>  ")
-    max_interval = verification_str_int(max_interval)
-    wunder_number = random.randint(min_interval, max_interval)
-    number = input(f"Попробуйте угадать число в интервале от {min_interval} до {max_interval} включительно ->>  ")
-    number = verification_str_int(number)
-    while  number != wunder_number:
+    print("Поиграем?! Если надоест, введи\033[31m любимое\033[0m слово.\nвведи границы числового интервала :")
+    print("    первое", end="")
+    first_interval = verification_int()
+    print("    второе", end="")
+    last_interval = verification_int()
+    wunder_number = random_num(first_interval, last_interval)
+    number = verification_exit_int()
+    while number != wunder_number:
         if number > wunder_number:
-            number = input(f"Не угадали! Продолжим, Ваше число {number} больше загаданного, попробуйте еще раз ->>  ")
-            number = verification_str_int(number)
-        if number < wunder_number:
-            number = input(f"Не угадали! Продолжим, Ваше число {number} меньше загаданного, попробуйте еще раз ->>  ")
-            number = verification_str_int(number)
-    print(f"Игра окончена, Вы угадали число {wunder_number} !!!")
-
+            print(f"Не угадали! Ваше число {number} больше загаданного")
+        else:
+            print(f"Не угадали! Ваше число {number} меньше загаданного")
+        number = verification_exit_int()
+    else:
+        print(f"Загаданное число равно {wunder_number} !!!")

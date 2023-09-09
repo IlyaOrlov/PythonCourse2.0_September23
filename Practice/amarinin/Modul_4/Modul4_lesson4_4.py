@@ -11,5 +11,6 @@ if __name__ == "__main__":
         question = input(responds[i])
         if i >= len(responds) - 1:
             i = 0
-        i += 1
+        else:
+            i += 1
     print(f"\nВы ввели слово {stop_word} ! значит я Вас переспорил")
