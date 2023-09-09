@@ -1,5 +1,5 @@
 start = 1
-end = 100
+end = 101
 for i in range(start, end):
     if i % 15 == 0:
         print("FizzBuzz")
