@@ -2,5 +2,4 @@
 
 slovoA = input("Введите слово: ")
 slovoA = slovoA.lower()
-slovoB = slovoA[::-1]
-print(slovoA == slovoB)
+print(slovoA == slovoA[::-1])

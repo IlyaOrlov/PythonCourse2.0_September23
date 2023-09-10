@@ -1,4 +1,4 @@
 t = int(input("Введите время в пути (ч): "))
 rasst = int(input("Введите пройденное расстояние (км): "))
-speed = (rasst/t)
+speed = rasst/t
 print(f"Средняя скорость автомобиля = {speed} (км/ч)")
