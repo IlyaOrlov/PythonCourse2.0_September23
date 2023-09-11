@@ -1,7 +1,6 @@
-distance = input("Расстояние: ")
-start = input("Топлива было: ")
-diff = int(start) - int(end)
-result = diff / distance
+start = input("Топлива было: ");
 end = input("Топлива осталось: ")
-print
-
+distance = input("Расстояние: ")
+diff = int(start) - int(end)
+result = ("diff / distance")
+print("result")
