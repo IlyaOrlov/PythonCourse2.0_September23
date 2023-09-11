@@ -1,0 +1,5 @@
+x = max(1, 10)
+print(x)
+a = (1, 10)
+y = max(a) 
+print(y)
