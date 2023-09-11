@@ -4,7 +4,8 @@ import random
 start = int(input("Введите начальное значение диапазона: "))
 end = int(input("Введите конечное значение диапазона: "))
 num = random.randint(start, end)
-while (x := input("Угадайте целое число: ")) != str(num):
+s_num = str(num)
+while (x := input("Угадайте целое число: ")) != s_num:
     if x.isdecimal():
         x = int(x)
         if x < num:
