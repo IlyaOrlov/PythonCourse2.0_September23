@@ -4,15 +4,10 @@ import random
 def verification_player():
     while True:
         plauer_str = input("Сделай свой ход (камень '0' бумага '1' ножницы '2') -> ")
-        match plauer_str.lower():
-            case "0":
-                return 0
-            case "1":
-                return 1
-            case "2":
-                return 2
-            case "stop":
-                return "stop"
+        if (super := plauer_str.lower()) == "stop":
+            return super
+        elif super in ("0", "1", "2"):
+            return int(super)
 
 
 if __name__ == "__main__":
@@ -29,18 +24,10 @@ if __name__ == "__main__":
             print("Вы ввели 'stop' и проиглали !")
             break
         res_raund = str(ii_input) + str(player_input)
-        match res_raund:
-            case "02":
+        if ii_input != player_input:
+            if res_raund in ("02", "10", "21"):
                 score_ii += 1
-            case "10":
-                score_ii += 1
-            case "21":
-                score_ii += 1
-            case "01":
-                score_player += 1
-            case "12":
-                score_player += 1
-            case "20":
+            else:
                 score_player += 1
         print(f"                   СуперМозг          Вы")
         print(f"Счёт                   {score_ii}       :       {score_player}")
