@@ -1,14 +1,13 @@
 from random import randint
-
-number = randint(1, 10)
-while 1:
-    guess = input("Угадайте целое число от 1 до 10: ")
-    if guess == "Выход":
-        print("В следующий раз повезёт!")
-        break
-    guess = int(guess)
-    if guess == number:
+number = randint(1,10)
+quess=int(input("Угадайте целое число от 1 до 10:"))
+while quess!=number:
+    quess=int(input("Повторите попытку:"))
+    if quess<number:
+        print("Ваше число меньше, чем задумал компьютер")
+    elif quess>number:
+        print("Ваше число больше, чем задумал компьютер")
+    else:
         print("Вы угадали")
-        break
-print("Ваше число " + ("больше" if guess > number else "меньше") + ", чем задумал компьютер")
-print("Загаданным числом было: " + str(number))
+print(quess)
+print(number)
