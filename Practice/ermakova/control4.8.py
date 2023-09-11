@@ -2,11 +2,10 @@ import random
 
 
 igra = ("камень", "бумага", "ножницы")
-comp = random.choice(igra)
 while (start := input("Напишите что либо, чтобы начать! Когда захотите"
-                      " закончить, напишите "
-                      "финиш: ")).lower() != "финиш".lower():
-    gamer = input("Введите: камень, ножницы или бумага? ").lower()
+                      " закончить, напишите финиш: ")).lower() != "финиш":
+    comp = random.choice(igra)
+    gamer = input("Введите камень, ножницы или бумага: ").lower()
     if gamer in igra:
         print(f"Вы выбрали {gamer}, компьютер выбрал  {comp}.")
         if gamer == comp:
