@@ -8,7 +8,9 @@ from time import *
 
 class shuffler:
 
+# 2 строки должны отделять блок функции
     def __init__(self):
+# метод отделяеся одной строкой
         self.map = {}
 
     def rename(self, dirname, output):
@@ -39,7 +41,7 @@ class shuffler:
 def generateName(self, seed = time()):
     return hashlib.md5(str(seed)).hexdigest()
 
-
+# 2 строками отделяем обычные функции
 def parse_arguments():
     parser = argparse.ArgumentParser()
     subparsers = parser.add_subparsers(dest='subcommand', help='subcommand help')
@@ -52,7 +54,7 @@ def parse_arguments():
     args = parser.parse_args()
     return args
 
-
+# отделяем 2 строками
 def main():
     args = parse_arguments()
     Shuffler = shuffler()
