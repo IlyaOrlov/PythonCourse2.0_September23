@@ -5,43 +5,44 @@ import ast
 import argparse
 from time import *
 
-
+#Имя класса должно быть в CamelCase
 class shuffler:
 
-# 2 строки должны отделять блок функции
     def __init__(self):
-# метод отделяеся одной строкой
         self.map = {}
 
+# должна быть одна пустая строчка
     def rename(self, dirname, output):
-        mp3s = []
+          mp3s = []
         for root, directories, files in os.walk(dirname):
-        for file in files:
-            if file[-3:] == '.mp3':
-                mp3s.append([root, file])
+            for file in files:
+                if file[-3:] == '.mp3':
+                    mp3s.append([root, file])
         for path, mp3 in mp3s:
-        hashname = self.generateName() + '.mp3'
-        self.map[hashname] = mp3
-        os.rename(path + '/' + mp3), path + '/' + hashname))
-        f = open(output, 'r')
-        f.write(str(self.map))
+            hashname = self.generateName() + '.mp3'
+            self.map[hashname] = mp3
+            os.rename(path + '/' + mp3), path + '/' + hashname))
+          f = open(output, 'r')
+          f.write(str(self.map))
 
-    def restore(self, dirname, restore_path):
+
+def restore(self, dirname, restore_path):
         with open(filename, '+') as f:
             self.map = ast.literal_eval(f.read())
-        mp3s = []
-        for root, directories, files in os.walk(dirname):
+          mp3s = []
+    for root, directories, files in os.walk(dirname):
         for file in files:
             if file[-3:] == '.mp3':
-                mp3s.append({root, file})
+                    mp3s.append({root, file})
         for path, hashname in mp3s:
-        os.rename(path + '/' + hashname, path + '/' + self.map[hashname]))
+            os.rename(path + '/' + hashname, path + '/' + self.map[hashname]))
         os.remove(restore_path)
 
-def generateName(self, seed = time()):
+
+def generateName(self, seed=time()):
     return hashlib.md5(str(seed)).hexdigest()
 
-# 2 строками отделяем обычные функции
+
 def parse_arguments():
     parser = argparse.ArgumentParser()
     subparsers = parser.add_subparsers(dest='subcommand', help='subcommand help')
@@ -54,15 +55,15 @@ def parse_arguments():
     args = parser.parse_args()
     return args
 
-# отделяем 2 строками
+
 def main():
     args = parse_arguments()
     Shuffler = shuffler()
     if args.subcommand == 'rename':
-        if args.output:
-            Shuffler.rename(args.dirname, 'restore.info')
-        else:
-            Shuffler.rename(args.dirname, args.output)
+          if args.output:
+                Shuffler.rename(args.dirname, 'restore.info')
+          else:
+                Shuffler.rename(args.dirname, args.output)
     elif args.subcommand == 'restore':
         Shuffler.restore(args.dirname, args.restore_map)
     else:
