@@ -4,8 +4,5 @@ import math
 def square(r):
     return math.pi * r ** 2
 
-    if __name__ == ""__main__:
- x = input("Введите первое число: ")
- radius = input("Введите радиус: ")
- result = square(int(radius))
-    print(f"Площадь круга: {result}")
+
+if __name__ == ""__ main __ :
