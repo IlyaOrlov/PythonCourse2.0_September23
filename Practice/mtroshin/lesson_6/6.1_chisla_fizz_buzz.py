@@ -9,5 +9,3 @@ while i < 101:
     else:
         print(str(i))
     i += 1
-
-
