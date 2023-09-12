@@ -9,12 +9,12 @@ from time import *
 class shuffler: # название классов с большой буквы.
 
     def __init__(self):
-        self.map = {} # в конце инструкции ставится двоеточие ?
+        self.map = {}
 # отступ между строк в 1 строку должен быть (?) т.к. это не крупные блоки
     def rename(self, dirname, output):
-        mp3s = [] # конец инструкции двоеточие должно быть?
+        mp3s = []
 
-    for root, directories, files in os.walk(dirname): # должна быть ";" между инструкциями, на одной строке они не должны все располагаться
+    for root, directories, files in os.walk(dirname):
         for file in files:
             if file[-3:] == '.mp3':
                 mp3s.append([root, file])
@@ -43,15 +43,15 @@ class shuffler: # название классов с большой буквы.
 
 
 def parse_arguments():
-    parser = argparse.ArgumentParser() #не хватает двоеточия в конце
-    subparsers = parser.add_subparsers(dest='subcommand', help='subcommand help') #не хватает ;
-    rename_parser = subparsers.add_parser('rename', help='rename help') # нет ;
-    rename_parser.add_argument('dirname') # отсутствует двоеточие
-    rename_parser.add_argument('-o', '--output', help='path to a file where restore map is stored') # длинную строку нужно разбить, в конце нет :
-    restore_parser = subparsers.add_parser('restore', help="command_a help") # отсутствует : в конце строки
-    restore_parser.add_argument('dirname') #нет двоеточия в конце строки
-    restore_parser.add_argument('restore_map') #нет двоеточия в конце строки
-    args = parser.parse_args() #нет двоеточия в конце строки
+    parser = argparse.ArgumentParser()
+    subparsers = parser.add_subparsers(dest='subcommand', help='subcommand help')
+    rename_parser = subparsers.add_parser('rename', help='rename help')
+    rename_parser.add_argument('dirname')
+    rename_parser.add_argument('-o', '--output', help='path to a file where restore map is stored')
+    restore_parser = subparsers.add_parser('restore', help="command_a help")
+    restore_parser.add_argument('dirname')
+    restore_parser.add_argument('restore_map')
+    args = parser.parse_args()
     return args
 
 
