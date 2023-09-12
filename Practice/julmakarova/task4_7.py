@@ -1,11 +1,9 @@
 def decor_fun(fun):
-    def decor():
-        print("===========")
-
     def decor_speed(*args, **kwargs):
-        decor()
-        fun(*args, **kwargs)
-        decor()
+        print("===========")
+        res = fun(*args, **kwargs)
+        print("===========")
+        return res
 
     return decor_speed
 
