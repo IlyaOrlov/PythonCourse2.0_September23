@@ -3,7 +3,6 @@ if __name__ == "__main__":
     start = int(input("Введите начало диапазона: "))
     finish = int(input("Введите конец диапазона: "))
     number = random.randint(start, finish)
-    print(number)
     while (x := input("Угадайте число: ")).isdecimal():
         x = int(x)
         if start <= x <= finish:
