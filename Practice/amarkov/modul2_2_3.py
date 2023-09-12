@@ -4,7 +4,7 @@ import hashlib
 import ast
 import argparse
 from time import *
-# отступ между блоками две строки, а не три как тут.
+
 
 class shuffler: # название классов с большой буквы.
 
