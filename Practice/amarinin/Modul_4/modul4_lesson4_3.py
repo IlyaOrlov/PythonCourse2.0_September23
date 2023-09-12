@@ -7,7 +7,7 @@ if __name__ == "__main__":
         full_number = full_number + number
         print(f"Ваше число : {full_number}       {incorrect_input}", end="")
         number = input("-> Введите цифру (цифры) или слово 'stop' : ").lower()
-        if number == 'stop':  # не получается через if not stop, не разобрался пока :( по всякому пробывал.
+        if number == 'stop':
             break
         elif not number.isdecimal():
             incorrect_input = f"НЕ КОРРЕКТНЫЙ ВВОД  <{number}>   "
