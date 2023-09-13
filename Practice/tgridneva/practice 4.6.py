@@ -1,18 +1,15 @@
 def num(a, b):
     if a > b:
-        _max = a
         print(a)
-    elif b > a:
-        _max = b
+    else:
         print(b)
 
 
 def num2(a, b):
     if a > b:
-        _max = a
-    elif b > a:
-        _max = b
         return a
+    else:
+        return b
 
 
 if __name__ == '__main__':
