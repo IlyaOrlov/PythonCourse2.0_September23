@@ -1,12 +1,13 @@
-def telo_dekor(a,b,c):
-    def podch(a,b,c):
+def telo_dekor(fun):
+    def podch(*args, **kwargs):
         print("================")
-        rex= fun_print(a,b,c)
+        rex= fun(*args, **kwargs)
         print("================")
         return rex
-    return podch (a,b,c)
+    return podch
 
 
+@telo_dekor
 def fun_print(a,b,c):
     print(f"{a} + {b} = {c}")
 
@@ -19,4 +20,5 @@ def fun_sum(zn, zk):
 z1 = int(input("Введите первое число:   "))
 z2 = int(input("Введите второе число:   "))
 z = fun_sum(z1, z2)
-telo_dekor(z1, z2, z)
+fun_print(z1,z2,z)
+#telo_dekor(z1, z2, z)

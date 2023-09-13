@@ -17,14 +17,22 @@ def bukv(buky):
                 print(f"Мы выбрали тоже: {zapros}")
             else:
                 if i == 0:
-                    if zapros == buky[1]: print (f"{buky[i]} Вы проиграли")
-                    if zapros == buky[2]: print(f"{buky[i]} Вы выиграли")
-                if i == 1:
-                    if zapros == buky[0]: print (f"{buky[i]} Вы выиграли")
-                    if zapros == buky[2]: print(f"{buk[i]} Вы проиграли")
-                if i == 2:
-                    if zapros == buky[0]:print(f"{buky[i]} Вы проиграли")
-                    if zapros == buky[1]: print(f"{buky[i]} Вы выиграли")
+                    if zapros == buky[1]:
+                        print (f"{buky[i]} Вы проиграли")
+                    else:
+                        print(f"{buky[i]} Вы выиграли")
+                else:
+                    if i == 1:
+                        if zapros == buky[0]:
+                            print (f"{buky[i]} Вы выиграли")
+                        else:
+                            print(f"{buk[i]} Вы проиграли")
+                    else:
+                        if i == 2:
+                            if zapros == buky[0]:
+                                print(f"{buky[i]} Вы проиграли")
+                            else:
+                                print(f"{buky[i]} Вы выиграли")
 
 
 

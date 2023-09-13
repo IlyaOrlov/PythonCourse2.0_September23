@@ -6,8 +6,7 @@ def bukv(buk, stops):
     for k in range(0, j):
         zapros = input("Введите любое слово:   ")
         if zapros != stops:
-            i = random.randint(0, 2)
-            print(buk[i])
+            print(random.choice(buk))
         else:
             return
 

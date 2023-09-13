@@ -1,27 +1,39 @@
 import random
 
 
-def chisl(buk):
+def chisl(buk, a, b):
+    a = int(a)
+    b = int(b)
     buk = int(buk)
-    zapros = input("Угадайте загадоное число от 1 до 10:   ")
-    if zapros.isalpha():return
-    if int(zapros) == int(buk):
-        print("Угадали.  ")
-        return
-    else:
-        zapros = int(zapros)
-        if zapros > 10:
-            print("Введено число больше 10")
-            chisl(buk)
+    zapros = input("Угадайте загадоное число в заданном дипазоне:   ")
+    if zapros.isdigit():
+        print(f"{zapros}")
+        if int(zapros) == int(buk):
+            print("Угадали.  ")
+            return zapros
         else:
-            if zapros > buk:
-                print("Введеное число больше загадоного")
-                chisl(buk)
+            zapros = int(zapros)
+            if zapros > b:
+                print("Введено число больше верхнего диапазона")
+                chisl(buk, a, b)
             else:
-                print("Введеное число меньше загадоного")
-                chisl(buk)
+                if zapros < a:
+                    print("Введено число меньше нижнего  диапазона")
+                    chisl(buk, a, b)
+                else:
+                    if zapros > buk:
+                        print("Введеное число больше загадоного")
+                        chisl(buk, a, b)
+                    else:
+                        print("Введеное число меньше загадоного")
+                        chisl(buk, a, b)
+    else:
+        print("Введена точка")
+        return zapros
 
 
-i = random.randint(1, 10)
-chisl(i)
+a = int(input("Введите цифру, начало диапазона :   "))
+b = int(input("Введите цифру, конец диапазона :   "))
+i = random.randint(a, b)
+chisl(i, a, b)
 print("Спасибо за игру!")

@@ -6,7 +6,7 @@ def bukv(b, alfa):
         bo1 = str(mon[1])
         if b == bo1:
             print(f"Цифра соответствует букве :                               {bo1:}")
-            return
+            return nom
         else:
             print(f"Цифра соответствует букве                      {bo1:} 'попробйте еще раз")
             bukv(b, alfa)
@@ -23,19 +23,24 @@ bs = alfavit[18]
 bt = alfavit[19]
 bo = alfavit[14]
 bp = alfavit[15]
+s = ""
 for k in range(0, 4):
     if k == 0:
         b = str(bs[1])
-        bukv(b, alfavit)
+        s1 = bukv(b, alfavit)
+        s = s + str(s1) +" "
     else:
         if k == 1:
             b = str(bt[1])
-            bukv(b, alfavit)
+            s1 = bukv(b, alfavit)
+            s = s + str(s1) +" "
         else:
             if k == 2:
                 b = str(bo[1])
-                bukv(b, alfavit)
+                s1 = bukv(b, alfavit)
+                s = s + str(s1) +" "
             else:
                 b = str(bp[1])
-                bukv(b, alfavit)
-print("Поздравляем, Вы ввели слово -stop-, цифры - 19-20-15-16")
+                s1 = bukv(b, alfavit)
+                s = s + str(s1) +" "
+print(f"Поздравляем, Вы ввели слово -stop-, цифры - {s}")
