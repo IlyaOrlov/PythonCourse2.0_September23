@@ -1,21 +1,18 @@
 from random import randint
 
 
-lst = [randint(1, 40) for _ in range(10)]
-print(lst)
-x = []
-
-
-def fun_reply():
-    for i in range(len(lst)):
-        for n in range(i+1, len(lst)):
-            if lst[i] == lst[n]:
-                x.append(lst[n])
-                break
-    if x == []:
-        print("Повторяющихся символов нет!")
+def fun_reply(lst):
+    x = None
+    for i, id_x in enumerate(lst):
+        if lst.index(id_x, 0, i + 1) != i:
+            x = lst[i]
+            break
+    if x is None:
+        return "Повторяюшихся символов нет!"
     else:
-        print(f"Первый повторяющийся символ {x[0]}")
+        return f"Первый повторившийся символ {x}"
 
 
-fun_reply()
+lst_new = [randint(1, 40) for _ in range(15)]
+print(lst_new)
+print(fun_reply(lst_new))
