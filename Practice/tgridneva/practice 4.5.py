@@ -1,8 +1,6 @@
 from random import randint
 
 number = randint(1, 10)
-quess = 0
-
 while (quess := input("Угадайте целое число от 1 до 10:")).isdecimal():
     quess = int(quess)
     if quess < number:
