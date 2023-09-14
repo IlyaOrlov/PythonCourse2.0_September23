@@ -1,8 +1,7 @@
-def remove_column(list, digit):
-    for row in list:
-        if digit in row:
-            row.remove(digit)
-    return list
+def remove_column(spisok, digit):
+    for row in spisok:
+        del row[digit]
+    return spisok
 
 
 matrix = [[1, 2, 3],
