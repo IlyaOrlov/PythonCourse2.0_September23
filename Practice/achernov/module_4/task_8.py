@@ -1,8 +1,8 @@
 import random
 
 
+weapon = ("камень", "ножницы", "бумага")
 while my_choice := input("Выбери камень, ножницы или бумагу: "):
-    weapon = ["камень", "ножницы", "бумага"]
     bot_choice = random.choice(weapon)
     if my_choice == bot_choice:
         print(f"Оба игрока выбрали {my_choice}, Ничья! Попробуйте ещё раз!")

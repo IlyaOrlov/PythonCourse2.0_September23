@@ -3,6 +3,7 @@ def my_decorator(res):
         print("===========")
         res()
         print("===========")
+        return res
     return wrapper
 
 
