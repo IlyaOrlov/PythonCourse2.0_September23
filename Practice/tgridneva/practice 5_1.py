@@ -1,4 +1,4 @@
-def selection_sort(array_to_sort=None):
+def selection_sort(array_to_sort=()):
     if array_to_sort is None:
         array_to_sort = ()
     for i in range(len(array_to_sort)):
