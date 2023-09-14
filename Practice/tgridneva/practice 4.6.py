@@ -14,3 +14,6 @@ def num2(a, b):
 
 if __name__ == '__main__':
     num(a=2, b=3)
+    result = num2(a=2, b=3)
+    print(result)
+
