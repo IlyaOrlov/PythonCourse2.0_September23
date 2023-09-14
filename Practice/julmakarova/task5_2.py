@@ -1,6 +1,6 @@
 def first_repeat(s):
     for i, x in enumerate(s):
-        if x in s[:i:]:
+        if s.index(x, 0, i+1) != i:
             return x
 
 
