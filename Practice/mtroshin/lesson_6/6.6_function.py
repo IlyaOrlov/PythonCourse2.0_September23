@@ -10,6 +10,7 @@ def maxi(a, b):
     else:
         return b
 
+
 a = input("Введите число а: ")
 b = input("Введите число b: ")
 
