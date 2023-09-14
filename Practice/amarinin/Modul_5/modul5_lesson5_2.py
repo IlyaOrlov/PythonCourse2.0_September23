@@ -1,10 +1,18 @@
+from random import randint
+
+
+def list_random(post_list=5):
+    return [randint(0, 9) for _ in range(post_list)]
+
+
 def first_relapse(lst):
     for i, relapse in enumerate(lst):
-        if relapse in lst[:i]:
+        if lst.index(relapse, 0) < i:
             return relapse
-    return "повторов нет"
+    return None
 
 
 if __name__ == "__main__":
-    lst = [2, 3, 4, 5, 3, 2]
+    lst = list_random(10)
+    print(lst)
     print(first_relapse(lst))
