@@ -5,7 +5,7 @@ import ast
 import argparse
 from time import *
 
-
+# наименование классов с заглавной буквы
 class shuffler:
 
     def __init__(self):
@@ -20,6 +20,7 @@ class shuffler:
         for path, mp3 in mp3s:
             hashname = self.generateName() + '.mp3'
             self.map[hashname] = mp3
+            # не хватает скобки в начале, либо лишняя в конце
             os.rename(path + '/' + mp3), path + '/' + hashname))
           f = open(output, 'r')
           f.write(str(self.map))
@@ -51,13 +52,13 @@ def parse_arguments():
     restore_parser.add_argument('restore_map')
     args = parser.parse_args()
     return args
-
+#должно быть 2 строки пустых
 def main():
     args = parse_arguments()
     Shuffler = shuffler()
     if args.subcommand == 'rename':
           if args.output:
-                Shuffler.rename(args.dirname, 'restore.info')
+                Shuffler.rename(args.dirname, 'restore.info') #не правильное количество пробелов
           else:
                 Shuffler.rename(args.dirname, args.output)
     elif args.subcommand == 'restore':
