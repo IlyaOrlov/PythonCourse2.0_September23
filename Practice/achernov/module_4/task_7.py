@@ -9,3 +9,6 @@ def my_decorator(res):
 @my_decorator
 def secret():
     print("Вроде работает")
+
+
+secret()
