@@ -1,4 +1,4 @@
-a = input("введите длину прямоугольника:")
-b = input("введите ширину прямоугольника:")
-result = int("a") * int("b")
+x = input("long:")
+y = input("width:")
+result = int(x) * int(y)
 print(f"периметр прямоугольника: {result} ")
