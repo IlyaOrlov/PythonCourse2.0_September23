@@ -1,11 +1,11 @@
 def sravnenie(a):
-    if a % 3 == 0:
+    if a % 15 == 0:
         print("FizzBuzz")
     else:
         if a % 5 == 0:
             print("Fizz")
         else:
-            if a % 15 == 0:
+            if a % 3 == 0:
                 print("Buzz")
             else:
                 print(a)
