@@ -1,10 +1,16 @@
-import random
-from string import Template
+def zam(t, dik1):
+    t2 = list('')
+    n = len(t)
+    k = t.count('дождь')
+    for i in range(0, k):
+        d = t.find('дождь')
+        t2 = t[0:d] + dik1['дождь'] + t[d+5:n]
+        t = t2
+    return t
 
-t = Template('Казнить$lang нельзя$lang1 помиловать.')
-i = random.randint(0, 1)
-if i == 0:
-    p = t.substitute(lang=',', lang1='')
-else:
-    p = t.substitute(lang='', lang1=',')
-print(p)
+
+t = ('Вчера был дождь, и завтра будет дождь.')
+dik = {'Вчера': 'Завтра', 'дождь': 'ветер'}
+print(t)
+t = zam(t, dik)
+print(t)
