@@ -5,7 +5,7 @@ def fun_reply(lst):
     x = None
     for i, id_x in enumerate(lst):
         if lst.index(id_x, 0, i + 1) != i:
-            x = lst[i]
+            x = id_x
             break
     if x is None:
         return "Повторяюшихся символов нет!"
