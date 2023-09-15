@@ -14,5 +14,5 @@ def fun2(a, b):
 
 a = int(input("Введите первое число: "))
 b = int(input("Введите второе число: "))
-print(funsr(a, b))
+funsr(a, b)
 print(fun2(a, b))
