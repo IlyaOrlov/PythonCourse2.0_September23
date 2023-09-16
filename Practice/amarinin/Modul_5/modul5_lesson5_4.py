@@ -5,17 +5,19 @@ def matrix_random(post_matrix=5, str_matrix=5):
     return [[randint(0, 9) for _ in range(post_matrix)] for _ in range(str_matrix)]
 
 
-def matrix_print_beautiful(matrix=[]):
+def matrix_print_beautiful(matrix=None):
+    if matrix is None:
+        matrix = []
     print("матрица :")
-    for str in range(len(matrix)):
-        print(matrix[str])
+    for str_matrix in range(len(matrix)):
+        print(matrix[str_matrix])
 
 
-def delete_post_matrix(lst=[], num=7):
-    for str in lst:
-        while num in str:
-            index = str.index(num)
-            for dels in lst:
+def delete_post_matrix(test_lst=None, nums=7):
+    for str_lst in test_lst:
+        while nums in str_lst:
+            index = str_lst.index(nums)
+            for dels in test_lst:
                 del dels[index]
     return lst
 
