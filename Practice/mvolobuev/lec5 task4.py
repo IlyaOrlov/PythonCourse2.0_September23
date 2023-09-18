@@ -5,18 +5,18 @@ for i in range(0, 4):
 
 k = int(input("Введите цифру от 1 до 16, столбец которой нужно удалить:   "))
 i1 = 0
-for i in range(0, 4):
-    for j in range(0, 4):
+for i in range(0, len(art)):
+    for j in range(0, len(art[0])):
         g = art[i]
-        if int(g[j]) == k:
+        if g[j] == k:
             st[i1] = j
             i1 +=1
 
 for j1 in range(0, i1):
     s1 = st[j1]
-    for i in range(0, 4):
+    for i in range(0, len(art)):
         g = art[i]
-        del(g[s1])
+        del(g[s1-j1])
 
-for i in range(0, 4):
+for i in range(0, len(art)):
     print(art[i])

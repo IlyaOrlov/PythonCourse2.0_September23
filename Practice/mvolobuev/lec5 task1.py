@@ -8,4 +8,3 @@ for i in range(0, len(arg)-1):
                 n = k
     arg[i], arg[n] = arg[n], arg[i]
 print(arg)
-
