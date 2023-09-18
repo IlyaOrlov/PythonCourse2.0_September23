@@ -1,9 +1,9 @@
 def my_decorator(res):
-    def wrapper():
+    def wrapper(*args, **kwargs):
         print("===========")
-        res()
+        result = res(*args, **kwargs)
         print("===========")
-        return res
+        return result
     return wrapper
 
 
