@@ -1,1 +1,0 @@
-decod = print("Result",int(a) - int(b))
