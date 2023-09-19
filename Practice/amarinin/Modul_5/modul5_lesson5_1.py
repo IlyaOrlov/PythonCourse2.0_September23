@@ -20,10 +20,11 @@ def speed(func):
 def sort_lst_1(lst):
     print(lst)
     for i, str_lst in enumerate(lst):
-        first = lst[i:][0]
+        lst_i = lst[i:]
+        first = lst_i[0]
         index_min = 0
         min_lst = first
-        for index, min_slices in enumerate(lst[i:]):
+        for index, min_slices in enumerate(lst_i):
             if min_slices < min_lst:
                 min_lst = min_slices
                 index_min = index
