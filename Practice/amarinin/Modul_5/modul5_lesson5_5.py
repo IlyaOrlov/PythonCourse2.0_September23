@@ -2,6 +2,7 @@ def print_file(file):
     with open(file, "r", encoding="utf-8") as f:
         print(repr(f.read()))
 
+
 def replace_char_file(file, old_char, new_char):
     with open(file, "r", encoding="utf-8") as f:
         text = f.read().replace(old_char, new_char)
