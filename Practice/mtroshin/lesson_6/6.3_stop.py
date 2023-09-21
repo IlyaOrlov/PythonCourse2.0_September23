@@ -1,9 +1,9 @@
-symbol = input("Введите число: ")
 ch = ""
-while symbol.lower() != "stop":
-    if symbol.isdecimal() != True:
+symbol = ""
+
+while (symbol := input("Введите число: ")).lower() != "stop":
+    if not symbol.isdecimal():
         print("Ошибка! Вы ввели не числовой символ")
     else:
-        ch = ch + symbol
+        ch += symbol
         print(ch)
-    symbol = input("Введите число: ")

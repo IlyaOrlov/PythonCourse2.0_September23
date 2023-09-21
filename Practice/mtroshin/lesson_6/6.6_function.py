@@ -1,10 +1,10 @@
-def mini(a, b):
-    if a < b:
-        return a
+def maxi_1(a, b):
+    if a > b:
+        print(f"Наибольшее число: {a=}")
     else:
-        return b
+        print(f"Наибольшее число: {b=}")
 
-def maxi(a, b):
+def maxi_2(a, b):
     if a > b:
         return a
     else:
@@ -14,5 +14,5 @@ def maxi(a, b):
 a = input("Введите число а: ")
 b = input("Введите число b: ")
 
-print(f"Меньшее число: {mini(int(a), int(b))}")
-print(f"Большее число: {maxi(int(a), int(b))}")
+maxi_1(a, b)
+print(f"Большее число: {maxi_2(int(a), int(b))}")
