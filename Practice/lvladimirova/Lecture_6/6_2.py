@@ -1,5 +1,6 @@
 from random import randrange
 
+
 def poisk(s):
     for i, x in enumerate(s):
         if s.index(x) != i:
@@ -14,6 +15,6 @@ if __name__ == "__main__":
     print(arr)
     poisk(arr)
     # Для интереса попробовала создать рандомный список
-    arr2 = [randrange(0,50) for i in range(5)]
+    arr2 = [randrange(0, 50) for i in range(5)]
     print(arr2)
     poisk(arr2)
