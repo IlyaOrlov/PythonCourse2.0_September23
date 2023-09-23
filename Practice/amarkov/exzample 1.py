@@ -6,3 +6,4 @@ for el in range(len(word)): # перебрал слово в цикле
 
 for el in range(len(word)): # обратиться по индексу к каждой букве слова
     print(word[el])
+    print(word.find("а"))
