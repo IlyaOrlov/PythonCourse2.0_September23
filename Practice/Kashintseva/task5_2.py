@@ -1,9 +1,10 @@
-def repeat(*args):
+def repeat(s):
     for i, n in enumerate(s):
-        if s.count(n) > 1:
-            return n
+        if s.index(n) != i:
+            return s[i]
+    print("Нет повторов")
 
 
-s = [3, 8, 5, 6, 5, 9, 6, 5]
-res = repeat(s)
+ar = [2, 3, 4, 5, 3, 2]
+res = repeat(ar)
 print(res)
