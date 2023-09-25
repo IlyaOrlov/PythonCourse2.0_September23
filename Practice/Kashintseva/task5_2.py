@@ -1,7 +1,7 @@
 def repeat(s):
     for i, n in enumerate(s):
         if s.index(n) != i:
-            return s[i]
+            return n
     print("Нет повторов")
 
 

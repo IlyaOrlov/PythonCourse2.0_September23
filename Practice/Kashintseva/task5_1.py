@@ -1,11 +1,10 @@
 def sor(arr):
     for i in range(len(arr)):
+        x = i
         for n in range(i+1, len(arr)):
-            if arr[n] < arr[i]:
+            if arr[n] < arr[x]:
                 x = n
                 arr[i], arr[x] = arr[x], arr[i]
-            else:
-                x = i
     return arr
 
 
