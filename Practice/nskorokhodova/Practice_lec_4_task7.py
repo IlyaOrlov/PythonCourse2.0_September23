@@ -9,7 +9,7 @@ def decor(fun):
 
 @decor
 def fun_sum(a, b):
-    res = (a + b)
+    res = a + b
     print(f"сумма двух чисел: {res}")
 
 

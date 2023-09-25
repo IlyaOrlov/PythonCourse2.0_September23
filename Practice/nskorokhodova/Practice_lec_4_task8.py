@@ -2,9 +2,6 @@ import random
 
 
 xyz = ("камень", "ножницы", "бумага")
-computer = random.choice(xyz)
-print(computer)
-user = str
 while (user := input("Выберите камень, ножницы или бумагу. Или напишите 'хватит''!: ")).lower() != "хватит":
     computer = random.choice(xyz)
     print(computer)
