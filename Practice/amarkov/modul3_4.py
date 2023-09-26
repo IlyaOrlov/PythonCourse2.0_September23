@@ -5,5 +5,7 @@ for el in range(len(word)): # перебрал слово в цикле
     print(el,[0,7])
 
 if word[el] == "а":
-    word[el] ="*"
+   word[el] = "*"
+
+
 
