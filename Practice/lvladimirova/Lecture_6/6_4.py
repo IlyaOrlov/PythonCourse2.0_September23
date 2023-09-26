@@ -10,19 +10,19 @@ def fun_matrix(matrix, element):
     return matrix
 
 
-def fun_zamena(matrix):
-    for i in range(len(matrix)):
-        for j in range(len(matrix[i])):
-            print(matrix[i][j], end=' ')
+def preobr_matrix(matrix):  # Преобразование матрицы к табличному виду
+    for i in matrix:
+        for j in i:
+            print(j, end=' ')
         print()
 
 
 arr = [[1, 2, 3, 4, 5], [4, 5, 6, 1, 2], [7, 8, 9, 3, 4]]
 print("Исходная матрица: ")
-fun_zamena(arr)
+preobr_matrix(arr)
 print()
 p = int(input("Введите число: "))
 new_matrix = fun_matrix(arr, p)
 print("Новая матрица: ")
-fun_zamena(new_matrix)
+preobr_matrix(new_matrix)
 print()
