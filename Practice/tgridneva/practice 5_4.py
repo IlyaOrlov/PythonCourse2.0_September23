@@ -1,6 +1,12 @@
 def remove_column(spisok, digit):
     for row in spisok:
-        del row[digit]
+        i = 0
+        while i != len(row):
+            if row[i] == digit:
+                for lst in spisok:
+                    lst.pop(i)
+            else:
+                i += 1
     return spisok
 
 
