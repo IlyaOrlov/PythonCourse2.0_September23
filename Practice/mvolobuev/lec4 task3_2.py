@@ -15,6 +15,10 @@ def bukv(b, alfa):
         bukv(b, alfa)
 
 
+def buk_v(b, s, s1, alfavit):
+    s1 = bukv(b, alfavit)
+    s = s + str(s1) + " "
+
 alfavit = [(1, "a"), (2,"b"),(3, "c"),(4, "d"),(5, "e"),(6, "f"),(7, "g"),(8, "h"),(9, "i"),(10, "j"),(11, "k"),
            (12,"l"),(13,"m"),(14, "n"),(15, "o"),(16, "p"),(17, "q"),(18, "r"),(19, "s"),(20, "t"),
            (21,"u"),(22, "v"),(23, "w"),(24, "x"),(25, "y"),(26, "z")]
@@ -27,18 +31,15 @@ s = ""
 for k in range(0, 4):
     if k == 0:
         b = str(bs[1])
-        s1 = bukv(b, alfavit)
-        s = s + str(s1) +" "
+        buk_v(b, s, s1, alfavit)
     else:
         if k == 1:
             b = str(bt[1])
-            s1 = bukv(b, alfavit)
-            s = s + str(s1) +" "
+            buk_v(b, s, s1, alfavit)
         else:
             if k == 2:
                 b = str(bo[1])
-                s1 = bukv(b, alfavit)
-                s = s + str(s1) +" "
+                buk_v(b, s, s1, alfavit)
             else:
                 b = str(bp[1])
                 s1 = bukv(b, alfavit)
