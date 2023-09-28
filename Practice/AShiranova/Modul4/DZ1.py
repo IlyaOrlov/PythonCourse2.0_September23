@@ -7,4 +7,5 @@ for i in range(start, end):
         print("Fizz")
     elif i % 5 == 0:
         print("Buzz")
-    else: print(i)
+    else:
+        print(i)
