@@ -4,5 +4,6 @@ for i in range(len(arr)):
     for x in range(i+1, len(arr)):
         if arr[x] < arr[min_i]:
             min_i = x
-    arr[i], arr[min_i] = arr[min_i], arr[i]
+    if min_i != i:
+        arr[i], arr[min_i] = arr[min_i], arr[i]
 print(f"Отсортированный список: {arr}")
