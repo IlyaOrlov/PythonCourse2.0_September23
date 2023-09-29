@@ -1,5 +1,6 @@
 # Замена Tab на пробелы
 h = int(input("Введите количество пробелов вместо Tab: "))
+slist = []
 with open("Piton.txt", "r", encoding="utf-8") as f1:
     for s in f1:
         slist.append(s.expandtabs(tabsize=h))

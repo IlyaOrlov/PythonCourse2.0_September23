@@ -8,12 +8,9 @@ i1 = 0
 for i in range(0, len(art)):
     for j in range(0, len(art[0])):
         g = art[i]
-        if g[j] == k:
+        if g[j] == k and j not in st:
             st[i1] = j
-            if j == st[i1-1] or j == st[i1-2] or j == st[i1-3]:
-                st[i1] = -1
-            else:
-                i1 += 1
+            i1 += 1
 
 for j1 in range(0, i1):
     s1 = st[j1]
