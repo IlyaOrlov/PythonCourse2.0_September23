@@ -4,7 +4,8 @@ def sor(arr):
         for n in range(i+1, len(arr)):
             if arr[n] < arr[x]:
                 x = n
-                arr[i], arr[x] = arr[x], arr[i]
+        if x != i:
+            arr[i], arr[x] = arr[x], arr[i]
     return arr
 
 
