@@ -4,4 +4,3 @@ if len(ch) == 5 and ch.isdecimal():
         print(f"{i + 1} цифра равна {s}")
 else:
     print("Ошибка ввода!")
-    
