@@ -1,10 +1,10 @@
 def max_of_two(a, b):
     if a > b:
-        return a
+        print (a)
     else:
-        return b
+        print (b)
 
 
 a = int(input("первое число: "))
 b = int(input("второе число: "))
-max_of_two(a, b)
+print(max_of_two(a, b))
