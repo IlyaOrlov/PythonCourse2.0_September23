@@ -13,5 +13,5 @@ def change(file_path, x):
 
 
 my_file = input("Введите путь к файлу: ")
-x = input("Выберите развернуть или свернуть: ")
+x = input("Выберите развернуть или свернуть : ")
 change(my_file, x)
