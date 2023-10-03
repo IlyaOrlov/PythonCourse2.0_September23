@@ -6,4 +6,4 @@ for i in range(len(arr)):
             min_i = x
     if min_i != i:
         arr[i], arr[min_i] = arr[min_i], arr[i]
-print(f"Cписок отсортирован : {arr}")
+print(f"Cписок отсортирован: {arr}")
