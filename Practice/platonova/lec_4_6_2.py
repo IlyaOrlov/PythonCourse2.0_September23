@@ -1,8 +1,8 @@
 def max_of_two(a, b):
     if a > b:
-        print (a)
+        print(a)
     else:
-        print (b)
+        print(b)
 
 
 a = int(input("первое число: "))
