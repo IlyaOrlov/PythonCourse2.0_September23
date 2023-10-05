@@ -1,4 +1,4 @@
-for i in range(1, 101):
+for i in range(1, 101, 15):
     print(i)
 if i % 3:
     print("Fizz")
