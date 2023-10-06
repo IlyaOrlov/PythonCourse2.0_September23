@@ -26,13 +26,16 @@ class Duck:
         return super_duck
 
     def __lt__(self, other):
-        return True if self.weight < other.weight else False
+        return self.weight < other.weight
+
+    def __gt__(self, other):
+        return self.weight > other.weight
 
     def __eq__(self, other):
-        return True if self.weight == other.weight else False
+        return self.weight == other.weight
 
     def __ne__(self, other):
-        return True if self.weight != other.weight else False
+        return self.weight != other.weight
 
     def __str__(self):
         return f"\nУтка\nкласс:{type(self).__name__}\nимя  :{self.name}\nвес  :{self.weight}\nцвет :{Duck.color}"
