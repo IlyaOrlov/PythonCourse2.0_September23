@@ -9,4 +9,4 @@ else:
         if i % 3:
             print("Fizz")
         else:
-            print("i")
+            print(i)
