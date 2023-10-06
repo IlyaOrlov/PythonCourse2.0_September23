@@ -10,4 +10,3 @@ else:
             print("Fizz")
         else:
             print("i")
-0
