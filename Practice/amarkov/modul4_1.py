@@ -1,4 +1,4 @@
-for i in range(1, 101, 15):
+for i in range(1, 101, 5):
     print(i)
 if i % 3:
     print("Fizz")
@@ -8,3 +8,5 @@ else:
     else:
         if i % 15:
             print("FizzBuzz")
+        else:
+            print("i")
