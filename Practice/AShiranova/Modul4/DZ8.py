@@ -3,7 +3,6 @@ while True:
     a = round(random.randint(1,3))
     print ("1 - камень","2 - ножницы","3 - бумага", sep='\n')
     p = input("Введите число от 1 до 3: ")
-
     if p not in ["1", "2", "3"]:
         print("Ошибка!Нужно ввести число от 1 до 3")
     else:
