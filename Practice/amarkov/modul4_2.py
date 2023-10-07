@@ -6,4 +6,4 @@ for char in a:
 
 i = 1
 for char in a:
-     print(f"{i} = {char}")
+     print(f"{i} цифра равна {char}")
