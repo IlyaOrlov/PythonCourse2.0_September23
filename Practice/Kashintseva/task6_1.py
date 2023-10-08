@@ -6,7 +6,8 @@ class Tanks:
         self.hp = hp
 
     def info(self):
-        print(f"Информация о танке: название техники - {self.name}, вид - {self.kind}, урон снарядом - {self.damage}, прочность - {self.hp}.")
+        print(f"Информация о танке: название техники - {self.name}, "
+              f"вид - {self.kind}, урон снарядом - {self.damage}, прочность - {self.hp}.")
 
 
 t1 = Tanks("WZ-132A", "heavy", 390, 1600)

@@ -1,6 +1,7 @@
 import os
 import tempfile
 
+
 class WrapStrToFile:
     def __init__(self):
         self._filepath = tempfile.mktemp()
@@ -16,7 +17,7 @@ class WrapStrToFile:
     @content.setter
     def content(self, value):
         with open(self._filepath, "w") as f:
-            return f.write(value)
+            f.write(value)
 
     @content.deleter
     def content(self):

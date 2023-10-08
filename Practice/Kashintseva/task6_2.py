@@ -32,14 +32,15 @@ class Ducks:
         return self.weight != other.weight
 
     def __add__(self, other):
-        return self.weight + other.weight
+        big_duck = Ducks("Изабель", self.weight + other.weight)
+        return big_duck
 
 
 duck1 = Ducks("Дональд", 10)
 duck2 = Ducks("Тина", 5)
 duck3 = Ducks("Толик", 8)
 duck4 = Ducks("Роза", 6)
-bigduck = duck2 + duck4
+big_duck = duck2 + duck4
 duck1.voice()
 Ducks.dcolor()
 print(duck2)
@@ -48,4 +49,4 @@ print(duck4 > duck1)
 print(duck2 < duck3)
 print(duck1 == duck2)
 print(duck3 != duck4)
-print(bigduck)
+print(big_duck)
