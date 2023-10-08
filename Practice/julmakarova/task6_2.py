@@ -20,16 +20,16 @@ class Duck:
         return f"Утка {id(self)} с именем {self.name} имеет вес {self.weight}"
 
     def __lt__(self, other):
-        return True if self.weight < other.weight else False
+        return self.weight < other.weight
 
     def __gt__(self, other):
-        return True if self.weight > other.weight else False
+        return self.weight > other.weight
 
     def __eq__(self, other):
-        return True if self.weight == other.weight else False
+        return self.weight == other.weight
 
     def __ne__(self, other):
-        return True if self.weight != other.weight else False
+        return self.weight != other.weight
 
     def __add__(self, other):
         sum_duck = Duck(None, self.weight + other.weight)
