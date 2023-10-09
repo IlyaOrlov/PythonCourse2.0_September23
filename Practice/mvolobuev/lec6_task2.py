@@ -12,8 +12,8 @@ class Duck:
 
     @classmethod
     def print_color(cls, new_color):
-#        cls.cvet = new_color
-        print(new_color)
+        cls.cvet = new_color
+        print(cls.cvet)
 
     def print_name_weight(self):
         print(f"{self.name}, {self.weight}")
@@ -33,13 +33,13 @@ class Duck:
         if self.name == other.name:
             return self.weight < other.weight
         else:
-            return self.weight > other.weight
+            return self.name < other.name
 
     def __gt__(self, other):
         if self.name == other.name:
             return self.weight > other.weight
         else:
-            return self.weight < other.weight
+            return self.name > other.name
 
 
     def __eq__(self, other):
