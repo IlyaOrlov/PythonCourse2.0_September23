@@ -20,17 +20,17 @@ class Duck:
     def duck_color(cls):
         print(f"Цвет уточки: {cls.color}")
 
-    def __lt__(self, other):
-        return self.weight > other.weight
-
-    def __gt__(self, other):
+    def __lt__(self, other):  # меньше чем
         return self.weight < other.weight
+
+    def __gt__(self, other):  # больше чем
+        return self.weight > other.weight
 
     def __eq__(self, other):
         return self.weight == other.weight
 
     def __ne__(self, other):
-        return self.weight == other.weight
+        return self.weight != other.weight
 
     def __add__(self, other):
         new_weight = self.weight + other.weight
@@ -43,24 +43,24 @@ duck1 = Duck("Дональд", 7)
 duck1.say_crack()
 duck1.info_duck()
 duck1.duck_color()
-print(repr(duck1))
+print(duck1)
 
 duck2 = Duck("Билли", 5)
 duck2.say_crack()
 duck2.info_duck()
 duck2.duck_color()
-print(repr(duck2))
+print(duck2)
 
 duck3 = Duck("Вилли", 9)
 duck3.say_crack()
 duck3.info_duck()
 duck3.duck_color()
-print(repr(duck3))
+print(duck3)
 
 print("===============================")
-print(duck1 > duck2)
+print(duck1 < duck2)
 print("===============================")
-print(duck2 < duck3)
+print(duck2 > duck3)
 print("===============================")
 print(duck2 == duck3)
 print("===============================")
