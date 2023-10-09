@@ -1,6 +1,6 @@
 # Задание 2. Класс Duck.
 class Duck:
-    cvet = "Зеленый"
+    color = "Зеленый"
     def __init__(self, name, weight):
         self.name = name
         self.weight = weight
@@ -15,13 +15,14 @@ class Duck:
         cls.cvet = new_color
         print(cls.cvet)
 
-    def print_name_weight(self):
+    def print_name_weight (self):
         print(f"{self.name}, {self.weight}")
 
-    def __add__(self, other):
-        sum_weight = self.weight + other.weight
-        new_duck = Duck(None, sum_weight)
-        return new_duck
+    def __lt__(self, other):
+        if self.name == other.name:
+            return self.weight < other.weight
+        else:
+            return self.name < other.name
 
     def __repr__(self):
         return f"Duck at {id(self)}:{self.name}, {self.weight}, {self.cvet}"
@@ -29,11 +30,11 @@ class Duck:
     def __str__(self):
         return f"Duck:{self.name}, {self.weight}, {self.cvet}"
 
-    def __lt__(self, other):
-        if self.name == other.name:
-            return self.weight < other.weight
-        else:
-            return self.name < other.name
+
+    def __add__(self, other):
+        sum_weight = self.weight + other.weight
+        new_duck = Duck(None, sum_weight)
+        return new_duck
 
     def __gt__(self, other):
         if self.name == other.name:
@@ -45,16 +46,14 @@ class Duck:
     def __eq__(self, other):
         return self.weight == other.weight
 
-
     def __ne__(self, other):
-        return self.weight != other.weight
+        return self.weight == other.weight
 
-
-class Duckling(Duck):
+class Duckling():
     pass
 
 
-w = Duckling(name="Утенок",weight=5)
+w = Duck("Утенок", 5)
 w.print_crack()
 w.print_color("Серый")
 print(w.cvet)
@@ -62,7 +61,6 @@ w.print_name_weight()
 print(w)
 print(repr(w))
 
-#if __name__ == __main__:
 d1 = Duck("Кря", 50)
 d2 = Duck("Ряк", 100)
 d3 = Duck("Кря", 100)
@@ -74,7 +72,6 @@ print(d2 > d4)
 print(d2 < d4)
 print(d2 == d4)
 print(d2 != d4)
-
 # Попробовал сортировку с < и > по отдельности все работает.
 # При наличии двух магических методов < и >, используется первый в записи.
 # Для равно и неравно естественно сортировка не работает.
