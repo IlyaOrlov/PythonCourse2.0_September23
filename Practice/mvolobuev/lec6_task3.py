@@ -7,7 +7,6 @@ class WrapStrToFile:
     def __init__(self):
         self.filepach = tempfile.mktemp()
 
-
     @property
     def content(self):
         try:
@@ -21,7 +20,6 @@ class WrapStrToFile:
     def content(self, value):
         with open(self.filepach, "w", encoding="utf-8") as f1:
             f1.write(value)
-
 
     @content.deleter
     def content(self):

@@ -11,11 +11,11 @@ class Duck:
         print("Crack")
 
     @classmethod
-    def print_color(cls, new_color):
-        cls.cvet = new_color
+    def print_color(cls, new_cvet):
+        cls.cvet = new_cvet
         print(cls.cvet)
 
-    def print_name_weight (self):
+    def print_name_weight(self):
         print(f"{self.name}, {self.weight}")
 
     def __lt__(self, other):
@@ -47,7 +47,7 @@ class Duck:
         return self.weight == other.weight
 
     def __ne__(self, other):
-        return self.weight == other.weight
+        return self.weight != other.weight
 
 class Duckling():
     pass
