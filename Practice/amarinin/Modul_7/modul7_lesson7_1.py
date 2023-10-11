@@ -1,6 +1,6 @@
 class Man:
 
-    def __init__(self, name):
+    def __init__(self, name="Mans"):
         self.name = name
 
     @staticmethod
@@ -9,5 +9,5 @@ class Man:
 
 
 if __name__ == "__main__":
-    man1 = Man("AL")
+    man1 = Man()
     man1.solve_task()

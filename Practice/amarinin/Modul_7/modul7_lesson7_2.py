@@ -4,14 +4,18 @@ from random import randint
 
 class Man:
 
-    def __init__(self, name):
+    def __init__(self, name="Mans"):
         self.name = name
 
-    def solve_task(self):
+    @staticmethod
+    def solve_task():
         print("I`m not ready yet")
 
 
 class Pupil(Man):
+
+    def __init__(self, name="Pupil"):
+        super().__init__(name)
 
     def solve_task(self):
         print("0", end="->")
@@ -22,7 +26,5 @@ class Pupil(Man):
 
 
 if __name__ == "__main__":
-    man = Man("As")
-    man.solve_task()
-    pup = Pupil("Oh")
+    pup = Pupil()
     pup.solve_task()
