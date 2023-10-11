@@ -11,12 +11,9 @@ class Man:
 
 
 class Pupil(Man):
-    def __init__(self, name):
-        super().__init__(name)
-
     def solve_task(self):
+        super().solve_task()
         time.sleep(random.randint(3, 6))
-        print("I'm ready")
 
 
 per1 = Pupil("Артем")

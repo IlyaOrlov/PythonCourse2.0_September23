@@ -1,54 +1,54 @@
-class Bank:
-    def __init__(self, sum, oper):
-        self._sum = sum
-        self._oper = oper
+class Bankomat:
+    def __init__(self, summa):
+        self._summa = summa
 
     def plus_money(self):
-        self._sum += sum_plus
+        self._summa += sum_plus
 
     def minus_money(self):
-        self._sum -= sum_minus
+        if self._summa >= sum_minus:
+            self._summa -= sum_minus
+        else:
+            print("В банкомате нет запрашиваемой суммы.")
 
-    def pay(self):
-        pass
+    @staticmethod
+    def operat():
+        print("поддерживает операции: пополнение и снятие наличных.")
 
     def info(self):
-        print(f" {self._sum} наличных денег, поддерживает операции: {self._oper}")
+        print(f" {self._summa} наличных денег,")
 
 
-class Bankomat(Bank):
-    def __init__(self, sum, oper):
-        super().__init__(sum, oper)
+class Bankomatik(Bankomat):
+    def online_pay(self):
+        return self._summa
 
-    def pay(self):
-        self._sum -= sum_pay
+    @staticmethod
+    def operat():
+        print("поддерживает операции: пополнение, снятие наличных, проведение онлайн-платежей.")
 
 
-b1 = Bankomat(100000, "Пополнение и снятие наличных")
-b2 = Bankomat(200000, "Пополнение и снятие наличных")
-b3 = Bankomat(300000, "Пополнение и снятие наличных, проведение онлайн-платежей")
-choice = input(f"Выберите банкомат b1, b2 или b3: ")
-if choice == "b1":
+b1 = Bankomat(100000)
+b2 = Bankomat(200000)
+b3 = Bankomatik(300000)
+choice = input(f"Выберите банкомат 1, 2 или 3: ")
+if choice == "1" or choice == "2":
     op = input(f"Выберите операцию 1 (пополнить) или 2 (снять наличные): ")
     if op == "1":
         sum_plus = int(input(f"Введите сумму пополнения: "))
-        b1.plus_money()
+        if choice == "1":
+            b1.plus_money()
+        else:
+            b2.plus_money()
     elif op == "2":
         sum_minus = int(input(f"Введите сумму снятия: "))
-        b1.minus_money()
+        if choice == "1":
+            b1.minus_money()
+        else:
+            b2.minus_money()
     else:
         print("Ошибка ввода!")
-elif choice == "b2":
-    op = input(f"Выберите операцию 1 (пополнить) или 2 (снять наличные): ")
-    if op == "1":
-        sum_plus = int(input(f"Введите сумму пополнения: "))
-        b2.plus_money()
-    elif op == "2":
-        sum_minus = int(input(f"Введите сумму снятия: "))
-        b2.minus_money()
-    else:
-        print("Ошибка ввода!")
-elif choice == "b3":
+elif choice == "3":
     op = input(f"Выберите операцию 1 (пополнить), 2 (снять наличные) или 3 (провести онлайн-платеж): ")
     if op == "1":
         sum_plus = int(input(f"Введите сумму пополнения: "))
@@ -58,10 +58,13 @@ elif choice == "b3":
         b3.minus_money()
     elif op == "3":
         sum_pay = int(input(f"Введите сумму платежа: "))
-        b3.pay()
+        b3.online_pay()
     else:
         print("Ошибка ввода!")
+else:
+    print("Некорректный выбор банкомата!")
 lst = [b1, b2, b3]
 for i, bank in enumerate(lst):
-    print(f"Банкомат {i}: ")
+    print(f"Банкомат {i+1}: ")
     bank.info()
+    bank.operat()
