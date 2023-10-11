@@ -13,9 +13,10 @@ class Man:
 
 class Pupil(Man):
 
-    def solve_task(self):
+    @staticmethod
+    def solve_task():
         sleep(randint(3, 6))
-        super().solve_task()
+        super(Pupil, Pupil).solve_task()
 
 
 m1 = Man("Aleksandr")

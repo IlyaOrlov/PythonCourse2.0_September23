@@ -23,7 +23,7 @@ class ATM:
     def minus_cash(self, money):
         if isinstance(money, int):
             if money < self.cash:
-                self._cash += money
+                self._cash -= money
                 return f"Новый кэш: {self.cash}"
             else:
                 return "Ошибка. Столько денег нет"
@@ -40,15 +40,12 @@ class Terminal(ATM):
     def info():
         return "Операции по снятию, внесению наличных, а также онлайн платежи"
 
-    def pay(self, summa):
+    @staticmethod
+    def pay(summa):
         if isinstance(summa, int):
-            if summa < self.cash:
-                self._cash += summa
-                return f"Новый кэш: {self.cash}"
-            else:
-                return "Ошибка. Столько денег нет"
+            return f"Вы отправили платеж суммой {summa}"
         else:
-            return "Ошибка. Вы внесли не деньги"
+            return "Вы ввели некорректный платеж"
 
 
 b1 = ATM(10000)
