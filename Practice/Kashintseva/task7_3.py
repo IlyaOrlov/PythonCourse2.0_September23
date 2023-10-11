@@ -20,8 +20,9 @@ class Bankomat:
 
 
 class Bankomatik(Bankomat):
-    def online_pay(self):
-        return self._summa
+    @staticmethod
+    def online_pay():
+        print("Онлайн-платеж проведен успешно!")
 
     @staticmethod
     def operat():

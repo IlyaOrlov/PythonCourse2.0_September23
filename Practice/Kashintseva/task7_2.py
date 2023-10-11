@@ -6,14 +6,16 @@ class Man:
     def __init__(self, name):
         self._name = name
 
-    def solve_task(self):
+    @staticmethod
+    def solve_task():
         print("I'm not ready yet")
 
 
 class Pupil(Man):
-    def solve_task(self):
-        super().solve_task()
+    @staticmethod
+    def solve_task():
         time.sleep(random.randint(3, 6))
+        super().solve_task()
 
 
 per1 = Pupil("Артем")
