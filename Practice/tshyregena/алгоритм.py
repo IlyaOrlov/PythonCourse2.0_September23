@@ -4,5 +4,6 @@ for k in range(len(lst)):
     for i in range(k, len(lst)):
         if lst[i] < lst[nM]:
             nM = i
-    lst[k], lst[nM] = lst[nM], lst[k]
+    if nM != k:
+        lst[k], lst[nM] = lst[nM], lst[k]
 print(lst)
