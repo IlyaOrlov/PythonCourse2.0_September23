@@ -12,8 +12,7 @@ class Man:
 
 
 class Pupil(Man):
-    @staticmethod
-    def solve_task():
+    def solve_task(self):
         time.sleep(random.randint(3, 6))
         super().solve_task()
 
