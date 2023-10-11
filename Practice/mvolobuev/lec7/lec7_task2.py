@@ -16,8 +16,11 @@ class Pupil(Man):
         self._name = name
         self._student = student
 
+    def solve_task(self):
+        i = random.randint(3, 6)
+        time.sleep(i)
+        print("I'm not ready yet")
+
 stud = Pupil("Иван", "физики")
 print(f"{stud._name}, направление {stud._student}")
-i = random.randint(3,6)
-time.sleep(i)
 stud.solve_task()
