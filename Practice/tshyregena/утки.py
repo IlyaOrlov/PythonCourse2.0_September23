@@ -7,11 +7,10 @@ class Duck:
 
     @classmethod
     def color_p(cls):
-        print(f"Цвета уток в корзинке {cls.color}")
+        print(f"Цвет уток в корзинке {cls.color}")
 
     def print_p(self):
-        print(
-            f"Я вешу {self.weight} грамм. Меня зовут {self.name}")
+        print(f"Я вешу {self.weight} грамм. Меня зовут {self.name}")
 
     @staticmethod
     def say_crack():
