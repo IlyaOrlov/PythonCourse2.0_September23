@@ -1,16 +1,16 @@
 class ATM:
-    def __init__(self, balance):
-        self._balance = balance
+    def __init__(self, cash):
+        self._cash = cash
 
     def get_cash(self, amount):
-        if amount <= self._balance:
-            self._balance -= amount
+        if amount <= self._cash:
+            self._cash -= amount
             print(f"Withdrew {amount} cash")
         else:
-            print("Insufficient balance")
+            print("Insufficient cash")
 
     def deposit_cash(self, amount):
-        self._balance += amount
+        self._cash += amount
         print(f"Deposited {amount} cash")
 
     def get_supported_operations(self):
@@ -18,15 +18,11 @@ class ATM:
 
 
 class OnlineATM(ATM):
-    def __init__(self, balance):
-        super().__init__(balance)
+    def __init__(self, cash):
+        super().__init__(cash)
 
     def make_payment(self, amount):
-        if amount <= self._balance:
-            self._balance -= amount
-            print(f"Made a payment of {amount}")
-        else:
-            print("Insufficient balance")
+        print(f"Made a payment of {amount}")
 
     def get_supported_operations(self):
         return super().get_supported_operations() + ["Make Payment"]
@@ -38,7 +34,7 @@ atm2 = OnlineATM(2000)
 atms = [atm1, atm2]
 
 for atm in atms:
-    print(f"ATM Balance: {atm._balance}")
+    print(f"ATM Cash: {atm._cash}")
     print(f"Supported Operations: {atm.get_supported_operations()}")
     print("------------------------")
 
@@ -48,5 +44,5 @@ for atm in atms:
     if isinstance(atm, OnlineATM):
         atm.make_payment(300)
 
-    print(f"ATM Balance: {atm._balance}")
+    print(f"ATM Cash: {atm._cash}")
     print("------------------------")
