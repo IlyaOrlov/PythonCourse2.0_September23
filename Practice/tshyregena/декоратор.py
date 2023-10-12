@@ -4,7 +4,6 @@ def fun_dec(fun):
         res = fun(*args)
         print(res)
         print("="*10)
-
     return fun_nuw
 
 
