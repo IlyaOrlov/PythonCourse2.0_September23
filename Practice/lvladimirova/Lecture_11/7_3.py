@@ -1,11 +1,9 @@
-MAX_BALANS = 5000  # Максимальная величина ден.средств в банкомате
-
-
 class Bankomat:
-    def __init__(self, name, balans):
+    def __init__(self, name, max_balans, balans):
         self.name = name
+        self._max_balans = max_balans
         self._balans = balans
-        print(f"Создан {self.name}.  Баланс {self._balans} руб.")
+        print(f"Создан {self.name}.  Остаток на начало дня {self._balans} руб.")
 
     @staticmethod
     def info():
@@ -27,15 +25,14 @@ class Bankomat:
 
     def dispense(self, amount):  # Выдача
         if self._balans < amount:
-            print(f"{self.name} не может выдать {amount} руб. В банкомате недостаточно средств.")
-            return
+            return f"{self.name} не может выдать {amount} руб. В банкомате недостаточно средств."
         else:
             self._balans -= amount
             print(f"{self.name}. Выдача {amount} руб.")
 
     # Метод внесения средств, проверка на переполнение
     def deposit(self, amount):
-        if (self._balans + amount) > MAX_BALANS:
+        if (self._balans + amount) > self._max_balans:
             print(f"Переполнение! {self.name} не может принять {amount} руб.")
             return
         self._balans += amount
@@ -43,9 +40,6 @@ class Bankomat:
 
 
 class BankomatOnlain(Bankomat):
-
-    def __init__(self, name, balans):
-        super().__init__(name, balans)
 
     @staticmethod
     def info():
@@ -59,18 +53,18 @@ class BankomatOnlain(Bankomat):
 
 
 if __name__ == "__main__":
-    Bank1 = Bankomat('Первый банкомат', 1000)
-    Bank2 = Bankomat('Второй банкомат', 1000)
-    Bank3 = BankomatOnlain('Третий банкомат', 2000)
-    Bank4 = BankomatOnlain('Четвёртый банкомат', 5000)
+    Bank1 = Bankomat('Первый банкомат', 5000, 1000)
+    Bank2 = Bankomat('Второй банкомат', 10000, 4000)
+    Bank3 = BankomatOnlain('Третий банкомат', 20000, 3000)
+    Bank4 = BankomatOnlain('Четвёртый банкомат', 50000, 2000)
     bank = [Bank1, Bank2, Bank3, Bank4]
     for a in bank:
-        print(f"\n{a.name}. Баланс {a.balans} руб.")
+        print(f"\n{a.name}. Баланс на начало дня {a.balans} руб.")
         a.info()
         a.dispense(500)
         a.dispense(5000)
         a.deposit(400)
         a.deposit(5000)
-        print(f"\n{a.name}. Остаток {a.balans} руб.")
+        print(f"\n{a.name}. Остаток на конец дня {a.balans} руб.")
         print("===========================")
     print(Bank3.payments(400))
