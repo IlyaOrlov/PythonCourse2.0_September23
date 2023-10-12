@@ -1,7 +1,7 @@
 class Man:
 
     def __init__(self, name="Mans"):
-        self.name = name
+        self._name = name
 
     @staticmethod
     def solve_task():
