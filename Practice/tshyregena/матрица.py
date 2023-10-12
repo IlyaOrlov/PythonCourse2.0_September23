@@ -6,7 +6,7 @@ def display(matrix1):
 
 def display2(matrix3):
     new_mat = []
-    for i in range(len(matrix3[0])):
+    for k in range(len(matrix3[0])):
         new_row = []
         for el in matrix3:
             new_row.append(el[i])
@@ -28,16 +28,17 @@ def display2(matrix3):
 # if p in row3:
 #     del [matrix[0][2], matrix[1][2], matrix[2][2]]
 # matrix1 = matrix
-# print(display(matrix1))
+# display(matrix1)
 matrix2 = [[5, 4, 3, 8],
            [6, 6, 7, 8],
            [3, 9, 0, 6]]
 new_mat = display2(matrix2)
 print(new_mat)
 p1 = int(input("Какое число вы хотите удалить: "))
-k = []
-if p1 in new_mat[i]:
-    del new_mat[i]
-else:
-    k.append(p1)
-print(display(k))
+i = 0
+while i < len(new_mat):
+    if p1 in new_mat[i]:
+        del new_mat[i]
+    else:
+        i += 1
+display(new_mat)
