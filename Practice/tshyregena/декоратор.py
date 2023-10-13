@@ -1,7 +1,7 @@
 def fun_dec(fun):
-    def fun_nuw(*args):
+    def fun_nuw(*args, **kwargs):
         print("="*10)
-        res = fun(*args)
+        res = fun(*args, **kwargs)
         print(res)
         print("="*10)
     return fun_nuw
