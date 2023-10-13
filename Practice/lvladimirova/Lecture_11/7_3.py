@@ -26,7 +26,6 @@ class Bankomat:
     def deposit(self, amount):
         if (self._balans + amount) > self._max_balans:
             print(f"Переполнение! {self.name} не может принять {amount} руб.")
-            return
         else:
             self._balans += amount
             print(f"{self.name}. Внесение {amount} руб.")
