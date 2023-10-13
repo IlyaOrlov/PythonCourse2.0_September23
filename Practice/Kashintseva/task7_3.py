@@ -44,11 +44,11 @@ b1 = Bankomat(100000)
 b2 = Bankomat(200000)
 b3 = Bankomatik(300000)
 lst = [b1, b2, b3]
-choice = input(f"Выберите банкомат 1, 2 или 3: ")
+choice = input(f"Выберите банкомат {[i for i, _ in enumerate(lst, 1)]}: ")
 b = lst[int(choice) - 1]
 ops = b.operat()
-i = input("Выберите операцию: ")
+i = input(f"Выберите операцию {[i for i, _ in enumerate(ops , 1)]}: ")
 ops[int(i) - 1]()
-print(f"Банкомат {i}: ")
-b.info()
-b.inf_oper()
+for b in lst:
+    b.info()
+    b.inf_oper()
