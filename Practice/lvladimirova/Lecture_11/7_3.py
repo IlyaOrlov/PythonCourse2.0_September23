@@ -16,27 +16,20 @@ class Bankomat:
         else:
             print("По техническим причинам банкомат не работает!")
 
-    @balans.setter
-    def balans(self, new_balans):
-        if isinstance(new_balans, int):
-            self._balans = new_balans
-        else:
-            print("Ошибка!")
-
-    def dispense(self, amount):  # Выдача
+    def dispense(self, amount):
         if self._balans < amount:
             return f"{self.name} не может выдать {amount} руб. В банкомате недостаточно средств."
         else:
             self._balans -= amount
             print(f"{self.name}. Выдача {amount} руб.")
 
-    # Метод внесения средств, проверка на переполнение
     def deposit(self, amount):
         if (self._balans + amount) > self._max_balans:
             print(f"Переполнение! {self.name} не может принять {amount} руб.")
             return
-        self._balans += amount
-        print(f"{self.name}. Внесение {amount} руб.")
+        else:
+            self._balans += amount
+            print(f"{self.name}. Внесение {amount} руб.")
 
 
 class BankomatOnlain(Bankomat):
@@ -53,11 +46,11 @@ class BankomatOnlain(Bankomat):
 
 
 if __name__ == "__main__":
-    Bank1 = Bankomat('Первый банкомат', 5000, 1000)
-    Bank2 = Bankomat('Второй банкомат', 10000, 4000)
-    Bank3 = BankomatOnlain('Третий банкомат', 20000, 3000)
-    Bank4 = BankomatOnlain('Четвёртый банкомат', 50000, 2000)
-    bank = [Bank1, Bank2, Bank3, Bank4]
+    bank1 = Bankomat('Первый банкомат', 5000, 1000)
+    bank2 = Bankomat('Второй банкомат', 10000, 4000)
+    bank3 = BankomatOnlain('Третий банкомат', 20000, 3000)
+    bank4 = BankomatOnlain('Четвёртый банкомат', 50000, 2000)
+    bank = [bank1, bank2, bank3, bank4]
     for a in bank:
         print(f"\n{a.name}. Баланс на начало дня {a.balans} руб.")
         a.info()
@@ -67,4 +60,4 @@ if __name__ == "__main__":
         a.deposit(5000)
         print(f"\n{a.name}. Остаток на конец дня {a.balans} руб.")
         print("===========================")
-    print(Bank3.payments(400))
+    print(bank3.payments(400))
