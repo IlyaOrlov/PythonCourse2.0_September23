@@ -9,7 +9,7 @@ def display2(matrix3):
     for k in range(len(matrix3[0])):
         new_row = []
         for el in matrix3:
-            new_row.append(el[i])
+            new_row.append(el[k])
         new_mat.append(new_row)
     return new_mat
 
@@ -32,13 +32,13 @@ def display2(matrix3):
 matrix2 = [[5, 4, 3, 8],
            [6, 6, 7, 8],
            [3, 9, 0, 6]]
-new_mat = display2(matrix2)
-print(new_mat)
+new_mat1 = display2(matrix2)
+print(new_mat1)
 p1 = int(input("Какое число вы хотите удалить: "))
 i = 0
-while i < len(new_mat):
-    if p1 in new_mat[i]:
-        del new_mat[i]
+while i < len(new_mat1):
+    if p1 in new_mat1[i]:
+        del new_mat1[i]
     else:
         i += 1
-display(new_mat)
+display(new_mat1)
