@@ -1,4 +1,4 @@
-class Panzer:  # Вот, попробовал, не удержался :)
+class Panzer:
 
     def __init__(self, names, types, nation, weight, forward, backward):
         self.names = names
@@ -9,7 +9,8 @@ class Panzer:  # Вот, попробовал, не удержался :)
         self.backward = backward
 
     def info(self):
-        print(f"\nName   : {self.names}")
+        print(f"\nClass  : {type(self).__name__}")
+        print(f"Name   : {self.names}")
         print(f"Type   : {self.types}")
         print(f"Nation : {self.nation}")
         print(f"Weight : {self.weight}")
