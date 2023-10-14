@@ -18,8 +18,6 @@ class ATM:
 
 
 class OnlineATM(ATM):
-    def __init__(self, cash):
-        super().__init__(cash)
 
     def make_payment(self, amount):
         print(f"Made a payment of {amount}")
