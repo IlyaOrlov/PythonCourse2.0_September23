@@ -1,28 +1,32 @@
 import random
-while True:
-    a = round(random.randint(1,3))
-    print ("1 - камень","2 - ножницы","3 - бумага", sep='\n')
-    p = input("Введите число от 1 до 3: ")
-    if p not in ["1", "2", "3"]:
-        print("Ошибка!Нужно ввести число от 1 до 3")
+
+
+igra = ("камень", "ножницы", "бумага")
+while (start := input("Вы готовы? Напишите что-нибудь, что бы начать игру! Когда захотите"
+                      " закончить, напишите стоп: ")).lower() != "стоп":
+    comp = random.choice(igra)
+    user = input("Введите камень, ножницы или бумага: ").lower()
+    if user in igra:
+        print(f"Вы выбрали {user}, компьютер выбрал  {comp}.")
+        if user == comp:
+            print("Ничья!")
+        elif user == "камень":
+            if comp == "бумага":
+                print("Вы проиграли!")
+            else:
+                print("Вы выиграли!")
+        elif user == "бумага":
+            if comp == "ножницы":
+                print("Вы проиграли!")
+            else:
+                print("Вы выиграли!")
+        elif user == "ножницы":
+            if comp == "камень":
+                print("Вы проиграли!")
+            else:
+                print("Вы выиграли!")
     else:
-        p = int(p)
-        res = ("камень", "ножницы", "бумага")
-        print(f"Компьютер выбрал {res[a - 1]}")
-        if a == p:
-            print("Ничья")
-        elif a == 1 and p==2:
-            print("Вы проиграли")
-        elif a == 1 and p==3:
-            print("Вы выйграли!")
-        elif a == 2 and p==1:
-            print("Вы выйграли!")
-        elif a == 2 and p==3:
-            print("Вы проиграли")
-        elif a == 3 and p==1:
-            print("Вы проиграли")
-        elif a == 3 and p==2:
-            print("Вы выйграли!")
-    qw = input("Начать заново? (да\нет) ")
-    if qw == 'нет':
-        break
+        print("Вы ввели не камень, ножницы или бумага! Начните заново.")
+else:
+    print("Конец игры!")
+
