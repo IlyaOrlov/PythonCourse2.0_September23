@@ -2,6 +2,7 @@ from abc import ABC, abstractmethod
 
 
 class BankA(ABC):
+
     def __init__(self, name="БанкА", golds=1000000):
         self._name = name
         self._golds = golds
@@ -42,8 +43,8 @@ class InGold(BankA):
 class OutGold(BankA):
     __slots__ = ()
 
-    def cold_in(self):
-        print(f"Non {super().gold_in().__name__}")
+    def gold_in(self):
+        print(f"Non {super().gold_in.__name__}")
 
     def gold_online(self):
         print(f"Non {super().gold_online.__name__}")
@@ -71,20 +72,27 @@ class Online(BankA):
 
 
 def verification_gold(ins):
-    return int(ins) if ins.isdecimal() else False
+    return int(ins) if ins.isdecimal() else 0
 
 
 if __name__ == "__main__":
     print([{i().info()} for i in BankA.__subclasses__()])
 
     auto1 = InGold()
-    auto1.gold_in(); print(auto1.info())
+    auto1.gold_in()
+    print(auto1.info())
     auto2 = OutGold()
-    auto2.gold_out(); print(auto2.info())
+    auto2.gold_out()
+    print(auto2.info())
     auto3 = InOutGold()
-    auto3.gold_in(); auto3.gold_out(); print(auto3.info())
+    auto3.gold_in()
+    auto3.gold_out()
+    print(auto3.info())
     auto4 = Online()
-    auto4.gold_in(); auto4.gold_out(); auto4.gold_online(); print(auto4.info())
+    auto4.gold_in()
+    auto4.gold_out()
+    auto4.gold_online()
+    print(auto4.info())
 
     lst = (auto1, auto2, auto3, auto4)
     print([{i.info()} for i in lst])
