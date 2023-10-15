@@ -1,25 +1,15 @@
 class Tanki:
+    nikname: object
     game = "Tanchiki"
 
-    def __init__(self, gamer, maps, tank):
-        self.gamer = gamer
-        self.maps = maps
+    def __init__(self, nikname, country, age, tank):
+        self.nikname = nikname
+        self.country = country
+        self.age = age
         self.tank = tank
 
 
-def shoot():
-    print(f"Прицеливайся и стреляй")
-
-
-def walk():
-    print(f"Двигайся в этом направлении")
-
-
-def choosetank():
-    print(f"Выбери модель")
-
-
-e = Tanki(gamer="Ivan", maps="№1", tank="green")
-print(e.gamer)
-print(e.maps)
-print(e.tank)
+e = Tanki(nikname="Ivan", country="Russia", age=30, tank=5)
+e1 = Tanki(nikname="Ricardo", country="Portugal", age=17, tank=3345)
+print(e.nikname, e.country, e.age, e.tank)
+print(e1.nikname, e1.country, e1.age, e1.tank)
