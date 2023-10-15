@@ -7,20 +7,33 @@ class BankA(ABC):
         self._name = name
         self._golds = golds
 
+    @staticmethod
+    def verification_gold(ins):
+        return int(ins) if ins.isdecimal() else None
+
     def gold_in(self):
-        gold = verification_gold(input(f"{self.gold_in.__name__}  <--  Давай! : "))
+        gold = self.verification_gold(input(f"{self.gold_in.__name__}  <--  Давай! : "))
         print(f"{self.gold_in.__name__}  {gold}")
-        self._golds = self._golds + gold
+        try:
+            self._golds = self._golds + gold
+        except TypeError:
+            print("Упс...")
 
     def gold_out(self):
-        gold = verification_gold(input(f"{self.gold_out.__name__}  -->  Сколько? : "))
+        gold = self.verification_gold(input(f"{self.gold_out.__name__}  -->  Сколько? : "))
         print(f"{self.gold_out.__name__}  {gold}")
-        self._golds = (self._golds - gold) if gold < self._golds else print("Слишком много хочещь")
+        try:
+            self._golds = (self._golds - gold) if gold < self._golds else print("Слишком много хочещь")
+        except TypeError:
+            print("Упс... сам виноват")
 
     def gold_online(self):
-        gold = verification_gold(input(f"{self.gold_online.__name__}  <--  Давай? : "))
+        gold = self.verification_gold(input(f"{self.gold_online.__name__}  <--  Давай? : "))
         print(f"{self.gold_online.__name__}  {gold}")
-        self._golds = self._golds + gold
+        try:
+            self._golds = self._golds + gold
+        except TypeError:
+            print("Упс... тестируешь?")
 
     @abstractmethod
     def info(self):
@@ -69,10 +82,6 @@ class Online(BankA):
     def info(self):
         return (f"{self._name}  {self._golds} $ {self.gold_out.__name__}"
                 f"  {self.gold_in.__name__}  {self.gold_online.__name__}")
-
-
-def verification_gold(ins):
-    return int(ins) if ins.isdecimal() else 0
 
 
 if __name__ == "__main__":
