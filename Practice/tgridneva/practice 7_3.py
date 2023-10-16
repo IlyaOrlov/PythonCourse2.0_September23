@@ -14,13 +14,13 @@ class ATM:
         print(f"Deposited {amount} cash")
 
     def get_supported_operations(self):
-        return ["Withdraw Cash", "Deposit Cash"]
-
-
-class OnlineATM(ATM):
+        return ["Withdraw Cash", "Deposit Cash", " Make Payment"]
 
     def make_payment(self, amount):
         print(f"Made a payment of {amount}")
+
+
+class OnlineATM(ATM):
 
     def get_supported_operations(self):
         return super().get_supported_operations() + ["Make Payment"]
@@ -34,7 +34,6 @@ atms = [atm1, atm2]
 for atm in atms:
     print(f"ATM Cash: {atm._cash}")
     print(f"Supported Operations: {atm.get_supported_operations()}")
-    print("------------------------")
 
     atm.get_cash(500)
     atm.deposit_cash(1000)
