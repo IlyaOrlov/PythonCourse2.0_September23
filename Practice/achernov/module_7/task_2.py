@@ -26,10 +26,10 @@ class Duck:
         return f"Утка: {self.name} и весит: {self.weight}"
 
     def __lt__(self, other):
-        if self.weight < other.weight:
-            return other.weight
-        else:
-            return self.weight
+        return self.weight < other.weight
+
+    def __gt__(self, other):
+        return self.weight > other.weight
 
     def __ne__(self, other):
         return self.weight != other.weight
@@ -57,6 +57,8 @@ print("Работа __repr__")
 print(repr(duck_1))
 print("Работа __lt__")
 print(duck_1 < duck_2)
+print("Работа __gt__")
+print(duck_1 > duck_2)
 print("Работа __ne__")
 print(duck_1 != duck_2)
 duck_3 = duck_1 + duck_2
