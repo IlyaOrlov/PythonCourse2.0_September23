@@ -5,6 +5,3 @@ while (num := input("Введите число: ")).lower() != "stop":
     else:
         print("Ошибка! Повтори заново")
 print(f"Число сформировано: {find_num}")
-
-
-
