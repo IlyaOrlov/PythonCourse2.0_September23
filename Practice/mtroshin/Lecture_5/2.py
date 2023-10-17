@@ -7,10 +7,11 @@
 #                     return arr[i]
 
 def povtor(arr):
-    mnogestvo = set('')
+    mnogestvo = set()
     for i in range(len(arr)-1):
         if arr[i] in mnogestvo:
             print(arr[i])
+            break
         else:
             mnogestvo.add(arr[i])
 
