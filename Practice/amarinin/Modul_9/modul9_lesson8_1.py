@@ -1,30 +1,39 @@
 class Pager:
     def __init__(self, texts, separator):
         self.texts = texts + separator
-        self.paragraph = ""
         self.separator = separator
+        self.i = 0
 
     def __iter__(self):
         return self
 
     def __next__(self):
-        n = 1
-        for char in self.texts:
-            if char == self.separator:
-                read = input("Читаем ? Y/N : ").upper()
-                if read == "Y":
-                    print(f"{chr(167)}{n} {self.paragraph}")
-                    self.paragraph = ""
-                    n += 1
-                else:
-                    break
-            else:
-                self.paragraph = self.paragraph + char
-        raise StopIteration
+        try:
+            if self.i < len(self.texts):
+                paragraph = ""
+                while True:
+                    if self.texts[self.i] == self.separator:
+                        self.i += 1
+                        return paragraph
+                    else:
+                        paragraph += self.texts[self.i]
+                    self.i += 1
+            raise StopIteration
+        except IndexError:
+            print("100 % ! поставили в качестве разделителя '' или еще какую то ерунду")
+            exit()
+        except TypeError:
+            print("Будьте внимательны")
 
 
 if __name__ == "__main__":
-    text = "12\t3456\t444\t55555"
+    text = "12311\t2222\t3333\t4444\t5555\t666"
     a = Pager(text, "\t")
     for i in a:
-        print(i)
+        if input("Читаем ? Y/N : ").upper() == "Y":
+            print(f"{chr(167)}  {i}")
+        else:
+            break
+
+        # не нравится почему то пайтону else break в конце строчки (
+        # print(f"{chr(167)}   {i}") if input("Читаем ? Y/N : ").upper() == "Y" else break
