@@ -14,13 +14,16 @@ class ATM:
         print(f"Deposited {amount} cash")
 
     def get_supported_operations(self):
-        return ["Withdraw Cash", "Deposit Cash", " Make Payment"]
+        return ["Withdraw Cash", "Deposit Cash"]
 
     def make_payment(self, amount):
-        print(f"Made a payment of {amount}")
+        pass
 
 
 class OnlineATM(ATM):
+
+    def make_payment(self, amount):
+        print(f"Made a payment of {amount}")
 
     def get_supported_operations(self):
         return super().get_supported_operations() + ["Make Payment"]
