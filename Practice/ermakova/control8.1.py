@@ -11,11 +11,9 @@ class Read:
     def __next__(self):
         paragraph = ""
         while self.i < len(self.text):
-            self.txt = ""
             if self.text[self.i] == self.symbol:
-                self.txt += paragraph
                 self.i += 1
-                return self.txt
+                return paragraph
             paragraph += self.text[self.i]
             self.i += 1
         else:

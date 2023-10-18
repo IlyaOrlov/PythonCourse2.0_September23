@@ -1,9 +1,15 @@
+import os
+
+
 def read(f):
     with open(f, "r", encoding="utf-8") as file1:
         for line in file1:
-            if "\n" in line:
-                line = line[:-1]
-                yield line
+            line = line.rstrip("\n")
+            yield line
+
+
+def delete(f):
+    os.remove(f)
 
 
 with open("f.txt", "w", encoding="utf-8") as file:
@@ -11,3 +17,5 @@ with open("f.txt", "w", encoding="utf-8") as file:
 
 for line1 in read("f.txt"):
     print(line1)
+
+delete("f.txt")
