@@ -3,7 +3,6 @@ class Read:
         self.text = text
         self.symbol = symbol
         self.i = 0
-        self.txt = ""
 
     def __iter__(self):
         return self
