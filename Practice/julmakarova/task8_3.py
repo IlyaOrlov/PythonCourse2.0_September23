@@ -2,9 +2,6 @@ import time
 
 
 class TimeManager:
-    def __init__(self):
-        self._start = 0
-
     def __enter__(self):
         self._start = time.time()
 
