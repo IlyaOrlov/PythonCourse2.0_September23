@@ -40,9 +40,7 @@ for atm in atms:
 
     atm.get_cash(500)
     atm.deposit_cash(1000)
-
-    if isinstance(atm, OnlineATM):
-        atm.make_payment(300)
+    atm.make_payment(300)
 
     print(f"ATM Cash: {atm._cash}")
     print("------------------------")
