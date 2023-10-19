@@ -1,5 +1,8 @@
+import itertools
+
+
 def filter_strings(strings):
-    return [s for s in strings if len(s) >= 5]
+    return list(itertools.filterfalse(lambda s: len(s) < 5,strings))
 
 
 input_strings = ['hello', 'i', 'write', 'cool', 'code']
