@@ -1,12 +1,8 @@
 def print_file(file):
-    res = ""
     with open(file, "r", encoding="utf-8") as f:
-        for char in f.read():
-            if char == "\n":
-                yield res
-                res = ""
-            else:
-                res += char
+        for line in f:
+            if "\n" in line:
+                yield line[:-1]
 
 
 if __name__ == "__main__":
