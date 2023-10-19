@@ -10,6 +10,7 @@ def big(text):
         else:
             txt += n
             i += 1
+    time.sleep(3)
     return txt
 
 

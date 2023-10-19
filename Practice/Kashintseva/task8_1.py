@@ -10,18 +10,14 @@ class Reader:
     def __next__(self):
         txt = ""
         while self._i < len(self._t):
-            if self._t[self._i] != self._paragraf:
+            if self._t[self._i] == self._paragraf:
                 txt += self._t[self._i]
                 self._i += 1
-            else:
-                self._i += 1
                 return txt
+            txt += self._t[self._i]
+            self._i += 1
         else:
-            if self._i == len(self._t):
-                self._i += 1
-                return txt
-            else:
-                raise StopIteration
+            raise StopIteration
 
 
 text = "Муха села\tНа варенье,\tВот и всё\tСтихотворение."

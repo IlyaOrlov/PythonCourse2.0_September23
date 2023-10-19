@@ -1,8 +1,7 @@
-def reading(file):
+def reading(fil):
     with open(file, "r", encoding="utf-8") as f:
-        s = f.readlines()
-        for r in s:
-            yield r.strip()
+        for line in f:
+            yield line
 
 
 file = input("Введите путь к файлу: ")

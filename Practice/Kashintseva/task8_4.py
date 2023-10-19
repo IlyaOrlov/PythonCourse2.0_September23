@@ -1,4 +1,3 @@
-import os
 import itertools
 
 
@@ -13,7 +12,7 @@ def word(s):
 
 
 def diff(y):
-    d = list(itertools.combinations_with_replacement(y, 4))
+    d = list(itertools.combinations(y, 4))
     return d
 
 
