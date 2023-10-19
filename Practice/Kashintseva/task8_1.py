@@ -8,16 +8,17 @@ class Reader:
         return self
 
     def __next__(self):
-        txt = ""
-        while self._i < len(self._t):
-            if self._t[self._i] == self._paragraf:
-                txt += self._t[self._i]
+        if self._i < len(self._t):
+            txt = ""
+            while self._i < len(self._t):
+                y = self._t[self._i]
+                txt += y
                 self._i += 1
+                if y == self._paragraf:
+                    return txt
+            else:
                 return txt
-            txt += self._t[self._i]
-            self._i += 1
-        else:
-            raise StopIteration
+        raise StopIteration
 
 
 text = "Муха села\tНа варенье,\tВот и всё\tСтихотворение."

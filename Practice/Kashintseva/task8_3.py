@@ -6,10 +6,9 @@ def big(text):
     for i, n in enumerate(text, 1):
         if i % 2 == 0:
             txt += n.upper()
-            i += 1
         else:
             txt += n
-            i += 1
+    i += 1
     time.sleep(3)
     return txt
 
