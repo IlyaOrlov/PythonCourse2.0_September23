@@ -1,8 +1,7 @@
 def print_file(file):
     with open(file, "r", encoding="utf-8") as f:
         for line in f:
-            if "\n" in line:
-                yield line.rstrip("\n")
+            yield line.rstrip("\n")
 
 
 if __name__ == "__main__":
