@@ -16,7 +16,8 @@ class Pupil(Man):
     @staticmethod
     def solve_task():
         sleep(randint(3, 6))
-        
+        super(Pupil, Pupil).solve_task()
+
 
 man1 = Man("Андрей")
 man1.solve_task()
