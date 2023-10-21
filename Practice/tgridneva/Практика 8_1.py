@@ -1,22 +1,20 @@
 class ParagraphReader:
     def __init__(self, text):
         self._text = text
-        self._buffer = []
+        self._paragraphs = []
 
     def read_paragraphs(self):
-        paragraphs = []
+        paragraph = ''
         for char in self._text:
             if char == '\n':
-                if self._buffer:
-                    paragraph = ''.join(self._buffer)
-                    paragraphs.append(paragraph)
-                    self._buffer = []
+                if paragraph:
+                    self._paragraphs.append(paragraph)
+                    paragraph = ''
             else:
-                self._buffer.append(char)
-        if self._buffer:
-            paragraph = ''.join(self._buffer)
-            paragraphs.append(paragraph)
-        return paragraphs
+                paragraph += char
+        if paragraph:
+            self._paragraphs.append(paragraph)
+        return self._paragraphs
 
 
 text = "This is the first paragraph.\n\nThis is the second paragraph.\n\nThis is the third paragraph."
