@@ -1,12 +1,12 @@
 import os
 import tempfile
 
+
 class WrapStrToFile:
     def __init__(self):
         # здесь инициализируется атрибут filepath, он содержит путь до файла-хранилища
         self._filepath = tempfile.mktemp()
         print(self._filepath)
-
 
     @property
     def content(self):

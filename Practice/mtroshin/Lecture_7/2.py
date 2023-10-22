@@ -20,7 +20,7 @@ class Duck:
         return self.weight
 
     def __repr__(self):
-        return f'<Duck name={self.name()} weight={self.weight()} color={self.color}>'
+        return f'<Duck name={self.name} weight={self.weight} color={self.color}>'
 
     def __lt__(self, other):
         return self.weight < other.weight

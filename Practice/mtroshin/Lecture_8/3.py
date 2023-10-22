@@ -7,8 +7,8 @@ class ATM(object):
         return self.__balance
 
     def withdraw(self, amount):
-        if amount <= self.balance:
-            self._balance -= amount
+        if amount <= self.__balance:
+            self.__balance -= amount
             return print(f"Баланс: {self.balance}")
         else:
             return print("Недостаточно средств.")
@@ -16,7 +16,7 @@ class ATM(object):
     def deposit(self, amount):
         new_balance = self.balance + amount
         if new_balance > 0:
-            self._balance = new_balance
+            self.__balance = new_balance
             return print(f"Остаток: {self.balance}")
         else:
             return print("Ошибка!")
@@ -27,7 +27,7 @@ class ATM(object):
 class OnlineATM(ATM):
     def online_pay(self, amount):
         if amount <= self.balance:
-            self._balance -= amount
+            self.__balance -= amount
             return print(f"Остаток: {self.balance}")
         else:
             return print("Недостаточно средств.")

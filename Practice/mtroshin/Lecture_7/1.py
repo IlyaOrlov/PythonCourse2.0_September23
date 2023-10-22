@@ -9,8 +9,9 @@ class Tank:
         self.id = id
 
     def go(self, point):
-        self.point = self.point + point
+        self.point += point
         print(f"Танк {self.id} проехал {point} метров")
+
     def shoot (self):
         print(f"Танк {self.id} сделал выстрел!")
 
