@@ -34,8 +34,7 @@ class Bank2(Bank):
 
     def sbp(self, sbp):
         if sbp <= self._money:
-            self._money -= sbp
-            return f"Перевод осуществлён на сумму {sbp}. Баланс : {self.money}"
+            return f"Перевод осуществлён на сумму {sbp}."
         else:
             print("Недостаточно средств")
 
