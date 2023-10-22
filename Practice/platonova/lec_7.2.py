@@ -2,17 +2,20 @@ import time
 import random
 
 
-class Pupil:
-    def __init__(self, name, age):
+class Man:
+    def __init__(self, name):
         self.name = name
-        self.age = age
 
-    thinking_time = random.randint(3, 6)
-    time.sleep(thinking_time)
-
-    def info(self):
-        print(f"Имя ученика - {self.name}, " f"возраст - {self.age}")
+    def solve_task():
+        print("I'm not ready yet")
 
 
-x = Pupil("Иван", 8)
-x.info()
+class Pupil(Man):
+    def solve_task(self):
+        thinking_time = random.randint(3, 6)
+        time.sleep(thinking_time)
+        print("I'm not ready yet")
+
+
+x = Pupil("Иван")
+x.solve_task()
