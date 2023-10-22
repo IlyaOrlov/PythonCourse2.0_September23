@@ -1,5 +1,4 @@
 class Tanki:
-    nikname: object
     game = "Tanchiki"
 
     def __init__(self, nikname, country, age, tank):
