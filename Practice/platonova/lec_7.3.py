@@ -9,7 +9,7 @@ class Bankomat:
 
     def minus_money(self):
         sum_minus = int(input(f"Снять деньги: "))
-        if self._summa > sum_minus:
+        if self._summa >= sum_minus:
             self._summa -= sum_minus
         else:
             print("В банкомате не достаточно денег.")
