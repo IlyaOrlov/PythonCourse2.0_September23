@@ -1,5 +1,6 @@
 import os
 import time
+import shutil
 
 
 def close_time_dir_file(path):
@@ -11,7 +12,7 @@ def close_time_dir_file(path):
         else:
             if len(os.listdir(path + '\\' + i)) == 0 and (round(time.time() - os.path.getctime(path + '\\' + i)) > 120):
                 print(f"Папка ", path + '\\' + i, "удалена")
-                os.rmdir(path + '\\' + i)
+                shutil.rmtree(path + '\\' + i)
     for i in os.listdir(path):
         if os.path.isdir(path + '\\' + i):
             close_time_dir_file(path + '\\' + i)
