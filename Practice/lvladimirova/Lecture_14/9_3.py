@@ -14,12 +14,12 @@ def delete_files_and_folders(path):
             for name in dirs:
                 full_path = os.path.join(root, name)
 
-                if (os.path.isdir(full_path)) and (os.path.getmtime(full_path) < time.time() - 120):
+                if (os.path.isdir(full_path)) and (os.path.getctime(full_path) < time.time() - 120):
                     shutil.rmtree(full_path)
     except Exception as e:
         print("Ошибка при удалении файлов и папок: ", e)
 
 
-sys.path = os.path.join(os.getcwd(), "Proba")
+sys.path = r'C:\Users\Admin\PycharmProjects\PythonCourse2.0_September23\Practice\lvladimirova\Lecture_14\Proba'
 while True:
     delete_files_and_folders(sys.path)
