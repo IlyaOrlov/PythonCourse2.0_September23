@@ -12,7 +12,8 @@ class Man:
 
 
 class Pupil(Man):
-    def solve_task(self):
+    @staticmethod
+    def solve_task():
         thinking_time = random.randint(3, 6)
         time.sleep(thinking_time)
         super(Pupil, Pupil).solve_task()
