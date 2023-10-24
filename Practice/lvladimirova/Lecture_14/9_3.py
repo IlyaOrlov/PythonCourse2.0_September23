@@ -21,4 +21,4 @@ def delete_files_and_folders(path):
 
 path_to_file = r".\Proba"
 while True:
-    delete_files_and_folders(r".\Proba")
+    delete_files_and_folders(path_to_file)
