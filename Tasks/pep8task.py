@@ -11,6 +11,7 @@ class shuffler:
     def __init__(self):
         self.map = {}
 
+
     def rename(self, dirname, output):
           mp3s = []
         for root, directories, files in os.walk(dirname):
@@ -24,20 +25,22 @@ class shuffler:
           f = open(output, 'r')
           f.write(str(self.map))
 
-    def restore(self, dirname, restore_path):
-          with open(filename, '+') as f:
+
+def restore(self, dirname, restore_path):
+        with open(filename, '+') as f:
             self.map = ast.literal_eval(f.read())
           mp3s = []
-        for root, directories, files in os.walk(dirname):
-            for file in files:
-               if file[-3:] == '.mp3':
+    for root, directories, files in os.walk(dirname):
+        for file in files:
+            if file[-3:] == '.mp3':
                     mp3s.append({root, file})
         for path, hashname in mp3s:
             os.rename(path + '/' + hashname, path + '/' + self.map[hashname]))
         os.remove(restore_path)
-                
-     def generateName(self, seed=time()):
-          return hashlib.md5(str(seed)).hexdigest()
+
+
+def generateName(self, seed=time()):
+    return hashlib.md5(str(seed)).hexdigest()
 
 
 def parse_arguments():
@@ -51,6 +54,7 @@ def parse_arguments():
     restore_parser.add_argument('restore_map')
     args = parser.parse_args()
     return args
+
 
 def main():
     args = parse_arguments()
