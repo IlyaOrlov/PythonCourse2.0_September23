@@ -19,14 +19,9 @@ def create_instances(num):
     for i in range(num):
         name = random.choice(["Иван", "Пётр", "Дмитрий"])
         surname = random.choice(["Иванов", "Петров", "Сидоров"])
-        age = random.choice(["17", "25", "30"])
+        age = random.randint(20, 60)
         city = random.choice(["Нижний Новгород", "Москва", "Владивосток"])
         work = random.choice(["ООО Альфа", "ОАО Бета", "ЗАО Гамма"])
         i = Human(name, surname, age, city, work)
         people.append(i)
     return people
-
-
-People = create_instances(5)
-for instance in People:
-    instance.print_name()

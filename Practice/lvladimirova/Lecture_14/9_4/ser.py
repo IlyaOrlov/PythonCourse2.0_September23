@@ -1,8 +1,9 @@
 import pickle
-from kod import People
+from kod import create_instances
 
-p = People
+people = create_instances(5)
+for instance in people:
+    instance.print_name()
 
 with open("human.data", "wb") as f:
-    pickle.dump(p, f)
-    
+    pickle.dump(people, f)
