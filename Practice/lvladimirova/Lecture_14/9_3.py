@@ -19,6 +19,6 @@ def delete_files_and_folders(path):
         print("Ошибка при удалении файлов и папок: ", e)
 
 
-path_to_file = r'C:\Users\Admin\PycharmProjects\PythonCourse2.0_September23\Practice\lvladimirova\Lecture_14\Proba'
+path_to_file = r".\Proba"
 while True:
     delete_files_and_folders(r".\Proba")
