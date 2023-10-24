@@ -1,6 +1,5 @@
 import os
 import shutil
-import sys
 import time
 
 
@@ -20,6 +19,6 @@ def delete_files_and_folders(path):
         print("Ошибка при удалении файлов и папок: ", e)
 
 
-sys.path = r'C:\Users\Admin\PycharmProjects\PythonCourse2.0_September23\Practice\lvladimirova\Lecture_14\Proba'
+path_to_file = r'C:\Users\Admin\PycharmProjects\PythonCourse2.0_September23\Practice\lvladimirova\Lecture_14\Proba'
 while True:
-    delete_files_and_folders(sys.path)
+    delete_files_and_folders(r".\Proba")
