@@ -1,6 +1,7 @@
 import time
 import random
 
+
 class Man:
     def __init__(self, name):
         self.name = name
@@ -9,12 +10,14 @@ class Man:
     def solve_task():
         print("I'm not ready yet")
 
+
 class Pupil(Man):
 
     @staticmethod
     def solve_task():
         time.sleep(random.randint(3, 6))
         super(Pupil, Pupil).solve_task()
+
 
 p = Pupil("Петя")
 p.solve_task()
