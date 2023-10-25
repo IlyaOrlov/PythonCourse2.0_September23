@@ -15,6 +15,7 @@ class Tank:
     def shoot (self):
         print(f"Танк {self.id} сделал выстрел!")
 
+
 t1 = Tank(1)
 t2 = Tank(2)
 
