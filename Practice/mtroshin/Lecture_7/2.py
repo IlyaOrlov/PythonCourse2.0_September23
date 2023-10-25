@@ -35,7 +35,12 @@ class Duck:
         return self._weight != other._weight
 
     def __add__(self, other):
-        newduck = Duck(f"{self._name + other._name}", 0)
-        newduck.weight = self._weight + other._weight
-
+        newduck = Duck(f"{self._name + other._name}", self._weight + other._weight)
         return newduck
+
+
+d1 = Duck("первая", 22)
+d2 = Duck("вторая", 32)
+if d1 < d2:
+    d3 = d1 + d2
+    print(d3)
