@@ -2,9 +2,9 @@ class ATM(object):
     def __init__(self, balance):
         self.__balance = balance
 
-
     def __repr__(self):
         return f'Тип банкомата = {type(self).__name__},\nБаланс = {self.balance},\nПоддерживаемые операции:{self.info()}'
+
     @property
     def balance(self):
         return self.__balance
