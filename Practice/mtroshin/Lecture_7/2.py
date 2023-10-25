@@ -14,28 +14,28 @@ class Duck:
         return cls.color
 
     def name(self):
-        return self.name
+        return self._name
 
     def weight(self):
-        return self.weight
+        return self._weight
 
     def __repr__(self):
-        return f'<Duck name={self.name} weight={self.weight} color={self.color}>'
+        return f'<Duck name={self._name} weight={self._weight} color={self.color}>'
 
     def __lt__(self, other):
-        return self.weight < other.weight
+        return self._weight < other._weight
 
     def __gt__(self, other):
-        return self.weight > other.weight
+        return self._weight > other._weight
 
     def __eq__(self, other):
-        return self.weight == other.weight
+        return self._weight == other._weight
 
     def __ne__(self, other):
-        return self.weight != other.weight
+        return self._weight != other._weight
 
     def __add__(self, other):
-        newduck = Duck(f"{self.name + other.name}", 0)
-        newduck.weight = self.weight + other.weight
+        newduck = Duck(f"{self._name + other._name}", 0)
+        newduck.weight = self._weight + other._weight
 
         return newduck
