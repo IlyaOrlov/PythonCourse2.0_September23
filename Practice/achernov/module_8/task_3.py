@@ -32,11 +32,12 @@ class Bank2(Bank):
     def info():
         print("Банкомат умеет снимать, пополнять и переводить деньги онлайн")
 
-    def sbp(self, sbp):
-        if sbp <= self._money:
+    @staticmethod
+    def sbp(sbp):
+        if isinstance(sbp, int):
             return f"Перевод осуществлён на сумму {sbp}."
         else:
-            print("Недостаточно средств")
+            print("Что-то не так")
 
 
 bank1 = Bank("первыйБанк", 10000)
