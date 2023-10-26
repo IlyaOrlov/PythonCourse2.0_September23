@@ -27,6 +27,9 @@ class ATM(object):
     def info(self):
         return "вывод/внесение средств"
 
+    def online_pay(self, amount):
+        return ""
+
 
 class OnlineATM(ATM):
     def online_pay(self, amount):
@@ -39,7 +42,5 @@ class OnlineATM(ATM):
 cash_machines = [ATM(100), OnlineATM(500)]
 
 for atm in cash_machines:
-    if type(atm).__name__ == 'OnlineATM':
-        print(f"{atm}\nВнесли 11. {atm.deposit(11)}\nСняли 21. {atm.withdraw(21)}\n{atm.online_pay(111)}\n")
-    else:
-        print(f"{atm}\nВнесли 11. {atm.deposit(11)}\nСняли 21. {atm.withdraw(21)}\n\n")
+    print(f"{atm}\nВнесли 11. {atm.deposit(11)}\nСняли 21. {atm.withdraw(21)}\n{atm.online_pay(111)}\n")
+
