@@ -3,7 +3,7 @@ class ATM(object):
         self.__balance = balance
 
     def __repr__(self):
-        return f'Тип банкомата = {type(self).__name__},\nБаланс = {self.balance},\nПоддерживаемые операции:{self.info()}'
+        return f'Тип банкомата = {type(self).__name__},\nБаланс = {self.balance},\nПоддерживаемые операции:{self.info()} и {self.deposit(100)}'
 
     @property
     def balance(self):
@@ -12,17 +12,17 @@ class ATM(object):
     def withdraw(self, amount):
         if amount <= self.__balance:
             self.__balance -= amount
-            return print(f"Баланс: {self.balance}")
+            return f"Баланс: {self.balance}"
         else:
-            return print("Недостаточно средств.")
+            return "Недостаточно средств."
 
     def deposit(self, amount):
         new_balance = self.balance + amount
         if new_balance > 0:
             self.__balance = new_balance
-            return print(f"Остаток: {self.balance}")
+            return f"Остаток: {self.balance}"
         else:
-            return print("Ошибка!")
+            return "Ошибка!"
 
     def info(self):
         return "вывод/внесение средств"
@@ -30,7 +30,7 @@ class ATM(object):
 
 class OnlineATM(ATM):
     def online_pay(self, amount):
-        return print(f"Онлайн платеж совершен на сумму: {amount}")
+        return f"Онлайн платеж совершен на сумму: {amount}"
 
     def info(self):
         return "вывод/внесение средств и онлайн платежи"
@@ -39,9 +39,7 @@ class OnlineATM(ATM):
 cash_machines = [ATM(100), OnlineATM(500)]
 
 for atm in cash_machines:
-    print(f"{atm}")
-
-cash_machines[1].deposit(200)
-cash_machines[1].deposit(500)
-cash_machines[1].info()
-cash_machines[1].online_pay(200)
+    if type(atm).__name__ == 'OnlineATM':
+        print(f"{atm}\nВнесли 11. {atm.deposit(11)}\nСняли 21. {atm.withdraw(21)}\n{atm.online_pay(111)}\n")
+    else:
+        print(f"{atm}\nВнесли 11. {atm.deposit(11)}\nСняли 21. {atm.withdraw(21)}\n\n")
