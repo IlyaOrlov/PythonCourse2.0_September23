@@ -1,21 +1,19 @@
 import os
 import time
-import shutil
 from pathlib import Path
 
 
 def close_time_dir_file(path):
     for i in os.listdir(path):
-        # cur_path = os.path.join(path, i)
         cur_path = Path(path, i)
-        if os.path.isfile(cur_path):
-            if round(time.time() - os.path.getctime(cur_path)) > 60:
+        if cur_path.is_file():
+            if round(time.time() - cur_path.stat().st_ctime) > 60:
                 print("Файл ", cur_path, "удален")
-                os.remove(cur_path)
-        if os.path.isdir(cur_path):
-            if len(os.listdir(cur_path)) == 0 and (round(time.time() - os.path.getctime(cur_path)) > 120):
+                cur_path.unlink()
+        if cur_path.is_dir():
+            if len(os.listdir(cur_path)) == 0 and (round(time.time() - cur_path.stat().st_ctime) > 120):
                 print(f"Папка ", cur_path, "удалена")
-                shutil.rmtree(cur_path)
+                cur_path.rmdir()
             else:
                 close_time_dir_file(cur_path)
 
