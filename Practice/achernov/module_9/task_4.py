@@ -22,6 +22,3 @@ print(my_iter_len(second_task))
 
 third_task = "password"
 my_iter_comb(third_task)
-
-
-
