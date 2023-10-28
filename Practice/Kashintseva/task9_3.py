@@ -8,11 +8,14 @@ def deleting(f):
         while True:
             x = os.listdir(f)
             for n in x:
-                path = os.path.join(f, n)
-                if time.time() - os.path.getctime(path) > 60:
-                    os.remove(path)
-                    if time.time() - os.path.getctime(path) > 120:
-                        shutil.rmtree(path)
+                pat = os.path.join(f, n)
+                if os.path.isfile(pat):
+                    if time.time() - os.path.getctime(pat) > 60:
+                        os.remove(pat)
+                elif os.path.isdir(pat):
+                    deleting(pat)
+                    if time.time() - os.path.getctime(pat) > 120:
+                        shutil.rmtree(pat)
     else:
         print("Некорректный путь!")
 

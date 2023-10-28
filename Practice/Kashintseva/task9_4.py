@@ -30,9 +30,11 @@ def create(x):
         humans.append(h)
     return humans
 
+
 def ser(humans):
     with open("human.data", "wb") as f:
         pickle.dump(humans, f)
+
 
 def des():
     with open("human.data", "rb") as f:
