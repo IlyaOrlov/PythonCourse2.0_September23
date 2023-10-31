@@ -18,16 +18,15 @@ def copydir(source_dir, destination_dir):
     try:
         if not os.path.exists(destination_dir):
             os.makedirs(destination_dir)
-            try:
-                if not os.path.exists(source_dir):
-                    os.makedirs(source_dir)
-                    for super_dirs, dirs, files in os.walk(source_dir):
-                        for file in files:
-                            s = os.path.join(super_dirs, file)
-                            d = os.path.join(destination_dir, os.path.relpath(s, source_dir))
-                            copyfile(s, d)
-            except FileNotFoundError:
-                print(f"Директория {source_dir} не существует")
+            for super_dirs, dirs, files in os.walk(source_dir):
+                for file in files:
+                    s = os.path.join(super_dirs, file)
+                    des = os.path.join(destination_dir, os.path.relpath(s, source_dir))
+                    copyfile(s, des)
+                for name in dirs:
+                    s1 = os.path.join(super_dirs, name)
+                    d2 = os.path.join(destination_dir, os.path.relpath(s1, source_dir))
+                    copydir(s1, d2)
     except FileNotFoundError:
         print(f"Директория {destination_dir} не существует")
 
