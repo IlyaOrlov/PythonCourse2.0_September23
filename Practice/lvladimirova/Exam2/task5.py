@@ -13,7 +13,7 @@ def copy_file(source, destination):
         print("Ошибка: файл", e.filename, "уже существует.")
 
 
-def copydir(source_dir, destination_dir):
+def copy_dir(source_dir, destination_dir):
     try:
         if not os.path.exists(destination_dir):
             os.makedirs(destination_dir)
@@ -23,11 +23,11 @@ def copydir(source_dir, destination_dir):
             if os.path.isfile(source_file):
                 copy_file(source_file, destination_file)
             else:
-                os.makedirs(source_file)
+                copy_dir(source_file, destination_file)
     except FileNotFoundError as e:
-        print("Ошибка: директория", e.filename, "не найдена.")
+        print(f"Ошибка: директория: {e.filename} не найдена.")
 
 
 s_dir = "/path/to/source_dir"
 d_dir = "/path/to/destination_dir"
-copydir(s_dir, d_dir)
+copy_dir(s_dir, d_dir)
