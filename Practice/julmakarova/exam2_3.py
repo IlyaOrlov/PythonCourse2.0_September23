@@ -1,19 +1,6 @@
 import re
 
 
-def my_format(s, *args):
-    lst = s.split("{}")
-    if len(lst) - 1 > len(args):
-        print("Ошибка в количестве аргументов!")
-    else:
-        fin = ""
-        i = 0
-        while i < len(lst) - 1:
-            fin += lst[i] + args[i]
-            i += 1
-        return fin
-
-
 def my_format_str(s, *args):
     i = 0
     n = 0
@@ -61,6 +48,20 @@ def my_format_re(s, *args):
     return s
 
 
-print(my_format("{} + {} = {}", 'a', 'b', 'a+b'))
+def my_format_str1(s, *args):
+    for i, j in enumerate(args):
+        s = s.replace('{' + str(i) + '}', str(j), 1).replace('{}', str(j), 1)
+
+    return s
+
+
+def my_format_re1(s, *args):
+    for i, j in enumerate(args):
+        s = re.sub("{" + str(i) + "?}", j, s, 1)
+    return s
+
+
 print(my_format_str("{} + {} = {}", 'a', 'b', 'a+b', 'c'))
+print(my_format_str1("{} + {} = {}", 'a', 'b', 'a+b', 'c'))
 print(my_format_re("{2} + {0} = {1} ", 'a', 'b', 'a+b', 'c'))
+print(my_format_re1("{} + {} = {} ", 'a', 'b', 'a+b', 'c'))

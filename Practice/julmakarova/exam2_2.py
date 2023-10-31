@@ -18,50 +18,20 @@ class Money:
         return fl
 
     def __add__(self, other):
-        # sum_kop = self._kop + other._kop
-        # i = 0
-        # if sum_kop >= 100:
-        #     i = sum_kop//100
-        #     sum_kop = sum_kop%100
-        # sum_rub = self._rub + other._rub + i
-        # s = Money(sum_rub, sum_kop)
-        # return s
         sum_n = float(self) + float(other)
         return Money(round(sum_n, 2))
 
     def __sub__(self, other):
-        # sub_rub = self._rub - other._rub
-        # sub_kop = self._kop - other._kop
-        # if sub_kop < 0:
-        #     if sub_rub > 0:
-        #         sub_kop += 100
-        #         sub_rub -= 1
-        #     elif sub_rub < 0:
-        #         sub_kop *= -1
-        #     else:
-        #         sub_kop *= -1
-        #         sub_rub *= -1
-        # s = Money(sub_rub, sub_kop)
-        # return s
         sub_n = float(self) - float(other)
         return Money(round(sub_n, 2))
 
     def __gt__(self, other):
-        # if self._rub > other._rub or self._rub == other._rub and self._kop > other._kop:
-        #     return True
-        # return False
         return float(self) > float(other)
 
     def __lt__(self, other):
-        # if self._rub < other._rub or self._rub == other._rub and self._kop < other._kop:
-        #     return True
-        # return False
         return float(self) < float(other)
 
     def __eq__(self, other):
-        # if self._rub == other._rub and self._kop == other._kop:
-        #     return True
-        # return False
         return float(self) == float(other)
 
 

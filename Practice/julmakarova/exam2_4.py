@@ -4,7 +4,7 @@ def copyfile(source, destination):
             text = s.read()
     except FileNotFoundError:
         print(f"File for read not found!")
-
+        return None
     try:
         with open(destination, "x") as d:
             d.write(text)
@@ -13,6 +13,6 @@ def copyfile(source, destination):
         print(f"File already exists!")
 
 
-copyfile("exam_test.txt", "exam_des1.txt")
+copyfile("exam_test.txt", "exam_dest.txt")
 
 
