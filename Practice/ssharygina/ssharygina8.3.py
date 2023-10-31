@@ -4,21 +4,21 @@ import random
 
 class MyTime:
     def __enter__(self):
-        self.start = time.time()
+        self._start = time.time()
 
     def __exit__(self, exc_type, exc_val, exc_tb):
-        self.stop = time.time()
-        print(f"Время выполнения вашего кода: {self.stop-self.start} сек")
+        stop = time.time()
+        print(f"Время выполнения вашего кода: {stop-self._start} сек")
 
 
 with MyTime():
-    start = int(input("Введите начальное значение диапазона чисел: "))
-    stop = int(input("Введите конечное значение диапазона чисел: "))
-    ch = random.randint(start, stop)
+    start1 = int(input("Введите начальное значение диапазона чисел: "))
+    stop1 = int(input("Введите конечное значение диапазона чисел: "))
+    ch = random.randint(start1, stop1)
     num = input("Угадайте число, которое загадал компьютер: ")
     while num.isdecimal():
         n = int(num)
-        if start <= n <= stop:
+        if start1 <= n <= stop1:
             if n == ch:
                 print(f"Вы угадали! Компьютер загадал число: {ch}")
                 break
