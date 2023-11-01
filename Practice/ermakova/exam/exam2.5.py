@@ -17,7 +17,6 @@ def copyfile(source, destination):
 def copydir(source_dir, destination_dir):
     try:
         if not os.path.exists(destination_dir):
-            os.makedirs(destination_dir)
             for super_dirs, dirs, files in os.walk(source_dir):
                 d2 = os.path.join(destination_dir, os.path.relpath(super_dirs, source_dir))
                 os.makedirs(d2)
