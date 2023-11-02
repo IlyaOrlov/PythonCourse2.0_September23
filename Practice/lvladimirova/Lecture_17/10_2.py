@@ -1,4 +1,4 @@
-from concurrent.futures import ThreadPoolExecutor
+from multiprocessing import Pool
 
 
 def add_function(args):
@@ -13,9 +13,8 @@ def add_function(args):
         return a + b
 
 
-my_args = [(1, 2), ("good", "day"), ([1, 2, 3], [4, 5, 6])]
-
-with ThreadPoolExecutor() as executor:
-    results = executor.map(add_function, my_args)
-for result in results:
-    print(result)
+if __name__ == '__main__':
+    my_args = [(1, 2), ("good", "day"), ([1, 2, 3], [4, 5, 6])]
+    pool = Pool(processes=4)
+    result = pool.map(add_function, my_args)
+    print(f"Конечный результат: {result}")
