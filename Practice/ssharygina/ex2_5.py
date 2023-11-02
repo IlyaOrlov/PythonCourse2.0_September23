@@ -1,5 +1,4 @@
 import os
-import shutil
 
 
 def copyfile(source, destination):
@@ -17,23 +16,18 @@ def copyfile(source, destination):
         print(f"Файл уже существует!")
 
 
-def copydir(source, destination):
-    if not os.path.exists(source):
-        print(f"{source} не найдена!")
-        return
-    if not os.path.isdir(source):
-        print(f"{source} не является директорией!")
-        return
-    if os.path.exists(destination):
-        print(f"Директория {destination} уже существует!")
-        return
+def copydir(source1, destination1):
     try:
-        shutil.copytree(source, destination)
-        print(f"Директория {source} успешно скопирована в директорию {destination}!")
-    except (FileNotFoundError, FileExistsError) as e:
-        print(e)
+        if not os.path.exists(destination1):
+            for super_dirs, dirs, files in os.walk(source1):
+                d2 = os.path.join(destination1, os.path.relpath(super_dirs, source1))
+                os.makedirs(d2)
+                for file in files:
+                    s1 = os.path.join(super_dirs, file)
+                    d1 = os.path.join(destination1, os.path.relpath(s1, source1))
+                    copyfile(s1, d1)
+    except FileNotFoundError:
+        print(f"Директория {destination1} не существует!")
 
 
-source1 = "5"
-destination1 = "6"
-copydir(source1, destination1)
+copydir("5", "dir2")
