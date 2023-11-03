@@ -6,9 +6,9 @@ def summa(*args):
     for arg in args:
         if isinstance(arg, int):
             result = sum(args)
-        if isinstance(arg, str):
+        elif isinstance(arg, str):
             result = ''.join(args)
-        if isinstance(arg, list):
+        elif isinstance(arg, list):
             result.extend(arg)
     print(result)
 
