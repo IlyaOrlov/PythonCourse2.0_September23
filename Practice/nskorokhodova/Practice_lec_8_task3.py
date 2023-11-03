@@ -1,37 +1,55 @@
-class Bankomat(object):
-    def __init__(self, amount):
-        self.__amount = amount
+class Bankomat:
+    def __init__(self, balance):
+        self.balance = balance
+        self.supported_operations = []
 
-    @property
-    def amount(self):
-        return self.__amount
+    def check_balance(self):
+        print(f"Баланс: {self.balance}")
 
+    def deposit(self, amount):
+        self.balance += amount
+        print(f"Пополнение на сумму {amount} прошло успешно. Новый баланс: {self.balance}")
 
-def cashwithdrawal(self, nal):
-    if nal <= self.__amount:
-        self.__amount -= nal
-        return print(f"На карте: {self.amount}")
-    else:
-        return print("Недостаточно средств.")
+    def withdraw(self, amount):
+        if amount <= self.balance:
+            self.balance -= amount
+            print(f"Снятие наличных в размере {amount} прошло успешно. Новый баланс: {self.balance}")
+        else:
+            print("Недостаточно средств на счете.")
 
-
-def deposit(self, nal):
-    new_balance = self.amount + nal
-    if new_balance > 0:
-        self.__amount = new_balance
-        return print(f"Остаток средств: {self.amount}")
-    else:
-        return print("Ошибка!")
+    def get_supported_operations(self):
+        print(f"Поддерживаемые операции: {', '.join(self.supported_operations)}")
 
 
 class Online(Bankomat):
-    def online_pay(self, amount):
-        return print(f"Выполнен онлайн платеж на сумму: {amount}")
+    def __init__(self, balance):
+        super().__init__(balance)
+        self.supported_operations = ["Платежи онлайн"]
 
-    def info(self):
-        return "вывод/внесение средств и онлайн платежи"
+    def make_online_payment(self, amount):
+        if "Платежи онлайн" in self.supported_operations:
+            if self.balance >= amount:
+                self.balance -= amount
+                print(f"Онлайн платеж в размере {amount} прошел успешно. Новый баланс: {self.balance}")
+            else:
+                print("Недостаточно средств на счете.")
+        else:
+            print("Операция 'Платежи онлайн' не поддерживается этим банкоматом.")
 
 
-bankomat1 = Bankomat(50)
-bankomat2 = Online(100)
-print(bankomat1.amount, bankomat2.amount)
+atm1 = Bankomat(1000)
+atm2 = Online(2000)
+
+atms = [atm1, atm2]
+
+for atm in atms:
+    print(f"Банкомат с балансом  {atm.balance}")
+    atm.check_balance()
+    atm.get_supported_operations()
+
+    if "Онлайн-платежи" in atm.supported_operations:
+        atm.make_online_payment(100)
+
+    atm.deposit(200)
+    atm.withdraw(300)
+    print("\n")
