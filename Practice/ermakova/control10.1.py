@@ -1,22 +1,18 @@
 import time
 import threading
 import multiprocessing
+from math import sqrt
 
 
 def find_primes(end, start=3):
     lst = []
-    for i in range(start, end + 1, 2):
-        if (i > 10) and (i % 10 == 5):
-            continue
-        for j in lst:
-            if j * j - 1 > i:
-                lst.append(i)
-                break
+    for i in range(start, end + 1):
+        for j in range(2, int(sqrt(i) + 1)):
             if i % j == 0:
                 break
         else:
             lst.append(i)
-    return lst
+    print(f"{lst}\n")
 
 
 if __name__ == "__main__":
