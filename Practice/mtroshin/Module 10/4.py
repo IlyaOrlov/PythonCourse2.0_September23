@@ -7,6 +7,7 @@
 import random
 import pickle
 
+
 class Human:
     def __init__(self, name, surname, age, city, country):
         self.name = name
@@ -35,13 +36,15 @@ def create_and_save_humans(humans_count):
                 print(human.name, human.surname, human.age, human.city, human.country)
                 pickle.dump((human.name, human.surname, human.age, human.city, human.country), file)
 
+
 def load_print_dump(counts):
     i=1
     with open('Humans_dump.pkl','rb') as file:
         while i < counts:
             content = pickle.load(file)
             print(content)
-            i+=1
+            i += 1
+
 
 create_and_save_humans(5)
 load_print_dump(5)
