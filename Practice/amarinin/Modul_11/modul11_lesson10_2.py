@@ -4,7 +4,7 @@ from multiprocessing import Pool
 
 
 def add_all(d):
-    time.sleep(1)
+    time.sleep(0.1)
     print(f"N:{os.getpid() : < 8}{d[0] + d[1]}") if str(type(d[0])) == str(type(d[1])) \
         else print(os.getpid(), None)
 
