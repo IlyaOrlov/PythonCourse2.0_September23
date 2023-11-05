@@ -1,14 +1,18 @@
+import random
 import threading
+import random
 
 
 def hold(data):
-    print(f'Имя потока: {threading.current_thread().name}, хранит данные: {data}')
+    data = random.randint(1, 100)
+    local.value = data
+    print(f'Имя потока: {threading.current_thread().name}, хранит данные: {local.value}')
 
 
-d = ("Иван Иванов", "30 лет", "Высшее образование")
+local = threading.local()
 threads = []
 for i in range(3):
-    thr = threading.Thread(target=hold, args=(d,))
+    thr = threading.Thread(target=hold, args=(local,))
     thr.start()
     threads.append(thr)
 
