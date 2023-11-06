@@ -20,21 +20,24 @@ class Bankomat:
     def get_supported_operations(self):
         print(f"Поддерживаемые операции: {', '.join(self.supported_operations)}")
 
+    def make_online_payment(self, amount):
+        pass
+
 
 class Online(Bankomat):
     def __init__(self, balance):
         super().__init__(balance)
-        self.supported_operations = ["Платежи онлайн"]
+        self.supported_operations = ["Онлайн платежи"]
 
     def make_online_payment(self, amount):
-        if "Платежи онлайн" in self.supported_operations:
+        if "Онлайн платежи" in self.supported_operations:
             if self.balance >= amount:
                 self.balance -= amount
                 print(f"Онлайн платеж в размере {amount} прошел успешно. Новый баланс: {self.balance}")
             else:
                 print("Недостаточно средств на счете.")
         else:
-            print("Операция 'Платежи онлайн' не поддерживается этим банкоматом.")
+            print("Операция 'Онлайн платеж' не поддерживается этим банкоматом.")
 
 
 atm1 = Bankomat(1000)
@@ -46,9 +49,6 @@ for atm in atms:
     print(f"Банкомат с балансом  {atm.balance}")
     atm.check_balance()
     atm.get_supported_operations()
-
-    if "Онлайн-платежи" in atm.supported_operations:
-        atm.make_online_payment(100)
 
     atm.deposit(200)
     atm.withdraw(300)
