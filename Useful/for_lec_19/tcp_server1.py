@@ -14,4 +14,4 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
         with conn:
             print('Server got connection from {}'.format(addr))
             # Преобразуем строку в набор байтов (ascii в utf-8) и отправляем
-            conn.send('Thank you for the connection'.encode())
+            conn.send('Спасибо за подключение'.encode())

@@ -17,5 +17,5 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
     while True:
         conn, addr = s.accept()
         with conn:
-            print('Server got connection from {}'.format(addr))
+            print(f'Server got connection from {addr}')
             conn.send(pickle.dumps(a))
