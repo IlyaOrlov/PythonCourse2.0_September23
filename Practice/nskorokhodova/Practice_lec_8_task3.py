@@ -29,7 +29,7 @@ class Bankomat:
 class Online(Bankomat):
     def __init__(self, balance):
         super().__init__(balance)
-        self.supported_operations = Bankomat.ONLINE_PAYMENT
+        self.supported_operations = [Bankomat.ONLINE_PAYMENT]
 
     def make_online_payment(self, amount):
         if Bankomat.ONLINE_PAYMENT in self.supported_operations:
