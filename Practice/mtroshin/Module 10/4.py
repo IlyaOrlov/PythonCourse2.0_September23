@@ -32,7 +32,7 @@ def create_and_save_humans(humans_count):
             humans.append(human)
 
         with open('Humans_dump.pkl', "wb") as file:
-            pickle.dumps(humans, file)
+            pickle.dump(humans, file)
 
             # for human in humans:
             #     print(human.name, human.surname, human.age, human.city, human.country)
