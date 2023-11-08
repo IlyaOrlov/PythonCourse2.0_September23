@@ -16,8 +16,11 @@ class Human:
         self.city = city
         self.country = country
 
-    def print_info(self):
-        print(f"Name: {self.name}, Surname: {self.surname}, Age: {self.age}, City: {self.city}, Country: {self.country}")
+    def __repr__(self):
+        return f"Name: {self.name}, Surname: {self.surname}, Age: {self.age}, City: {self.city}, Country: {self.country}"
+
+    # def print_info(self):
+    #     print(f"Name: {self.name}, Surname: {self.surname}, Age: {self.age}, City: {self.city}, Country: {self.country}")
 
 
 def create_and_save_humans(humans_count):
