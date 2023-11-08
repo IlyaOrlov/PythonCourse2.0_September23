@@ -20,8 +20,6 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
             lst_words = []
             for word in words_shifr:
                 lst_words.append(dictionary.get(word))
-
-            # Отправляем список расшифрованных фраз клиенту
             itog = ','.join(lst_words).encode()
             conn.send(itog)
             print("Отправлена расшифровка!")
