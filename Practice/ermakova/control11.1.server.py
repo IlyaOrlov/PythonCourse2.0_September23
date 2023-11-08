@@ -7,6 +7,10 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
     port = 12345
     s.bind((host, port))
     s.listen(5)
+    dictionary = {'ВМГП': 'Волшебный мир Гарри Поттера',
+                  'ЗОТИ': 'Защита от Темных искусств',
+                  'ОД': 'Отряд Дамблдора',
+                  'УЗМС': 'Уход за магическими существами'}
     while True:
         conn, addr = s.accept()
         with conn:
@@ -15,10 +19,6 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
             words_shifr = pickle.loads(shifr)
             print("Получены зашифрованные слова: ", words_shifr)
             lst_words = []
-            dictionary = {'ВМГП': 'Волшебный мир Гарри Поттера',
-                          'ЗОТИ': 'Защита от Темных искусств',
-                          'ОД': 'Отряд Дамблдора',
-                          'УЗМС': 'Уход за магическими существами'}
             for word in words_shifr:
                 lst_words.append(dictionary.get(word))
             conn.send(pickle.dumps(lst_words))
