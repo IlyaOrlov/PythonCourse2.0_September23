@@ -12,7 +12,7 @@ class Tank:
         self.point += point
         print(f"Танк {self.id} проехал {point} метров")
 
-    def shoot (self):
+    def shoot(self):
         print(f"Танк {self.id} сделал выстрел!")
 
 
