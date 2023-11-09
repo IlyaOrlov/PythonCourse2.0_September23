@@ -1,6 +1,6 @@
 import socket
 import pickle
-import time
+# import time
 import User
 
 
@@ -13,7 +13,10 @@ class TcpClient:
     def run(self):
         self._socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self._socket.connect((self.host, self.port))
-        time.sleep(5)
+        # Здесь время ожидания роли не играет,
+        # даже если одновременно запустить более 5 клиентов, вводить все равно будет по одному,
+        # значит в очереди будет оставаться всегда меньше 5.
+        # time.sleep(5)
         self._socket.send(pickle.dumps(user))
         print("Данные отправлены!")
 

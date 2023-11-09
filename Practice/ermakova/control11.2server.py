@@ -34,7 +34,7 @@ class TcpServer:
         print('Server is up')
         while self._running:
             conn, addr = self._socket.accept()
-            print(f"Подключен пользователь:{pickle.loads(conn.recv(2048))}")
+            print("Подключен: {}".format(pickle.loads(conn.recv(2048))))
             ClientThread(conn, addr).start()
 
     def stop(self):
