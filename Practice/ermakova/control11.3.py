@@ -8,15 +8,13 @@ web_page = response.read().decode()
 
 s = re.compile(r'href="(.*?)"')
 res = re.findall(s, web_page)
-lst = []
 for j in res:
-    if j.startswith('http'):
-        lst.append(j)
-    else:
-        lst.append(url + j)
-for i in lst:
     try:
-        if request.urlopen(i).getcode() == 200:
-            print(f"Ссылка {i} исправна.")
+        if j.startswith('http'):
+            if request.urlopen(j).getcode() == 200:
+                print(f"Ссылка {j} исправна.")
+        else:
+            if request.urlopen(url + j).getcode() == 200:
+                print(f"Ссылка {url + j} исправна.")
     except Exception as e:
-        print(f"Ссылка {i} не доступна из за {e}")
+        print(f"Ссылка {j} не доступна из за {e}")
