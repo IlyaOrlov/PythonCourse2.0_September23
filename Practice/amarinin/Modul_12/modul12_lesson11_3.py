@@ -6,7 +6,7 @@ if __name__ == "__main__":
     req = request.Request('http://google.com')
     response = request.urlopen(req)
     web_page = response.read().decode()
-    supp = (re.findall(r'href="(h.*?)"', web_page))
+    supp = re.findall(r'href="(h.*?)"', web_page)
     for i in supp:
         try:
             a = request.Request(i)
