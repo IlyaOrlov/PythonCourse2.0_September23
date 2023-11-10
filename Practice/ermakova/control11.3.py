@@ -17,4 +17,4 @@ for j in res:
             if request.urlopen(url + j).getcode() == 200:
                 print(f"Ссылка {url + j} исправна.")
     except Exception as e:
-        print(f"Ссылка {j} не доступна из за {e}")
+        print(f"Ссылка {j} не доступна из-за {e}")
