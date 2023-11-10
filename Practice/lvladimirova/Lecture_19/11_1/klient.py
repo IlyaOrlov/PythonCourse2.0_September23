@@ -9,19 +9,17 @@ class MyClient:
         self._socket = None
 
     def connect_server(self, encrypted_words):
-        self._socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        try:
-            self._socket.connect((self.host, self.port))
-            print('Соединение с сервером установлено')
-            data = pickle.dumps(encrypted_words)
-            self._socket.send(data)
-            response = self._socket.recv(1024)
-            decrypted_words = pickle.loads(response)
-            return decrypted_words
-        except Exception as e:
-            print(f"Ошибка при работе с сервером: {e}")
-        finally:
-            self._socket.close()
+        with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as self._socket:
+            try:
+                self._socket.connect((self.host, self.port))
+                print('Соединение с сервером установлено')
+                data = pickle.dumps(encrypted_words)
+                self._socket.send(data)
+                response = self._socket.recv(1024)
+                decrypted_words = pickle.loads(response)
+                return decrypted_words
+            except Exception as e:
+                print(f"Ошибка при работе с сервером: {e}")
 
 
 if __name__ == "__main__":

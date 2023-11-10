@@ -27,11 +27,12 @@ class MyServer:
             try:
                 conn, addr = self._socket.accept()
                 print(f"Получен запрос на соединение от: {addr}")
-                data = conn.recv(1024)
-                encrypted_words = pickle.loads(data)
-                decrypted_words = self.decrypt_words(encrypted_words)
-                data = pickle.dumps(decrypted_words)
-                conn.send(data)
+                with conn:
+                    data = conn.recv(1024)
+                    encrypted_words = pickle.loads(data)
+                    decrypted_words = self.decrypt_words(encrypted_words)
+                    data = pickle.dumps(decrypted_words)
+                    conn.send(data)
             except Exception as e:
                 print('Ошибка при работе с клиентом:', e)
 
