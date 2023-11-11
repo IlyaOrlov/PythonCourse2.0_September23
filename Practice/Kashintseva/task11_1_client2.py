@@ -8,14 +8,13 @@ class TcpClient:
         self._socket = None
 
     def run(self):
-        self._socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        self._socket.connect((self.host, self.port))
-        words = ["Мск", "СПБ", "НН", "Гусь"]
-        self._socket.send(",".join(words).encode())
-        print(f"Список зашифрованных слов направлен")
-        d = self._socket.recv(1024)
-        print(f'Расшифрованные слова: {d.decode()}')
-        self._socket.close()
+        with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as self._socket:
+            self._socket.connect((self.host, self.port))
+            words = ["Мск", "СПБ", "НН", "Гусь", "Влад"]
+            self._socket.send(",".join(words).encode())
+            print(f"Список зашифрованных слов направлен")
+            d = self._socket.recv(1024)
+            print(f'Расшифрованные слова: {d.decode()}')
 
 
 if __name__ == '__main__':

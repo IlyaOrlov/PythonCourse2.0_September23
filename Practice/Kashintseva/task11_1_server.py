@@ -15,6 +15,8 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
             c1 = ""
             for i in c:
                 if i in sh:
-                    c1 += sh[i] + " "
+                    c1 += sh[i] + ", "
+                else:
+                    c1 += "введено что-то неизвестное"
             conn.send(c1.encode())
             print(f"Список расшифрованных слов направлен.")
