@@ -28,6 +28,9 @@ class ServerForUser:
         self._socket.close()
         print("Сервер отключен")
 
+    def __del__(self):
+        self._socket.close()
+
 
 if __name__ == '__main__':
     server = ServerForUser(host='127.0.0.1', port=5432)
