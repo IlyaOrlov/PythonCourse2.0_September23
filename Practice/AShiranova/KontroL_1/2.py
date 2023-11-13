@@ -2,9 +2,7 @@ def my_reverse(my_list):
     last_index = len(my_list) - 1
     half_size = len(my_list) // 2
     for i in range(0, half_size):
-        temp = my_list[last_index]
-        my_list[last_index] = my_list[i]
-        my_list[i] = temp
+        my_list[last_index], my_list[i] = my_list[i], my_list[last_index]
         last_index -= 1
     return my_list
 
