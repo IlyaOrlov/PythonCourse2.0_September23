@@ -2,35 +2,33 @@ class ParagraphIterator:
     def __init__(self, text, paragraph_symbol):
         self.text = text
         self.paragraph_symbol = paragraph_symbol
-        self.buffer = ''
-        self.i = 0
+        self.index = 0
 
     def __iter__(self):
         return self
 
     def __next__(self):
-        while self.i < len(self.text):
-            if self.text[self.i] == self.paragraph_symbol:
-                result = self.buffer
-                self.buffer = ''
-                self.i += 1
-                return result
-            else:
-                self.buffer += self.text[self.i]
-                self.i += 1
+        if self.index == len(self.text):
+            raise StopIteration
 
-        if self.buffer != '':
-            result = self.buffer
-            self.buffer = ''
-            return result
+        buffer = ''
 
-        raise StopIteration()
+        while self.index < len(self.text):
+            char = self.text[self.index]
+
+            if char == self.paragraph_symbol:
+                self.index += 1
+                return buffer.strip()
+
+            buffer += char
+            self.index += 1
+
+        return buffer.strip()
 
 
+text = "Это первый параграф. §А это второй параграф. §А это третий параграф"
+symbol = '§'
 
-text = 'Это первый параграф. §А это второй параграф. §А это третий параграф.'
-
-iterator = ParagraphIterator(text, '§')
-
-for paragraph in iterator:
+paragraph_iterator = ParagraphIterator(text, symbol)
+for paragraph in paragraph_iterator:
     print(paragraph)
