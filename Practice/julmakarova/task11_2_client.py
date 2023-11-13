@@ -10,12 +10,11 @@ class ClientUser:
         self._socket = None
 
     def run(self):
-        self._socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        with self._socket as s:
-            s.connect((self.host, self.port))
+        with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as self._socket:
+            self._socket.connect((self.host, self.port))
             cl_user = User(input("Введите имя: "), input("Введите возраст: "))
-            s.send(pickle.dumps(cl_user))
-            print(s.recv(1024).decode())
+            self._socket.send(pickle.dumps(cl_user))
+            print(self._socket.recv(1024).decode())
 
 
 if __name__ == "__main__":
