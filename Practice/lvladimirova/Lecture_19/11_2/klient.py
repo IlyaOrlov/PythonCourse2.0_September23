@@ -18,19 +18,8 @@ class MyClient:
         data = pickle.dumps(user)
         self._socket.send(data)
 
-    def receive_message(self):
-        data = []
-        while True:
-            x = self._socket.recv(4096)
-            if not x:
-                break
-            data.append(x)
-            message = pickle.loads(b''.join(data))
-            return message
-
-    def disconnect(self):
+    def __del__(self):
         self._socket.close()
-        print('Подключение к серверу закрыто')
 
 
 if __name__ == "__main__":
@@ -40,5 +29,4 @@ if __name__ == "__main__":
     age = input('Введите возраст пользователя: ')
     new_user = User(name, age)
     client.send_user(new_user)
-    response = client.receive_message()
-    print(response)
+
