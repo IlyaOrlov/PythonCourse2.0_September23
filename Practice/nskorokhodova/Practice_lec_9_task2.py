@@ -1,4 +1,8 @@
-path_to_file = "C:\Python\python.exe\Files\info.txt"
-with open(path_to_file) as file:
-    for num_line, line in enumerate(file):
-        print(num_line, line)
+def read_file(file_path):
+    with open(file_path, 'r') as file:
+        for line in file:
+            yield line.rstrip('\n')
+
+file_path = 'C:\Python\python.exe\..\Files\info.txt'
+for line in read_file(file_path):
+    print(line)
