@@ -19,14 +19,9 @@ class MyClient:
         self._socket.send(data)
 
     def receive_message(self):
-        data = b""
-        while True:
-            x = self._socket.recv(4096)
-            if not x:
-                break
-            data += x
-            message = pickle.loads(data)
-            return message
+        data = self._socket.recv(4096)
+        message = pickle.loads(data)
+        return message
 
     def __del__(self):
         self._socket.close()
