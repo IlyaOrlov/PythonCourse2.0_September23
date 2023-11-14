@@ -22,27 +22,29 @@ def find_primes(end, start):
     print(lst)
 
 
-start = time.perf_counter()
-find_primes(10000,3)
-find_primes(20000,10001)
-find_primes(30000,20001)
-print(f'Общее время вычислений в секундах: {time.perf_counter() - start}\n')
-
-start = time.perf_counter()
-threads = []
-thr1 = threading.Thread(target=find_primes, args=(10000, 1))
-thr2 = threading.Thread(target=find_primes, args=(20000, 10001))
-thr3 = threading.Thread(target=find_primes, args=(30000, 20001))
-thr1.start()
-thr2.start()
-thr3.start()
-thr1.join()
-thr2.join()
-thr3.join()
-
-print(f'Общее время вычислений в секундах: {time.perf_counter() - start}\n')
-
 if __name__ == '__main__':
+
+    start = time.perf_counter()
+    find_primes(10000,3)
+    find_primes(20000,10001)
+    find_primes(30000,20001)
+    print(f'Общее время вычислений в секундах: {time.perf_counter() - start}\n')
+
+    start = time.perf_counter()
+    threads = []
+    thr1 = threading.Thread(target=find_primes, args=(10000, 1))
+    thr2 = threading.Thread(target=find_primes, args=(20000, 10001))
+    thr3 = threading.Thread(target=find_primes, args=(30000, 20001))
+    thr1.start()
+    thr2.start()
+    thr3.start()
+    thr1.join()
+    thr2.join()
+    thr3.join()
+
+    print(f'Общее время вычислений в секундах: {time.perf_counter() - start}\n')
+
+
     start = time.perf_counter()
     p1 = multiprocessing.Process(target=find_primes, args=(10000, 1))
     p2 = multiprocessing.Process(target=find_primes, args=(20000, 10001))
