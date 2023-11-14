@@ -24,8 +24,8 @@ class MyServer:
                     data = conn.recv(1024)
                     user = pickle.loads(data)
                     connected_users.append(user)
-                    for user in connected_users:
-                        print(user)
+                    for new_user in connected_users:
+                        print(new_user)
                     message = f'Добро пожаловать, {user.name}!'
                     response = pickle.dumps(message)
                     conn.send(response)
