@@ -41,15 +41,15 @@ if __name__ == "__main__":
     name_db = "test_db.db"
 
     if not os.path.exists(name_db):
-        reqToJson = SQLtoJson(name_db)
-        reqToJson.execute("CREATE TABLE Car (Id INTEGER PRIMARY KEY AUTOINCREMENT, Name CHAR(128) NOT NULL,"
-                          "Speed INTEGER DEFAULT 0, Consum INTEGER DEFAULT 0)")
-        reqToJson.execute("INSERT INTO Car (Name, Speed, Consum) VALUES ('Voyah', 250, 9)")
-        reqToJson.execute("INSERT INTO Car (Name, Speed, Consum) VALUES ('Exeed', 230, 17)")
-        reqToJson.execute("INSERT INTO Car (Name, Speed, Consum) VALUES ('Zeekr', 280, 7)")
-        reqToJson.execute("INSERT INTO Car (Name, Speed, Consum) VALUES ('Lixiang', 280, 9)")
+        with SQLtoJson(name_db) as r:
+            r.execute("CREATE TABLE Car (Id INTEGER PRIMARY KEY AUTOINCREMENT, Name CHAR(128) NOT NULL,"
+                      "Speed INTEGER DEFAULT 0, Consum INTEGER DEFAULT 0)")
+            r.execute("INSERT INTO Car (Name, Speed, Consum) VALUES ('Voyah', 250, 9)")
+            r.execute("INSERT INTO Car (Name, Speed, Consum) VALUES ('Exeed', 230, 17)")
+            r.execute("INSERT INTO Car (Name, Speed, Consum) VALUES ('Zeekr', 280, 7)")
+            r.execute("INSERT INTO Car (Name, Speed, Consum) VALUES ('Lixiang', 280, 9)")
     else:
-        reqToJson = SQLtoJson(name_db)
-        print(reqToJson.select("SELECT * FROM Car"))
-        print(reqToJson.select("SELECT * FROM Car AS C WHERE C.Speed = :sp", {'sp': 280}))
+        with SQLtoJson(name_db) as r:
+            print(r.select("SELECT * FROM Car"))
+            print(r.select("SELECT * FROM Car AS C WHERE C.Speed = :sp", {'sp': 280}))
 
