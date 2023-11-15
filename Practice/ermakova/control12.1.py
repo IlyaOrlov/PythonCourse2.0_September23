@@ -17,11 +17,10 @@ class ClassWrapper:
     def read(self, query, *params):
         cursor = self._conn.cursor()
         try:
+            cursor.row_factory = sqlite3.Row
             if params:
-                cursor.row_factory = sqlite3.Row
                 cursor.execute(query, *params)
             else:
-                cursor.row_factory = sqlite3.Row
                 cursor.execute(query)
             results = [dict(row) for row in cursor.fetchall()]
             return {"STATUS": "SUCCESS", "RESULT": results, "MESSAGE": None}
