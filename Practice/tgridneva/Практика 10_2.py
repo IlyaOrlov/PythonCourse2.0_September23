@@ -1,4 +1,4 @@
-import threading
+import concurrent.futures
 
 
 def add_arguments(a, b):
@@ -18,16 +18,16 @@ argument_sets = [
     ([1, 2, 3], [4, 5, 6])
 ]
 
-threads = []
 results = []
 
-for args in argument_sets:
-    thread = threading.Thread(target=lambda: results.append(add_arguments(*args)))
-    thread.start()
-    threads.append(thread)
 
-for thread in threads:
-    thread.join()
+def process_arguments(args):
+    result = add_arguments(*args)
+    return result
 
-for result in results:
-    print("Result:", result)
+
+with concurrent.futures.ThreadPoolExecutor() as executor:
+    futures = [executor.submit(process_arguments, args) for args in argument_sets]
+    results = [future.result() for future in concurrent.futures.as_completed(futures)]
+
+print("Results:", results)
