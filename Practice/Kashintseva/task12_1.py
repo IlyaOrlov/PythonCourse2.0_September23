@@ -38,7 +38,7 @@ if __name__ == "__main__":
             new = db.changes("UPDATE Children "
                              "SET Height = :new_height "
                              "WHERE Id = :child_id ",
-                             {'сhild_id': child_id, 'new_grup': new_height})
+                             {'сhild_id': child_id, 'new_height': new_height})
             print(json.dumps({"Изменение данных": "успешно"}))
         else:
             print(json.dumps({"Изменение данных": "ошибка ввода. Данные изменить не удалось"}))
