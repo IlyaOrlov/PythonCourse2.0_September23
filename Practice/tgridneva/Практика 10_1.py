@@ -3,56 +3,58 @@ import threading
 import multiprocessing
 
 
-def is_prime(n):
-    if n <= 1:
-        return False
-    for i in range(2, int(n ** 0.5) + 1):
-        if n % i == 0:
-            return False
-    return True
+def find_primes(*args):
+    if len(args) == 2:
+        start = args[0]
+        end = args[1]
+    else:
+        start = 3
+        end = args[0]
+
+    pr_num = []
+    for i in range(start, end + 1):
+        for j in range(2, int(i ** 0.5) + 1):
+            if i % j == 0:
+                break
+        else:
+            pr_num.append(i)
+    return pr_num
 
 
-def find_primes(start=3, end=100):
-    primes = []
-    for num in range(start, end + 1):
-        if is_prime(num):
-            primes.append(num)
-    return primes
+if __name__ == "__main__":
+    par = (3, 10000, 10001, 20000, 20001, 30000)
 
+    s_time = time.perf_counter()
+    i = 0
+    while i < len(par) - 1:
+        find_primes(par[i], par[i + 1])
+        i += 2
+    print("Sequential Execution Time: {round(time.perf_counter() - s_time, 2)}")
 
-start_time = time.time()
-primes1 = find_primes(3, 10000)
-primes2 = find_primes(10001, 20000)
-primes3 = find_primes(20001, 30000)
-end_time = time.time()
-sequential_time = end_time - start_time
+    s_time = time.perf_counter()
+    threads = []
+    i = 0
+    while i < len(par) - 1:
+        thr = threading.Thread(target=find_primes, args=(par[i], par[i + 1]))
+        thr.start()
+        threads.append(thr)
+        i += 2
 
-start_time = time.time()
-thread1 = threading.Thread(target=find_primes, args=(3, 10000))
-thread2 = threading.Thread(target=find_primes, args=(10001, 20000))
-thread3 = threading.Thread(target=find_primes, args=(20001, 30000))
-thread1.start()
-thread2.start()
-thread3.start()
-thread1.join()
-thread2.join()
-thread3.join()
-end_time = time.time()
-thread_time = end_time - start_time
+    for thr in threads:
+        thr.join()
 
-start_time = time.time()
-process1 = multiprocessing.Process(target=find_primes, args=(3, 10000))
-process2 = multiprocessing.Process(target=find_primes, args=(10001, 20000))
-process3 = multiprocessing.Process(target=find_primes, args=(20001, 30000))
-process1.start()
-process2.start()
-process3.start()
-process1.join()
-process2.join()
-process3.join()
-end_time = time.time()
-process_time = end_time - start_time
+    print(f"Thread Execution Time: {round(time.perf_counter() - s_time, 2)}")
 
-print("Sequential Execution Time:", sequential_time)
-print("Thread Execution Time:", thread_time)
-print("Process Execution Time:", process_time)
+    s_time = time.perf_counter()
+    processes = []
+    i = 0
+    while i < len(par) - 1:
+        p = multiprocessing.Process(target=find_primes, args=(par[i], par[i + 1]))
+        p.start()
+        processes.append(p)
+        i += 2
+
+    for p in processes:
+        p.join()
+
+    print(f"Process Execution Time: {round(time.perf_counter() - s_time, 2)}")
