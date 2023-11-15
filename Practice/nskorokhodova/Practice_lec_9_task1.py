@@ -15,3 +15,19 @@ class ParagraphIterator:
         paragraph = self.paragraphs[self.current_paragraph]
         self.current_paragraph += 1
         return paragraph.strip()
+
+#  а если вообще через функцию это реализовать, а не через класс? это будет правильно?
+def paragraph_iterator(text, paragraph_symbol):
+    paragraphs = text.split(paragraph_symbol)
+
+    for paragraph in paragraphs:
+        yield paragraph
+
+
+t = "Текст первого параграфа.Текст второго параграфа.Текст третьего параграфа."
+symbol = "."
+
+iterator = paragraph_iterator(t, symbol)
+
+for paragraph in iterator:
+    print(paragraph)

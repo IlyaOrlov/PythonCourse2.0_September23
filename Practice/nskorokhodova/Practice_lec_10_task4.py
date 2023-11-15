@@ -23,12 +23,12 @@ def create_humans(num_humans):
 
 
 def serialize(humans):
-    with (open("human.data", "wb") as file):
+    with open("human.data", "wb") as file:
         pickle.dump(humans, file)
 
 
 def deserialize():
-    with (open("human.data", "rb") as file):
+    with open("human.data", "rb") as file:
         humans = pickle.load(file)
         for human in humans:
             print(human.name, human.surname, human.age, human.address)
