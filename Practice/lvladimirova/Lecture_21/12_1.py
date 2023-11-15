@@ -16,18 +16,16 @@ class SQLiteWrapper:
         self.conn.close()
 
     def create_users_table(self):
-        self.cursor.execute('''
-        CREATE TABLE IF NOT EXISTS users (
-        id INTEGER PRIMARY KEY,
-        name TEXT NOT NULL,
-        age INTEGER
-        )''')
+        self.cursor.execute("CREATE TABLE IF NOT EXISTS users"
+                            "    (Id        INTEGER    PRIMARY KEY,"
+                            "     Name      TEXT       NOT NULL,"
+                            "     Age       INTEGER    NOT NULL)")
         self.conn.commit()
 
     def read(self, query, *params):
         self.cursor.execute(query, params)
-        columns = [column[0] for column in self.cursor.description]
-        data = [dict(zip(columns, row)) for row in self.cursor.fetchall()]
+        self.cursor.row_factory = sqlite3.Row
+        data = [dict(row) for row in self.cursor.fetchall()]
         return json.dumps(data)
 
     def write(self, query, *params):
@@ -44,13 +42,10 @@ if __name__ == "__main__":
     with SQLiteWrapper(my_db_file) as db:
         result_json = db.read("SELECT * FROM users")
         print(result_json)
-        age = 0
-        while (input_data := input("Введите имя (введите 'стоп' для завершения): ")) != 'стоп':
-            while True:
-                try:
-                    age = int(input("Введите возраст: "))
-                    break
-                except ValueError:
-                    print("Неправильный формат возраста. Пожалуйста, введите число.")
-                    write_result_json = db.write("INSERT INTO users (name, age) VALUES (?, ?)", input_data, age)
-                    print(write_result_json)
+        while (input_data := input("Введите имя или 'стоп' для завершения: ")) != 'стоп':
+            age = input("Введите возраст: ")
+            if age.isdecimal():
+                write_result_json = db.write("INSERT INTO users (name, age) VALUES (?, ?)", input_data, int(age))
+                print(write_result_json)
+            else:
+                print("Неправильный формат возраста. Пожалуйста, введите число.")
