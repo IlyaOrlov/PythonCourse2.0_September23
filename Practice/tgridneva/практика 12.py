@@ -16,13 +16,11 @@ class SQLiteWrapper:
             self.connection.close()
 
     def select(self, query):
+        self.connection.row_factory = sqlite3.Row
         cursor = self.connection.cursor()
         cursor.execute(query)
-        columns = [column[0] for column in cursor.description]
         rows = cursor.fetchall()
-        results = []
-        for row in rows:
-            results.append(dict(zip(columns, row)))
+        results = [dict(row) for row in rows]
         return json.dumps(results)
 
     def execute(self, query):
