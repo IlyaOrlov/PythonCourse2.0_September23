@@ -16,6 +16,14 @@ def select_users(id=None):
         res = [item for item in res]
     return res
 
+
+def select_users_by_name(name):
+    res = session.execute("SELECT * FROM users WHERE username = %s ALLOW FILTERING", (name,))
+    if res:
+        res = [item for item in res]
+    return res
+
+
 def update_user_status(new_status, id=None):
     if id is None:
         session.execute("UPDATE users SET status = %s", (new_status))
@@ -42,3 +50,4 @@ update_user_status('Busy', 1)
 print(select_users(1))
 delete_users(3)
 print(select_users())
+print(select_users_by_name('ivanovi'))
