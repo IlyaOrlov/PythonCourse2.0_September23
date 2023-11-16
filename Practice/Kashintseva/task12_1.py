@@ -1,4 +1,3 @@
-import os
 import sqlite3
 import json
 
@@ -18,13 +17,17 @@ class DBC:
         cur.row_factory = sqlite3.Row
         cur.execute(call, param)
         for row in cur.fetchall():
-            return json.dumps(dict(row))
+            inf = dict(row)
+            return json.dumps(inf)
 
     def changes(self, call, param):
         cur = self._conn.cursor()
         cur.execute(call, param)
-        self._conn.commit()
-        return bool(cur.fetchone())
+        try:
+            self._conn.commit()
+            return json.dumps({"Changing": "success"})
+        except Exception as e:
+            return json.dumps({f'"Changing": "error {e}."'})
 
 
 if __name__ == "__main__":
@@ -34,11 +37,11 @@ if __name__ == "__main__":
         res = db.info("SELECT * FROM Children AS C WHERE C.Id = :child_id", {"child_id": child_id})
         print(res)
         new_height = input("Введите новое значение роста ребенка: ")
-        if new_height.isdecimal:
+        if new_height.isdecimal():
             new = db.changes("UPDATE Children "
                              "SET Height = :new_height "
                              "WHERE Id = :child_id ",
-                             {'сhild_id': child_id, 'new_height': new_height})
-            print(json.dumps({"Изменение данных": "успешно"}))
+                             {'child_id': child_id, 'new_height': new_height})
+            print(new)
         else:
-            print(json.dumps({"Изменение данных": "ошибка ввода. Данные изменить не удалось"}))
+            print(json.dumps({"Changing": "not success. Введено не число"}))
