@@ -6,10 +6,12 @@
 # Запустить ее три раза с теми же аргументами, но каждый раз в отдельном процессе с помощью multiprocessing.Process. Что будет, если 'забыть' выполнить start или join для процессов?
 #
 # Замерить время исполнения каждого варианта и сравнить результаты.
+
 from math import sqrt
 import time
 import threading
 import multiprocessing
+
 
 def find_primes(end, start):
     lst = []
@@ -32,29 +34,24 @@ if __name__ == '__main__':
 
     start = time.perf_counter()
     threads = []
-    thr1 = threading.Thread(target=find_primes, args=(10000, 1))
-    thr2 = threading.Thread(target=find_primes, args=(20000, 10001))
-    thr3 = threading.Thread(target=find_primes, args=(30000, 20001))
-    thr1.start()
-    thr2.start()
-    thr3.start()
-    thr1.join()
-    thr2.join()
-    thr3.join()
+    for args in ((10000, 3), (20000, 10001), (30000, 20001)):
+        thr = threading.Thread(target=find_primes, args=args)
+        thr.start()
+        threads.append(thr)
+    for j in threads:
+        j.join()
 
     print(f'Общее время вычислений в секундах: {time.perf_counter() - start}\n')
 
-
     start = time.perf_counter()
-    p1 = multiprocessing.Process(target=find_primes, args=(10000, 1))
-    p2 = multiprocessing.Process(target=find_primes, args=(20000, 10001))
-    p3 = multiprocessing.Process(target=find_primes, args=(30000, 20001))
-    p1.start()
-    p2.start()
-    p3.start()
-    p1.join()
-    p2.join()
-    p3.join()
+    proc = []
+    for args_proc in ((10000, 3), (20000, 10001), (30000, 20001)):
+        p = multiprocessing.Process(target=find_primes, args=args_proc)
+        p.start()
+        proc.append(p)
+    for pr in proc:
+        pr.join()
+
     print(f'Общее время вычислений в секундах: {time.perf_counter() - start}\n')
 
 # Если без thr.start() (без запуска потока) - поток не запускается. И выходит ошибка: RuntimeError: не удается присоединиться к потоку до его запуска.
