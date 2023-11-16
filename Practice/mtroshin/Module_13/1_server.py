@@ -29,5 +29,6 @@ while True:
         text = re.sub(item, dict_code[item], text)
 
     print(f"Расшифрованная строка: {text}")
+    conn.send(text.encode())
     conn.close()
 # s.close()
