@@ -1,33 +1,30 @@
 class ParagraphIterator:
-    def __init__(self, text, paragraph_symbol):
+    def __init__(self, text, paragraph_separator):
         self.text = text
-        self.paragraph_symbol = paragraph_symbol
-        self.paragraphs = text.split(paragraph_symbol)
-        self.current_paragraph = 0
+        self.paragraph_separator = paragraph_separator
+        self.paragraphs = self.text.split(self.paragraph_separator)
+        self.index = 0
 
     def __iter__(self):
         return self
 
     def __next__(self):
-        if self.current_paragraph >= len(self.paragraphs):
+        if self.index >= len(self.paragraphs):
             raise StopIteration
-
-        paragraph = self.paragraphs[self.current_paragraph]
-        self.current_paragraph += 1
-        return paragraph.strip()
-
-#  а если вообще через функцию это реализовать, а не через класс? это будет правильно?
-def paragraph_iterator(text, paragraph_symbol):
-    paragraphs = text.split(paragraph_symbol)
-
-    for paragraph in paragraphs:
-        yield paragraph
+        else:
+            paragraph = self.paragraphs[self.index]
+            self.index += 1
+            return paragraph
 
 
-t = "Текст первого параграфа.Текст второго параграфа.Текст третьего параграфа."
-symbol = "."
+text = """
+В лесу родилась елочка. В лесу она росла.
+Зимой и летом стройная.
+Зеленая была.
+"""
 
-iterator = paragraph_iterator(t, symbol)
+paragraph_separator = '.'
+paragraphs = ParagraphIterator(text, paragraph_separator)
 
-for paragraph in iterator:
+for paragraph in paragraphs:
     print(paragraph)
