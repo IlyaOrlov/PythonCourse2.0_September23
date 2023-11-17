@@ -22,19 +22,6 @@ def find_primes(end, start=3):
 
 
 if __name__ == '__main__':
-
-    start_time = time.time()
-    primes1 = find_primes(10000)
-    print(f"Время выполнения первого диапазона: {time.time() - start_time} сек")
-
-    start_time = time.time()
-    primes2 = find_primes(20000, 10001)
-    print(f"Время выполнения второго диапазона: {time.time() - start_time} сек")
-
-    start_time = time.time()
-    primes3 = find_primes(30000, 20001)
-    print(f"Время выполнения третьего диапазона: {time.time() - start_time} сек")
-
     t1 = threading.Thread(target=find_primes, args=(10000,))
     t2 = threading.Thread(target=find_primes, args=(20000, 10001,))
     t3 = threading.Thread(target=find_primes, args=(30000, 20001,))
