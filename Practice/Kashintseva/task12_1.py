@@ -16,18 +16,16 @@ class DBC:
         cur = self._conn.cursor()
         cur.row_factory = sqlite3.Row
         cur.execute(call, param)
-        for row in cur.fetchall():
-            inf = dict(row)
-            return json.dumps(inf)
+        return json.dumps([dict(row) for row in cur.fetchall()], ensure_ascii=False)
 
     def changes(self, call, param):
         cur = self._conn.cursor()
         cur.execute(call, param)
         try:
             self._conn.commit()
-            return json.dumps({"Changing": "success"})
+            return json.dumps({"Изменение данных": "успешно"}, ensure_ascii=False)
         except Exception as e:
-            return json.dumps({f'"Changing": "error {e}."'})
+            return json.dumps({f'"Изменение данных": "ошибка {e}."'}, ensure_ascii=False)
 
 
 if __name__ == "__main__":
@@ -44,4 +42,4 @@ if __name__ == "__main__":
                              {'child_id': child_id, 'new_height': new_height})
             print(new)
         else:
-            print(json.dumps({"Changing": "not success. Введено не число"}))
+            print(json.dumps({"Изменение данных": "не успешно. Введено не число"}, ensure_ascii=False))

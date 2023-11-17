@@ -25,11 +25,11 @@ def configure(conn):
 
 def insert_children(conn):
     cur = conn.cursor()
-    cur.execute("INSERT INTO Children (Name, Age, Height, Weight) VALUES ('Popov Misha', 2, 85, 15)")
-    cur.execute("INSERT INTO Children (Name, Age, Height, Weight) VALUES ('Zotova Lera', 3, 100, 18)")
-    cur.execute("INSERT INTO Children (Name, Age, Height, Weight) VALUES ('Kuchina Lena', 2, 86, 14)")
-    cur.execute("INSERT INTO Children (Name, Age, Height, Weight) VALUES ('Noskov Artem', 4, 105, 20)")
-    cur.execute("INSERT INTO Children (Name, Age, Height, Weight) VALUES ('Losina Sasha', 3, 98, 17)")
+    cur.execute("INSERT INTO Children (Name, Age, Height, Weight) VALUES ('Попов Миша', 2, 85, 15)")
+    cur.execute("INSERT INTO Children (Name, Age, Height, Weight) VALUES ('Зотова Лера', 3, 100, 18)")
+    cur.execute("INSERT INTO Children (Name, Age, Height, Weight) VALUES ('Кучина Лена', 2, 86, 14)")
+    cur.execute("INSERT INTO Children (Name, Age, Height, Weight) VALUES ('Носков Артем', 4, 105, 20)")
+    cur.execute("INSERT INTO Children (Name, Age, Height, Weight) VALUES ('Лосина Саша', 3, 98, 17)")
     conn.commit()
 
 
