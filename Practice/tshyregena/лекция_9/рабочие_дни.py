@@ -7,13 +7,11 @@ def fun(weekday, time):
     t = time
     w = weekday
     while i <= t:
-        w3 = w.strftime("%w")
+        w3 = w.weekday()
         i += 1
         w = w + dt.timedelta(days=1)
-        if 0 < int(w3) <= 5:
+        if w3 < 5:
             res.append(w3)
-        else:
-            pass
     return len(res)
 
 
