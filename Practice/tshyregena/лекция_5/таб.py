@@ -7,4 +7,5 @@ with open("таб.txt", "r+", encoding="utf-8") as f:
         k = s.replace('    ', '\t')
     else:
         k = s.replace('\t', ' ')
+with open("таб.txt", "w") as f:
     f.write(k)
