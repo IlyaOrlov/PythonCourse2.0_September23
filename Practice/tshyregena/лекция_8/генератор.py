@@ -1,3 +1,20 @@
 with open("для_итератора.txt.", "r", encoding="utf-8") as file:
-    lines = [line for line in file]
-    print(lines)
+    def gen():
+        for line in file:
+            print(file.readline())
+            yield line
+
+
+    r = gen()
+    for i in r:
+        print(i)
+    # print(next(r))
+    # print(next(r))
+    # print(next(r))
+
+
+
+
+
+
+
