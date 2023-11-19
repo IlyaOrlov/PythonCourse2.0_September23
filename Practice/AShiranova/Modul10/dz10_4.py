@@ -42,8 +42,8 @@ def deserialize():
             print(people)
 
 
-A = int(input("Количество экземпляров: "))
-B = fact_human(A)
-print(B)
-serialize(B)
+a = int(input("Количество экземпляров: "))
+b = fact_human(a)
+print(b)
+serialize(b)
 deserialize()
