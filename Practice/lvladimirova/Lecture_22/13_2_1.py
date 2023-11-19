@@ -31,8 +31,7 @@ while True:
         name=name_input,
         form=form_input,
         director=director_input,
-        address=address_input
-    )
+        address=address_input)
 
     company.save()
 
