@@ -1,32 +1,24 @@
-class IterReadPar:
+class ParagraphIterator:
     def __init__(self, st, ps):
-        self._st = st
-        self._ps = ps
-        self._i = 0
+        self.st = st
+        self.ps = ps
+        self.paragraphs = self.st.split(self.ps)
+        self.current_paragraph = 0
 
     def __iter__(self):
         return self
 
     def __next__(self):
-        if self._i < len(self._st):
-            res = ""
-            fl = 0
-            while self._i < len(self._st):
-                if self._st[self._i] == self._ps:
-                    fl += 1
-                if fl < 2:
-                    if fl > 0:
-                        res += self._st[self._i]
-                    self._i += 1
-                else:
-                    break
-            return res
-
-        raise StopIteration
+        if self.current_paragraph >= len(self.paragraphs):
+            raise StopIteration
+        else:
+            paragraph = self.paragraphs[self.current_paragraph]
+            self.current_paragraph += 1
+            return paragraph
 
 
-par_s = "&"
-s = "& Paragraph 1.& Paragraph 2.& Paragraph 3."
-
-for i in IterReadPar(s, par_s):
-    print(i)
+text = "Paragraph\n\nParagraph\n\nParagraph"
+paragraph_separator = "\n\n"
+paragraph_iterator = ParagraphIterator(text, paragraph_separator)
+for p in paragraph_iterator:
+    print(p.strip())
