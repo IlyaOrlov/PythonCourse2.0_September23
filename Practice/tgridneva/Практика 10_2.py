@@ -10,6 +10,6 @@ def add_all(d):
 
 
 if __name__ == "__main__":
-    data = (5, 5), ("5", "5"), ([5], ['5'])
-    pool = Pool(processes=4)
-    pool.map(add_all, data)
+    data = [(5, 5), ("5", "5"), ([5], ['5'])]
+    with Pool(processes=4) as pool:
+        pool.map(add_all, data)
