@@ -24,6 +24,5 @@ def pic_reception(file):
 
 
 if __name__ == "__main__":
-
     pic_send(5)
     pic_reception('human.data')
