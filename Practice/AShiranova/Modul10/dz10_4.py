@@ -1,28 +1,49 @@
-import random
 import pickle
+import random
 
 
 class Human:
-    def __init__(self):
-        self.gender = random.choice(["Man", "Woman"])
-        self.age = random.randint(18, 56)
-        self.weight = random.randint(45, 90)
-        self.height = random.randint(100, 150)
+    def __init__(self, name, surname, old, residence, height, weight):
+        self.name = name
+        self.surname = surname
+        self.old = old
+        self.residence = residence
+        self.height = height
+        self.weight = weight
+
+    def __repr__(self):
+        return (f"[{self.name} {self.surname}, возраст {self.old},"
+                f" рост {self.height}, вес {self.weight}]")
 
 
-def pic_send(n):
-    lst_inf_human = [i.__dict__ for i in [Human() for _ in [str(i + 1) for i in range(n)]]]
-    with open('human.data', "wb") as f:
-        pickle.dump(lst_inf_human, f)
+def fact_human(kol):
+    peoples = []
+    for _ in range(kol):
+        name = random.choice(["Андрей", "Илья", "Максимилиан", "Егор", "Сергей", "Матвей"])
+        surname = random.choice(["Ширанов", "Иванов", "Глынин", "Тельминов", "Смирнов", "Егоров"])
+        old = random.randint(1, 99)
+        residence = random.choice(["Москва", "Ижевск", "Нижний Новгород", "Омск", "Бор", "Сочи"])
+        height = random.randint(50, 200)
+        weight = random.randint(3, 200)
+        people = Human(name, surname, old, residence, height, weight)
+        peoples.append(people)
+    return peoples
 
 
-def pic_reception(file):
-    with open(file, "rb") as f:
-        lst_inf_human = pickle.load(f)
-    for i in lst_inf_human:
-        print(i)
+def serialize(peoples):
+    with open("human.data", "wb") as file:
+        pickle.dump(peoples, file)
 
 
-if __name__ == "__main__":
-    pic_send(5)
-    pic_reception('human.data')
+def deserialize():
+    with open("human.data", "rb") as file:
+        peoples = pickle.load(file)
+        for people in peoples:
+            print(people)
+
+
+A = int(input("Количество экземпляров: "))
+B = fact_human(A)
+print(B)
+serialize(B)
+deserialize()
