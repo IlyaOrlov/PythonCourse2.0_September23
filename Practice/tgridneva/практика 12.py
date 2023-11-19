@@ -5,10 +5,10 @@ import json
 class SQLiteWrapper:
     def __init__(self, db_file):
         self.db_file = db_file
-        self.connection = None
+        self.connection = sqlite3.connect(self.db_file)
+        self.connection.row_factory = sqlite3.Row
 
     def __enter__(self):
-        self.connection = sqlite3.connect(self.db_file)
         return self
 
     def __exit__(self, exc_type, exc_val, exc_tb):
@@ -16,7 +16,6 @@ class SQLiteWrapper:
             self.connection.close()
 
     def select(self, query):
-        self.connection.row_factory = sqlite3.Row
         cursor = self.connection.cursor()
         cursor.execute(query)
         rows = cursor.fetchall()
