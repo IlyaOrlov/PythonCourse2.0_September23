@@ -2,37 +2,56 @@ import mongoengine as me
 
 
 class Firms(me.Document):
-    inn = me.StringField(required=True, unique=True)
+    inn = me.StringField(max_length=12, required=True, unique=True)
     name = me.StringField(required=True)
-    ownership_form = me.StringField(required=True)
-    owner_full_name = me.StringField(required=True)
+    form = me.StringField(required=True)
+    director = me.StringField(required=True)
     address = me.StringField(required=True)
 
+    def __repr__(self):
+        return ("<Firms(inn='{}', "
+                "name='{}', "
+                "form='{}', "
+                "director='{}', "
+                "address='{}')>").format(self.inn, self.name, self.form, self.director, self.address)
 
-conn = me.connect('firms')
 
+me.connect('spisok')
 
-def add_company(inn, name, ownership_form, owner_full_name, address):
-    company = Firms(inn=inn, name=name, ownership_form=ownership_form,
-                    owner_full_name=owner_full_name, address=address)
+while True:
+    inn_input = input("Введите ИНН (или введите 0 для завершения): ")
+    if inn_input == "0":
+        break
+    name_input = input("Введите название компании: ")
+    form_input = input("Введите форму собственности: ")
+    director_input = input("Введите имя директора: ")
+    address_input = input("Введите адрес: ")
+    company = Firms(
+        inn=inn_input,
+        name=name_input,
+        form=form_input,
+        director=director_input,
+        address=address_input
+    )
+
     company.save()
+
+print('Документов в базе: {}'.format(Firms.objects.count()))
 
 
 def search_company(inn):
     company = Firms.objects(inn=inn).first()
     if company:
-        return f"Название организации: {company.name}\n" \
-               f"Форма собственности: {company.ownership_form}\n" \
-               f"ФИО владельца: {company.owner_full_name}\n" \
-               f"Адрес: {company.address}"
+        print(f"Название компании: {company.name}")
+        print(f"Адрес компании: {company.address}")
+        print(f"Форма собственности компании: {company.form}")
+        print(f"Владелец компании: {company.director}")
+        print(f"Адрес компании: {company.address}")
     else:
-        return "Организация с указанным ИНН не найдена."
+        print("Компания с указанным ИНН не найдена.")
 
 
-add_company("1234567890", "ООО Рога и Копыта", "Общество с ограниченной ответственностью",
-            "Иванов Иван Иванович", "ул. Тверская, 1")
-add_company("9876543210", "ЗАО Атом", "Закрытое акционерное общество",
-            "Петров Петр Петрович", "ул. Тихорецкая, 5")
-search_inn = "1234567890"
-result = search_company(search_inn)
-print(result)
+if __name__ == "__main__":
+    search_inn = input("Введите ИНН для поиска компании: ")
+    search_company(search_inn)
+    Firms.objects.delete()
