@@ -14,7 +14,7 @@ class TestMySum:
     def test_my_sum(self, parametrize_sum):
         arg1, arg2, expected = parametrize_sum
         res = my_ops.my_sum(arg1, arg2)
-        assert(res, expected)
+        assert res == expected
 
 
 class TestMyDif:
@@ -30,4 +30,4 @@ class TestMyDif:
     def test_my_dif(self, parametrize_dif):
         arg1, arg2, expected = parametrize_dif
         res = my_ops.my_dif(arg1, arg2)
-        assert(res, expected)
+        assert res == expected
