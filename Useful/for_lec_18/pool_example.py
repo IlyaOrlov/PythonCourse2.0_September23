@@ -9,11 +9,19 @@ def cube(x):
     lst.append(x)
     print(f"This process {os.getpid()} processed values {lst}")
     time.sleep(2)
-    return x**3
+    res = x**3
+    print(res)
+    return res
 
+
+# if __name__ == '__main__':
+#     with Pool(processes=3) as pool:
+#         for i in range(1, 7):
+#             pool.apply_async(cube, (i, ))
+#         pool.close()
+#         pool.join()
 
 if __name__ == '__main__':
-    pool = Pool(processes=3)
-    res = pool.map(cube, range(1,7))
-    # res = pool.starmap, если в функцию нужно передать несколько аргументов
-    print(res)
+    with Pool(processes=3) as pool:
+        res = pool.map(cube, range(1,7))
+        print(res)
