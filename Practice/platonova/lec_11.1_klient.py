@@ -6,9 +6,9 @@ def main():
 
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
         s.connect((host, port))
-        words = ["xlmw", "qeb", "livi"]
+        words = ["Петр", "Иван", "Федор"]
         data = ",".join(words)
-        s.sendall(str.encode(data))
+        s.sendall(str(data).encode('utf-8'))
         decrypted_data = s.recv(1024)
         print(decrypted_data.decode("utf-8"))
 

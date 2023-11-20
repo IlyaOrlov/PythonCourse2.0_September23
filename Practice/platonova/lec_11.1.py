@@ -1,7 +1,7 @@
 import socket
 
 def decrypt_words(words):
-    dictionary = {"xlmw": "word1", "qeb": "word2", "livi": "word3"}
+    dictionary = {"Петр": "Peter", "Иван": "Ivan", "Федор": "Theodore"}
     decrypted = [dictionary.get(word, "Unknown") for word in words]
     return decrypted
 
@@ -21,7 +21,7 @@ def main():
                     break
                 words = data.decode("utf-8").split(",")
                 decrypted_words = decrypt_words(words)
-                conn.sendall(str.encode(",".join(decrypted_words)))
+                conn.sendall(str(",".join(decrypted_words)).encode('utf-8'))
 
 if __name__ == "__main__":
     main()
