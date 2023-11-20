@@ -30,20 +30,24 @@ if __name__ == "__main__":
 
     while True:
         inn_input = input("Введите ИНН (или введите 0 для завершения): ")
-        if inn_input == "0":
-            break
-        name_input = input("Введите название компании: ")
-        form_input = input("Введите форму собственности: ")
-        director_input = input("Введите имя директора: ")
-        address_input = input("Введите адрес: ")
-        company = Firms(
-            inn=inn_input,
-            name=name_input,
-            form=form_input,
-            director=director_input,
-            address=address_input)
-        company.save()
-        print(f"Документов в базе: {Firms.objects.count()}")
+        try:
+            if inn_input == "0":
+                break
+            name_input = input("Введите название компании: ")
+            form_input = input("Введите форму собственности: ")
+            director_input = input("Введите имя директора: ")
+            address_input = input("Введите адрес: ")
+        except Exception:
+            print("Ошибка! Компания с таким ИНН уже существует!")
+            continue
+        else:
+            company = Firms(inn=inn_input,
+                            name=name_input,
+                            form=form_input,
+                            director=director_input,
+                            address=address_input)
+            company.save()
+            print(f"Документов в базе: {Firms.objects.count()}")
 
     my_search_inn = input("Введите ИНН для поиска компании: ")
     search_company(my_search_inn)
