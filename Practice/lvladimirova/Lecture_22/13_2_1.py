@@ -30,12 +30,11 @@ if __name__ == "__main__":
 
     while True:
         inn_input = input("Введите ИНН (или введите 0 для завершения): ")
-
+        if inn_input == "0":
+            break
         if Firms.objects(inn=inn_input).count() > 0:
             print("Ошибка! Компания с таким ИНН уже существует!")
             continue
-        if inn_input == "0":
-            break
         name_input = input("Введите название компании: ")
         form_input = input("Введите форму собственности: ")
         director_input = input("Введите имя директора: ")
