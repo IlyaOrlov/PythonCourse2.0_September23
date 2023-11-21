@@ -23,11 +23,10 @@ class MySQLiteWrap:
         cursor.execute(tabl)
         self._connection.commit()
 
-    def insert(self):
+    def insert(self, query, *params):
         print(f"Добавление стороки в таблицу Films")
         cursor = self._connection.cursor()
-        tabl = "INSERT INTO Films (Name, Series, Type) VALUES (?, ?, ?)"
-        cursor.execute(tabl,  (input("Название: "), input("Кол-во серий (частей): "), input("Тип: ")))
+        cursor.execute(query, *params)
         self._connection.commit()
 
     def select(self):
@@ -39,5 +38,6 @@ class MySQLiteWrap:
 if __name__ == "__main__":
     with MySQLiteWrap('Films.db') as db:
         db.config()
-        db.insert()
+        db.insert("INSERT INTO Films (Name, Series, Type) VALUES (?, ?, ?)",
+                  (input("Название: "), input("Кол-во серий (частей): "), input("Тип: ")))
         db.select()
