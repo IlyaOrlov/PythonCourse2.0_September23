@@ -35,7 +35,7 @@ class shuffler:
         for path, hashname in mp3s:
             os.rename(path + '/' + hashname, path + '/' + self.map[hashname]))
         os.remove(restore_path)
-                
+
      def generateName(self, seed=time()):
           return hashlib.md5(str(seed)).hexdigest()
 
